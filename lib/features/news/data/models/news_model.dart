@@ -1,0 +1,144 @@
+import 'package:fayoum_club/core/data/models/pagination_model.dart';
+
+class NewsModel {
+  final int version;
+  final int code;
+  final String status;
+  final String? message;
+  final NewsData? data;
+
+  NewsModel({
+    required this.version,
+    required this.code,
+    required this.status,
+    this.message,
+    this.data,
+  });
+
+  factory NewsModel.fromJson(Map<String, dynamic> json) {
+    return NewsModel(
+      version: json['version'] ?? 0,
+      code: json['code'] ?? 0,
+      status: json['status'] ?? '',
+      message: json['message'],
+      data: json['data'] != null ? NewsData.fromJson(json['data']) : null,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "version": version,
+      "code": code,
+      "status": status,
+      "message": message,
+      "data": data?.toJson(),
+    };
+  }
+}
+
+class NewsData {
+  final List<NewsItem> items;
+  final Pagination pagination;
+
+  NewsData({
+    required this.items,
+    required this.pagination,
+  });
+
+  factory NewsData.fromJson(Map<String, dynamic> json) {
+    return NewsData(
+      items: (json['items'] as List<dynamic>)
+          .map((e) => NewsItem.fromJson(e))
+          .toList(),
+      pagination: Pagination.fromJson(json['pagination']),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "items": items.map((e) => e.toJson()).toList(),
+      "pagination": pagination.toJson(),
+    };
+  }
+}
+
+class NewsItem {
+  final int id;
+  final String title;
+  final String description;
+  final Activate? activate; // nullable
+  final int status;
+  final String typeOption;
+  final String image;
+  final String createdAt;
+  final String updatedAt;
+
+  NewsItem({
+    required this.id,
+    required this.title,
+    required this.description,
+    this.activate,
+    required this.status,
+    required this.typeOption,
+    required this.image,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory NewsItem.fromJson(Map<String, dynamic> json) {
+    return NewsItem(
+      id: json['id'] ?? 0,
+      title: json['title'] ?? '',
+      description: json['description'] ?? '',
+      activate: json['activate'] != null
+          ? Activate.fromJson(json['activate'])
+          : null,
+      status: json['status'] ?? 0,
+      typeOption: json['typeOption'] ?? '',
+      image: json['image'] ?? '',
+      createdAt: json['createdAt'] ?? '',
+      updatedAt: json['updatedAt'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "title": title,
+      "description": description,
+      "activate": activate?.toJson(),
+      "status": status,
+      "typeOption": typeOption,
+      "image": image,
+      "createdAt": createdAt,
+      "updatedAt": updatedAt,
+    };
+  }
+}
+
+
+class Activate {
+  final int id;
+  final String title;
+
+  Activate({
+    required this.id,
+    required this.title,
+  });
+
+  factory Activate.fromJson(Map<String, dynamic> json) {
+    return Activate(
+      id: json['id'] ?? 0,
+      title: json['title'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "title": title,
+    };
+  }
+}
+
+
