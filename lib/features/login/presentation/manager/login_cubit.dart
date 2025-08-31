@@ -1,6 +1,5 @@
 import 'package:fayoum_club/core/data/models/auth_success_model.dart';
 import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
-import 'package:fayoum_club/core/data/models/auth_success_model.dart';
 import 'package:fayoum_club/features/login/data/repos/login_repo.dart';
 import 'package:fayoum_club/features/login/presentation/manager/login_state.dart';
 import 'package:dartz/dartz.dart';
