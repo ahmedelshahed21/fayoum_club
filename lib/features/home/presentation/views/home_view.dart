@@ -51,7 +51,7 @@ class HomeView extends StatelessWidget {
                   children: [
                     const VerticalSpace(24),
                     const BannersSection(),
-                    const VerticalSpace(24),
+                    const VerticalSpace(12),
                     ActivitesHorizontalListViewSection(),
                     const VerticalSpace(8),
                   ],

@@ -1,11 +1,9 @@
-import 'package:fayoum_club/core/data/models/pagination_model.dart';
-
 class NewsModel {
   final int version;
   final int code;
   final String status;
   final String? message;
-  final NewsData? data;
+  final List<NewsItem>? data; // <-- هنا List مباشرة
 
   NewsModel({
     required this.version,
@@ -21,7 +19,11 @@ class NewsModel {
       code: json['code'] ?? 0,
       status: json['status'] ?? '',
       message: json['message'],
-      data: json['data'] != null ? NewsData.fromJson(json['data']) : null,
+      data: json['data'] != null
+          ? (json['data'] as List)
+          .map((e) => NewsItem.fromJson(e))
+          .toList()
+          : null,
     );
   }
 
@@ -31,33 +33,7 @@ class NewsModel {
       "code": code,
       "status": status,
       "message": message,
-      "data": data?.toJson(),
-    };
-  }
-}
-
-class NewsData {
-  final List<NewsItem> items;
-  final Pagination pagination;
-
-  NewsData({
-    required this.items,
-    required this.pagination,
-  });
-
-  factory NewsData.fromJson(Map<String, dynamic> json) {
-    return NewsData(
-      items: (json['items'] as List<dynamic>)
-          .map((e) => NewsItem.fromJson(e))
-          .toList(),
-      pagination: Pagination.fromJson(json['pagination']),
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      "items": items.map((e) => e.toJson()).toList(),
-      "pagination": pagination.toJson(),
+      "data": data?.map((e) => e.toJson()).toList(),
     };
   }
 }
@@ -116,7 +92,6 @@ class NewsItem {
   }
 }
 
-
 class Activate {
   final int id;
   final String title;
@@ -140,5 +115,3 @@ class Activate {
     };
   }
 }
-
-

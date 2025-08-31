@@ -20,7 +20,7 @@ class BannersSection extends StatelessWidget {
         } else if (state is BannersFailure) {
           return SizedBox.shrink();
         } else if (state is BannersSuccess) {
-          return BannersSliders(newsData: state.bannersModel.data!.items);
+          return BannersSliders(newsData: state.bannersModel.data!);
         }
         return const SizedBox();
       },

@@ -28,7 +28,7 @@ class NewsListSection extends StatelessWidget {
             ),
           );
         } else if (state is NewsSuccess) {
-          return NewsSliverList(news: state.news.data!.items);
+          return NewsSliverList(news: state.news.data!);
         }
         return SliverToBoxAdapter(child: SizedBox.shrink());
       },

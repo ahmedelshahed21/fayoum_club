@@ -4,7 +4,7 @@ class EndPoints {
   static const String login = "/login";
   static const String register = "/register";
   static const String banners = "/banners";
-  static const String news = "/news";
+  static const String news = "/news/lookup";
   static const String activites = "/activate";
 
   // static const String transportations = "/user/transportations";
