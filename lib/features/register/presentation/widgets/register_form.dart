@@ -18,7 +18,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -202,21 +201,22 @@ class _RegisterFormState extends State<RegisterForm> {
                     text: AppStrings.signUp.tr(),
                     onPressed: () {
                       FocusScope.of(context).unfocus();
-                      if (isMember && _membershipCode.text.isEmpty) {
-                        primarySnackBar(
-                          context,
-                          "من فضلك أدخل رقم العضوية",
-                          icon: Iconsax.danger,
-                          iconColor: Colors.yellowAccent,
-                          boxColor: AppColors.pureBlackColor,
-                        );
-                        return;
-                      }
+                      // if (isMember && _membershipCode.text.isEmpty) {
+                      //   primarySnackBar(
+                      //     context,
+                      //     "من فضلك أدخل رقم العضوية",
+                      //     icon: Iconsax.danger,
+                      //     iconColor: Colors.yellowAccent,
+                      //     boxColor: AppColors.pureBlackColor,
+                      //   );
+                      //   return;
+                      // }
                       final registerData = RegisterDataModel(
                         name: _nameController.text,
                         email: _emailController.text,
                         phoneNumber: _phoneController.text,
                         password: _passwordController.text,
+                        isMember: isMember ? 1 : 0,
                         code: isMember ? _membershipCode.text : null,
                         gender: selectedGender,
                       );

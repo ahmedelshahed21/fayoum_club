@@ -1,4 +1,6 @@
+import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/activites/presentation/views/activity_details_view.dart';
+import 'package:fayoum_club/features/activites/presentation/views/trainer_view.dart';
 import 'package:fayoum_club/features/general/presentation/views/contact_us_view.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_page.dart';
@@ -14,6 +16,7 @@ abstract class AppRouter {
   static const registerView = '/registerView';
   static const homePage = '/homePage';
   static const activityDetailsView = '/activityDetailsView';
+  static const trainerView = '/trainerView';
   static const newsDetailsView = '/newsDetailsView';
 
   static const contactUsView = '/contactUsView';
@@ -42,8 +45,14 @@ abstract class AppRouter {
           return  ActivityDetailsView(id: id);
         },
       ),
+      GoRoute(
+        path: trainerView,
+        builder: (context, state) {
+          final CaptainModel trainer=state.extra as CaptainModel;
+          return  TrainerView(trainer: trainer);
+        },
+      ),
       GoRoute(path: contactUsView, builder: (context, state) => const ContactUsView()),
-
     ],
   );
 }

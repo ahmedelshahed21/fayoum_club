@@ -58,6 +58,7 @@ class ApiKey {
   static const String phoneNumber = 'phone';
   static const String email = 'email';
   static const String password = 'password';
+  static const String isMember = 'isMember';
   static const String passwordConfirmation = 'password_confirmation';
   static const String accessToken = "accessToken";
   static const String user = "user";

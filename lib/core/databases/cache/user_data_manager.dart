@@ -1,38 +1,47 @@
-import 'package:fayoum_club/core/databases/cache/cache_helper.dart'
-    show CacheHelper;
+
+import 'package:fayoum_club/core/databases/cache/cache_helper.dart';
 
 class UserDataManager {
   final CacheHelper _cacheHelper;
 
-  String? _cachedUserEmail;
+  int? _cachedUserId;
   String? _cachedUserName;
   String? _cachedUserPhoneNumber;
-  String? _cachedUserLogoUrl;
-  String? _cachedUserAddress;
-  String? _cachedUserLatitude;
-  String? _cachedUserLongitude;
-  int? _cachedCartId;
+  String? _cachedUserEmail;
+  String? _cachedUserAvatarUrl;
+  String? _cachedUserGender;
+  String? _cachedUserMembership;
+  // String? _cachedUserLongitude;
+
 
   UserDataManager(this._cacheHelper);
+
+  void saveUserStatus({required bool isGuest}) {
+    _cacheHelper.saveData(key: 'isGuest', value: isGuest);
+  }
+
+  bool? getUserStatus() {
+    return _cacheHelper.getData(key: 'isGuest');
+  }
+
+  void saveUserId({required int userId}) {
+    _cacheHelper.saveData(key: 'userId', value: userId);
+    _cachedUserId = userId;
+  }
+
+  int? getUserId() {
+    _cachedUserId ??= _cacheHelper.getData(key: 'userId');
+    return _cachedUserId;
+  }
+
 
   void saveUserName({required String name}) {
     _cacheHelper.saveData(key: 'name', value: name);
     _cachedUserName = name;
   }
-
   String? getUserName() {
     _cachedUserName ??= _cacheHelper.getData(key: 'name');
     return _cachedUserName;
-  }
-
-  void saveUserEmail({required String email}) {
-    _cacheHelper.saveData(key: 'email', value: email);
-    _cachedUserEmail = email;
-  }
-
-  String? getUserEmail() {
-    _cachedUserEmail ??= _cacheHelper.getData(key: 'email');
-    return _cachedUserEmail;
   }
 
   void saveUserPhoneNumber({required String phoneNumber}) {
@@ -45,81 +54,79 @@ class UserDataManager {
     return _cachedUserPhoneNumber;
   }
 
+
+  void saveUserEmail({required String email}) {
+    _cacheHelper.saveData(key: 'email', value: email);
+    _cachedUserEmail = email;
+  }
+
+  String? getUserEmail() {
+    _cachedUserEmail ??= _cacheHelper.getData(key: 'email');
+    return _cachedUserEmail;
+  }
+
   void saveUserAvatarUrl({required String avatar}) {
     _cacheHelper.saveData(key: 'avatarUrl', value: avatar);
-    _cachedUserLogoUrl = avatar;
+    _cachedUserAvatarUrl = avatar;
   }
 
   String? getUserAvatarUrl() {
-    _cachedUserLogoUrl ??= _cacheHelper.getData(key: 'avatarUrl');
-    return _cachedUserLogoUrl;
+    _cachedUserAvatarUrl ??= _cacheHelper.getData(key: 'avatarUrl');
+    return _cachedUserAvatarUrl;
   }
 
-  void saveUserStatus({required bool isGuest}) {
-    _cacheHelper.saveData(key: 'isGuest', value: isGuest);
+
+  void saveUserGender({required String gender}) {
+    _cacheHelper.saveData(key: 'gender', value: gender);
+    _cachedUserGender = gender;
   }
 
-  bool? getUserStatus() {
-    return _cacheHelper.getData(key: 'isGuest');
+  String? getUserGender() {
+    _cachedUserGender ??= _cacheHelper.getData(key: 'gender');
+    return _cachedUserGender;
   }
 
-  void saveUserAddress({required String address}) {
-    _cacheHelper.saveData(key: 'address', value: address);
-    _cachedUserAddress = address;
+  void saveUserMembership({required String membershipCode}) {
+    _cacheHelper.saveData(key: 'membershipCode', value: membershipCode);
+    _cachedUserMembership = membershipCode;
   }
 
-  String? getUserAddress() {
-    _cachedUserAddress ??= _cacheHelper.getData(key: 'address');
-    return _cachedUserAddress;
+  String? getUserMembership() {
+    _cachedUserMembership ??= _cacheHelper.getData(key: 'membershipCode');
+    return _cachedUserMembership;
   }
+  //
+  // void saveUserLongitude({required String longitude}) {
+  //   _cacheHelper.saveData(key: 'longitude', value: longitude);
+  //   _cachedUserLongitude = longitude;
+  // }
+  //
+  // String? getUserLongitude() {
+  //   _cachedUserLongitude ??= _cacheHelper.getData(key: 'longitude');
+  //   return _cachedUserLongitude;
+  // }
 
-  void saveUserLatitude({required String latitude}) {
-    _cacheHelper.saveData(key: 'latitude', value: latitude);
-    _cachedUserLatitude = latitude;
-  }
 
-  String? getUserLatitude() {
-    _cachedUserLatitude ??= _cacheHelper.getData(key: 'latitude');
-    return _cachedUserLatitude;
-  }
-
-  void saveUserLongitude({required String longitude}) {
-    _cacheHelper.saveData(key: 'longitude', value: longitude);
-    _cachedUserLongitude = longitude;
-  }
-
-  String? getUserLongitude() {
-    _cachedUserLongitude ??= _cacheHelper.getData(key: 'longitude');
-    return _cachedUserLongitude;
-  }
-
-  void saveCartId({required int cartId}) {
-    _cacheHelper.saveData(key: 'cartId', value: cartId);
-    _cachedCartId = cartId;
-  }
-
-  int? getCartId() {
-    _cachedCartId ??= _cacheHelper.getData(key: 'cartId');
-    return _cachedCartId;
-  }
 
   Future<void> clearAllUserData() async {
-    await _cacheHelper.removeData(key: 'name');
-    await _cacheHelper.removeData(key: 'email');
-    await _cacheHelper.removeData(key: 'phoneNumber');
-    await _cacheHelper.removeData(key: 'avatarUrl');
     await _cacheHelper.removeData(key: 'isGuest');
-    await _cacheHelper.removeData(key: 'address');
-    await _cacheHelper.removeData(key: 'latitude');
-    await _cacheHelper.removeData(key: 'longitude');
-    await _cacheHelper.removeData(key: 'cartId');
+    await _cacheHelper.removeData(key: 'userId');
+    await _cacheHelper.removeData(key: 'name');
+    await _cacheHelper.removeData(key: 'phoneNumber');
+    await _cacheHelper.removeData(key: 'email');
+    await _cacheHelper.removeData(key: 'avatarUrl');
+    await _cacheHelper.removeData(key: 'gender');
+    await _cacheHelper.removeData(key: 'membershipCode');
+    // await _cacheHelper.removeData(key: 'longitude');
+
+    _cachedUserId = null;
     _cachedUserName = null;
-    _cachedUserEmail = null;
     _cachedUserPhoneNumber = null;
-    _cachedUserLogoUrl = null;
-    _cachedUserAddress = null;
-    _cachedUserLatitude = null;
-    _cachedUserLongitude = null;
-    _cachedCartId = null;
+    _cachedUserEmail = null;
+    _cachedUserAvatarUrl = null;
+    _cachedUserGender = null;
+    _cachedUserMembership = null;
+    // _cachedUserLongitude = null;
+
   }
 }

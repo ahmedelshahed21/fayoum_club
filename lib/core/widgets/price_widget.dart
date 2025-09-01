@@ -25,9 +25,9 @@ class PriceWidget extends StatelessWidget {
             text: price,
             style:
                 priceStyle ??
-                AppStyles.styleExtraBold28(
+                AppStyles.styleBold24(
                   context,
-                ).copyWith(color: AppColors.primaryColor),
+                ).copyWith(color: AppColors.blueColor),
           ),
           const TextSpan(text: ' '),
           TextSpan(

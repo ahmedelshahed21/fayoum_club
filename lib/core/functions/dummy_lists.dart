@@ -91,6 +91,8 @@ ActivityDetailsData getDummyActivityDetails() {
       title: "332",
       createdAt: "2025-08-31 15:53:26",
       updatedAt: "2025-08-31 15:53:26",
+      mony: 0,
+      monyMember: 0,
       captans: [
         CaptainModel(
           id: 1,

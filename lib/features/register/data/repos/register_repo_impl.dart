@@ -55,15 +55,15 @@ class RegisterRepoImpl implements RegisterRepo {
             token: response[ApiKey.data][ApiKey.accessToken],
           );
 
-          userDataManager.saveUserName(
-            name: response[ApiKey.data][ApiKey.name],
-          );
-          userDataManager.saveUserPhoneNumber(
-            phoneNumber: response[ApiKey.data][ApiKey.phone],
-          );
-          userDataManager.saveUserEmail(
-            email: response[ApiKey.data][ApiKey.email],
-          );
+          userDataManager.saveUserName(name: response[ApiKey.data][ApiKey.name]);
+          userDataManager.saveUserPhoneNumber(phoneNumber: response[ApiKey.data][ApiKey.phone]);
+          userDataManager.saveUserEmail(email: response[ApiKey.data][ApiKey.email]);
+          userDataManager.saveUserGender(gender: response[ApiKey.data][ApiKey.gender],);
+          response[ApiKey.data][ApiKey.code] == null
+              ? null
+              : userDataManager.saveUserMembership(
+              membershipCode: response[ApiKey.data][ApiKey.code]);
+
 
           return Right(registerSuccessModel);
         } else {
