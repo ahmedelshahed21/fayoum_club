@@ -1,4 +1,3 @@
-import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/core/functions/internet_connection_status_snack_bar.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_cubit.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_state.dart';
@@ -50,18 +49,15 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const VerticalSpace(24),
+                    const VerticalSpace(16),
                     const BannersSection(),
                     const VerticalSpace(12),
                     ActivitesHorizontalListViewSection(),
-                    const VerticalSpace(8),
+
                   ],
                 ),
               ),
-              SliverToBoxAdapter(
-                child: Text('الاخبار', style: AppStyles.styleBold10(context)),
-              ),
-              SliverToBoxAdapter(child: const VerticalSpace(24)),
+              SliverToBoxAdapter(child: const VerticalSpace(16)),
               NewsListSection(),
             ],
           ),

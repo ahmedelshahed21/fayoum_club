@@ -26,8 +26,11 @@ class ActivityCard extends StatelessWidget {
             },
           ),
       child: Card(
-        color: AppColors.primaryColor.withValues(alpha: 0.8),
+        color: AppColors.primaryColor.withValues(alpha: 0.65),
         shadowColor: AppColors.offWhiteColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
         margin: EdgeInsets.symmetric(vertical: 16),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
