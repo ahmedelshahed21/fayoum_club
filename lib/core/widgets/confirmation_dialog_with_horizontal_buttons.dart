@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ConfirmationDialogWithHorizontalButtons extends StatelessWidget {
-  final String iconAsset;
+  final String? iconAsset;
+  final IconData? iconData;
   final String title;
   final String? message;
   final String confirmText;
@@ -20,7 +21,8 @@ class ConfirmationDialogWithHorizontalButtons extends StatelessWidget {
 
   const ConfirmationDialogWithHorizontalButtons({
     super.key,
-    required this.iconAsset,
+    this.iconAsset,
+    this.iconData,
     required this.title,
     this.message,
     required this.confirmText,
@@ -36,79 +38,79 @@ class ConfirmationDialogWithHorizontalButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: AppColors.offWhiteColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SvgPicture.asset(
-              iconAsset,
+            iconData == null && iconAsset != null
+                ? SvgPicture.asset(
+              iconAsset!,
               height: 100,
-              colorFilter: ColorFilter.mode(
-                AppColors.greyColor,
-                BlendMode.srcIn,
-              ),
-            ),
-            const VerticalSpace(16),
+              colorFilter:
+              ColorFilter.mode(AppColors.pureBlackColor, BlendMode.srcIn),
+            )
+                : Icon(iconData, size: 110, color: AppColors.pureBlackColor),
+            const VerticalSpace(24),
             Text(
               title,
-              style: AppStyles.styleSemiBold20(
-                context,
-              ).copyWith(color: AppColors.pureBlackColor),
+              style: AppStyles.styleSemiBold20(context).copyWith(
+                color: AppColors.pureBlackColor,
+              ),
               textAlign: TextAlign.center,
             ),
             message == null
                 ? const SizedBox.shrink()
                 : Column(
-                  children: [
-                    const VerticalSpace(8),
-                    Text(
-                      message!,
-                      style: AppStyles.styleMedium18(
-                        context,
-                      ).copyWith(color: AppColors.greyColor),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+              children: [
+                const VerticalSpace(8),
+                Text(
+                  message!,
+                  style: AppStyles.styleMedium18(context).copyWith(
+                    color: AppColors.greyColor,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
+              ],
+            ),
             const VerticalSpace(32),
             isLoading
                 ? Center(
-                  child: PrimaryCircularProgressIndicator(
-                    color: AppColors.primaryColor,
-                  ),
-                )
+                child: PrimaryCircularProgressIndicator(
+                    color: AppColors.primaryColor))
                 : Row(
-                  children: [
-                    Expanded(
-                      flex: firstButtonFlex ?? 5,
-                      child: ActionButton(
-                        borderColor: AppColors.primaryColor,
-                        backgroundColor: AppColors.pureWhiteColor,
-                        onPressed: onConfirm,
-                        child: Text(
-                          confirmText,
-                          style: AppStyles.styleSemiBold20(
-                            context,
-                          ).copyWith(color: AppColors.primaryColor),
-                        ),
-                      ),
+              children: [
+                Expanded(
+                  flex: firstButtonFlex ?? 5,
+                  child: ActionButton(
+                    borderColor: AppColors.primaryColor,
+                    backgroundColor: AppColors.pureWhiteColor,
+                    onPressed: onConfirm,
+                    child: Text(
+                      confirmText,
+                      style: AppStyles.styleSemiBold20(context)
+                          .copyWith(color: AppColors.primaryColor),
                     ),
-                    const HorizontalSpace(12),
-                    Expanded(
-                      flex: secondButtonFlex ?? 3,
-                      child: ActionButton(
-                        text: cancelText,
-                        textColor: AppColors.pureWhiteColor,
-                        onPressed: onCancel,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
+                const HorizontalSpace(12),
+                Expanded(
+                  flex: secondButtonFlex ?? 3,
+                  child: ActionButton(
+                    text: cancelText,
+                    textColor: AppColors.pureWhiteColor,
+                    onPressed: onCancel,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
 }
+

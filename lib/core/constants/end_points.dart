@@ -83,6 +83,9 @@ class ApiKey {
   static const String address = 'address';
   static const String picture = 'picture';
   static const String administrator = 'administrator';
+  static const String currentPassword = 'oldPassword';
+  static const String newPassword = 'newPassword';
+  static const String newPasswordConfirmation = 'confirmPassword';
 }
 
 class Params {
