@@ -1,5 +1,6 @@
+import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
-import 'package:fayoum_club/features/home/data/models/activites_models/activites_model.dart';
+import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
 
 List<NewsItem> getDummyBanners() {
   return [
@@ -39,8 +40,6 @@ List<NewsItem> getDummyBanners() {
   ];
 }
 
-
-
 List<ActivityItem> getDummyActivitiesList() {
   return [
     ActivityItem(
@@ -48,8 +47,7 @@ List<ActivityItem> getDummyActivitiesList() {
       title: "332",
       description: "3444444444",
       type: null,
-      image:
-      "/Activates/1756655605_d5282c72-decf-41e3-9cc1-9d84f13ce576.jpeg",
+      image: "/Activates/1756655605_d5282c72-decf-41e3-9cc1-9d84f13ce576.jpeg",
       createdAt: "2025-08-31 15:53:26",
       updatedAt: "2025-08-31 15:53:26",
     ),
@@ -84,5 +82,39 @@ List<ActivityItem> getDummyActivitiesList() {
 }
 
 
+ActivityDetailsData getDummyActivityDetails() {
+  return  ActivityDetailsData(
+      id: 1,
+      description: "3444444444",
+      type: null,
+      image: "/Activates/1756655605_d5282c72-decf-41e3-9cc1-9d84f13ce576.jpeg",
+      title: "332",
+      createdAt: "2025-08-31 15:53:26",
+      updatedAt: "2025-08-31 15:53:26",
+      captans: [
+        CaptainModel(
+          id: 1,
+          name: "332",
+          description: "3444444444",
+          activateId: 1,
+          isActive: 1,
+          image:
+          "/Activates/1756680333_98f218b9-02e0-4a1c-a369-3f9c381ae238.jpg",
+          createdAt: "2025-08-31 22:45:33",
+          updatedAt: "2025-08-31 22:45:33",
+        ),
+        CaptainModel(
+          id: 2,
+          name: "قائد إضافي",
+          description: "وصف تجريبي لقائد إضافي",
+          activateId: 1,
+          isActive: 1,
+          image: "/Activates/dummy_captain.png",
+          createdAt: "2025-09-01 10:00:00",
+          updatedAt: "2025-09-01 10:00:00",
+        ),
+      ],
+  );
+}
 
 

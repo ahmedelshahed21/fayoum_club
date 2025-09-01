@@ -1,15 +1,11 @@
-import 'package:fayoum_club/features/home/data/models/activites_models/activites_model.dart';
-import 'package:fayoum_club/features/home/presentation/widgets/activity_card.dart';
+import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
+import 'package:fayoum_club/features/activites/presentation/widgets/activity_card.dart';
 import 'package:flutter/material.dart';
 
 class ActivitesGridView extends StatelessWidget {
-  const ActivitesGridView({
-    super.key,
-    required this.activites,
-  });
+  const ActivitesGridView({super.key, required this.activites});
 
   final List<ActivityItem> activites;
-
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +19,7 @@ class ActivitesGridView extends StatelessWidget {
       ),
       itemCount: activites.length,
       itemBuilder: (context, index) {
-        return ActivityCard(
-          activityItem: activites[index],
-        );
+        return ActivityCard(activityItem: activites[index]);
       },
     );
   }

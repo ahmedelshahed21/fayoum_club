@@ -30,20 +30,19 @@ class ActivitiesData {
   final List<ActivityItem> items;
   final Pagination? pagination;
 
-  ActivitiesData({
-    required this.items,
-    this.pagination,
-  });
+  ActivitiesData({required this.items, this.pagination});
 
   factory ActivitiesData.fromJson(Map<String, dynamic> json) {
     return ActivitiesData(
-      items: (json['items'] as List<dynamic>?)
-          ?.map((e) => ActivityItem.fromJson(e))
-          .toList() ??
+      items:
+          (json['items'] as List<dynamic>?)
+              ?.map((e) => ActivityItem.fromJson(e))
+              .toList() ??
           [], // 👈 هنا لو فاضي هيرجع ليست فاضية
-      pagination: json['pagination'] != null
-          ? Pagination.fromJson(json['pagination'])
-          : null,
+      pagination:
+          json['pagination'] != null
+              ? Pagination.fromJson(json['pagination'])
+              : null,
     );
   }
 }
@@ -79,5 +78,3 @@ class ActivityItem {
     );
   }
 }
-
-

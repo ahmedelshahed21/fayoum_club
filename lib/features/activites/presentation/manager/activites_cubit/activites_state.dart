@@ -1,6 +1,6 @@
 import 'package:fayoum_club/core/errors/failure.dart';
 import 'package:equatable/equatable.dart';
-import 'package:fayoum_club/features/home/data/models/activites_models/activites_model.dart';
+import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
 
 abstract class ActivitesState extends Equatable {
   const ActivitesState();

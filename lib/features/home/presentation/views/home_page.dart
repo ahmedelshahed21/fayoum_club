@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/constants/app_colors.dart';
 import 'package:fayoum_club/core/constants/app_strings.dart';
-import 'package:fayoum_club/features/home/presentation/views/activites_view.dart';
+import 'package:fayoum_club/features/activites/presentation/views/activites_view.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,17 +42,20 @@ class _HomePageState extends State<HomePage> {
             type: BottomNavigationBarType.fixed,
             items: [
               _buildNavItem(
-                  icon: Iconsax.home_1,
-                  name: AppStrings.home.tr(),
-                  state == 0),
+                icon: Iconsax.home_1,
+                name: AppStrings.home.tr(),
+                state == 0,
+              ),
               _buildNavItem(
-                  icon: Iconsax.category_2,
-                  name: 'الأنشطة',
-                  state == 1),
+                icon: Iconsax.category_2,
+                name: 'الأنشطة',
+                state == 1,
+              ),
               _buildNavItem(
-                  icon: Iconsax.user,
-                  name: AppStrings.profile.tr(),
-                  state == 2),
+                icon: Iconsax.user,
+                name: AppStrings.profile.tr(),
+                state == 2,
+              ),
             ],
           ),
         );
@@ -60,11 +63,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  BottomNavigationBarItem _buildNavItem(bool isSelected,
-      {required IconData icon, required String name}) {
-    return BottomNavigationBarItem(
-        label: name,
-        icon: Icon(icon)
-    );
+  BottomNavigationBarItem _buildNavItem(
+    bool isSelected, {
+    required IconData icon,
+    required String name,
+  }) {
+    return BottomNavigationBarItem(label: name, icon: Icon(icon));
   }
 }

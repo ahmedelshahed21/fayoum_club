@@ -1,12 +1,13 @@
+import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/core/functions/internet_connection_status_snack_bar.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_cubit.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_state.dart';
 import 'package:fayoum_club/core/widgets/app_indicators.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
-import 'package:fayoum_club/features/home/presentation/manager/activites_cubit/activites_cubit.dart';
+import 'package:fayoum_club/features/activites/presentation/manager/activites_cubit/activites_cubit.dart';
 import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/banners_cubit.dart';
 import 'package:fayoum_club/features/home/presentation/widgets/banners_section.dart';
-import 'package:fayoum_club/features/home/presentation/widgets/activites_horizontal_list_view_section.dart';
+import 'package:fayoum_club/features/activites/presentation/widgets/activites_horizontal_list_view_section.dart';
 import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_cubit.dart';
 import 'package:fayoum_club/features/news/presentation/widgets/news_list_section.dart';
 import 'package:flutter/material.dart';
@@ -57,8 +58,11 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
+              SliverToBoxAdapter(
+                child: Text('الاخبار', style: AppStyles.styleBold10(context)),
+              ),
               SliverToBoxAdapter(child: const VerticalSpace(24)),
-              NewsListSection()
+              NewsListSection(),
             ],
           ),
         ),

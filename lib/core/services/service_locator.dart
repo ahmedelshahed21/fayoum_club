@@ -1,10 +1,13 @@
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:dio/dio.dart';
-import 'package:fayoum_club/features/home/data/repos/activites_repo/activites_repo.dart';
-import 'package:fayoum_club/features/home/data/repos/activites_repo/activites_repo_impl.dart';
+import 'package:fayoum_club/features/activites/data/repos/activites_repo/activites_repo.dart';
+import 'package:fayoum_club/features/activites/data/repos/activites_repo/activites_repo_impl.dart';
+import 'package:fayoum_club/features/activites/data/repos/activity_details_repo/activity_details_repo.dart';
+import 'package:fayoum_club/features/activites/data/repos/activity_details_repo/activity_details_repo_impl.dart';
+import 'package:fayoum_club/features/activites/presentation/manager/activity_details_cubit/activity_details_cubit.dart';
 import 'package:fayoum_club/features/home/data/repos/banners_repo/banners_repo.dart';
 import 'package:fayoum_club/features/home/data/repos/banners_repo/banners_repo_impl.dart';
-import 'package:fayoum_club/features/home/presentation/manager/activites_cubit/activites_cubit.dart';
+import 'package:fayoum_club/features/activites/presentation/manager/activites_cubit/activites_cubit.dart';
 import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/banners_cubit.dart';
 import 'package:fayoum_club/features/news/data/repos/news_repo/news_repo.dart';
 import 'package:fayoum_club/features/news/data/repos/news_repo/news_repo_impl.dart';
@@ -39,7 +42,6 @@ void setupServiceLocator() {
   getIt.registerLazySingleton<NetworkConnectionCubit>(
     () => NetworkConnectionCubit(getIt<NetworkInfo>()),
   );
-
 
   // Login dependencies
   getIt.registerSingleton<LoginRepoImpl>(
@@ -79,23 +81,32 @@ void setupServiceLocator() {
 
   // Activites dependencies
   getIt.registerLazySingleton<ActivitesRepo>(
-        () => ActivitesRepoImpl(
+    () => ActivitesRepoImpl(
       dioConsumer: getIt<DioConsumer>(),
       networkCubit: getIt<NetworkConnectionCubit>(),
     ),
   );
   getIt.registerFactory<ActivitesCubit>(
-        () => ActivitesCubit(activites: getIt<ActivitesRepo>()),
+    () => ActivitesCubit(activites: getIt<ActivitesRepo>()),
   );
 
-  // News dependencies
-  getIt.registerLazySingleton<NewsRepo>(
-        () => NewsRepoImpl(
+  // Activity Details dependencies
+  getIt.registerLazySingleton<ActivityDetailsRepo>(
+        () => ActivityDetailsRepoImpl(
       dioConsumer: getIt<DioConsumer>(),
       networkCubit: getIt<NetworkConnectionCubit>(),
     ),
   );
-  getIt.registerFactory<NewsCubit>(
-        () => NewsCubit(news: getIt<NewsRepo>()),
+  getIt.registerFactory<ActivityDetailsCubit>(
+        () => ActivityDetailsCubit(activityDetailsRepo: getIt<ActivityDetailsRepo>()),
   );
+
+  // News dependencies
+  getIt.registerLazySingleton<NewsRepo>(
+    () => NewsRepoImpl(
+      dioConsumer: getIt<DioConsumer>(),
+      networkCubit: getIt<NetworkConnectionCubit>(),
+    ),
+  );
+  getIt.registerFactory<NewsCubit>(() => NewsCubit(news: getIt<NewsRepo>()));
 }

@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fayoum_club/features/home/presentation/manager/activites_cubit/activites_cubit.dart';
+import 'package:fayoum_club/features/activites/presentation/manager/activites_cubit/activites_cubit.dart';
 import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/banners_cubit.dart';
 import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_cubit.dart';
 import 'package:flutter/material.dart';

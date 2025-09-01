@@ -1,3 +1,4 @@
+import 'package:fayoum_club/features/activites/presentation/views/activity_details_view.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_page.dart';
 import 'package:fayoum_club/features/home/presentation/views/news_details_view.dart';
@@ -11,6 +12,7 @@ abstract class AppRouter {
   static const loginView = '/loginView';
   static const registerView = '/registerView';
   static const homePage = '/homePage';
+  static const activityDetailsView = '/activityDetailsView';
   static const newsDetailsView = '/newsDetailsView';
 
   static final router = GoRouter(
@@ -31,6 +33,13 @@ abstract class AppRouter {
         builder: (context, state) {
           final NewsItem news=state.extra as NewsItem;
           return  NewsDetailsView(news: news);
+        },
+      ),
+      GoRoute(
+        path: activityDetailsView,
+        builder: (context, state) {
+          final int id=state.extra as int;
+          return  ActivityDetailsView(id: id);
         },
       ),
     ],
