@@ -5,7 +5,7 @@ class AppAssets {
   static const String about = "assets/images/about.svg";
 
   static const String cartIcon = "assets/images/cart_icon.svg";
-
+static const String man="assets/images/man.png";
   static const String cancelIcon ="assets/images/cancel_icon.svg";
 
   static  const String deleteAccountIcon ="assets/images/delete_account_icon.svg";

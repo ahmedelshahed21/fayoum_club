@@ -5,6 +5,7 @@ import 'package:fayoum_club/features/general/presentation/views/contact_us_view.
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_page.dart';
 import 'package:fayoum_club/features/home/presentation/views/news_details_view.dart';
+import 'package:fayoum_club/features/profile/presentation/view/profile_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/login/presentation/views/login_view.dart';
 import '../../features/register/presentation/views/register_view.dart';
@@ -19,6 +20,9 @@ abstract class AppRouter {
   static const trainerView = '/trainerView';
   static const newsDetailsView = '/newsDetailsView';
 
+
+
+  static const profileView = '/profileView';
   static const contactUsView = '/contactUsView';
 
   static final router = GoRouter(
@@ -52,6 +56,7 @@ abstract class AppRouter {
           return  TrainerView(trainer: trainer);
         },
       ),
+      GoRoute(path: profileView, builder: (context, state) => const ProfileView()),
       GoRoute(path: contactUsView, builder: (context, state) => const ContactUsView()),
     ],
   );

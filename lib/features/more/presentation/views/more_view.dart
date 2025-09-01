@@ -1,5 +1,6 @@
 import 'package:fayoum_club/core/state_management/user_cubit/user_session_cubit.dart';
 import 'package:fayoum_club/core/widgets/guest_circle_avatar.dart';
+import 'package:fayoum_club/features/more/presentation/widgets/account_section.dart';
 import 'package:fayoum_club/features/more/presentation/widgets/help_section.dart';
 import 'package:fayoum_club/features/more/presentation/widgets/logout_section.dart';
 import 'package:fayoum_club/features/more/presentation/widgets/more_view_header.dart';
@@ -23,8 +24,8 @@ class MoreView extends StatelessWidget {
           children: [
             const VerticalSpace(16),
             isGuest ? const GuestCircleAvatar() : const MoreViewHeader(),
-            isGuest ? const SizedBox.shrink() : const VerticalSpace(48),
-            // isGuest ? const SizedBox.shrink() :  const AccountSection(),
+            isGuest ? const SizedBox.shrink() : const VerticalSpace(64),
+            isGuest ? const SizedBox.shrink() :  const AccountSection(),
             // const VerticalSpace(16),
             // const SettingsSection(),
             const VerticalSpace(16),

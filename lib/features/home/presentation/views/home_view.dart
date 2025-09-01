@@ -8,7 +8,7 @@ import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/ban
 import 'package:fayoum_club/features/home/presentation/widgets/banners_section.dart';
 import 'package:fayoum_club/features/activites/presentation/widgets/activites_horizontal_list_view_section.dart';
 import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_cubit.dart';
-import 'package:fayoum_club/features/news/presentation/widgets/news_list_section.dart';
+import 'package:fayoum_club/features/news/presentation/widgets/news_sliver_list_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -58,7 +58,7 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               SliverToBoxAdapter(child: const VerticalSpace(16)),
-              NewsListSection(),
+              NewsSliverListSection(),
             ],
           ),
         ),

@@ -1,5 +1,7 @@
 import 'package:fayoum_club/core/functions/dummy_lists.dart';
 import 'package:fayoum_club/core/widgets/retry_widget.dart';
+import 'package:fayoum_club/features/activites/presentation/manager/activites_cubit/activites_cubit.dart';
+import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/banners_cubit.dart';
 import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_cubit.dart';
 import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_state.dart';
 import 'package:fayoum_club/features/news/presentation/widgets/news_sliver_list.dart';
@@ -7,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class NewsListSection extends StatelessWidget {
-  const NewsListSection({super.key});
+class NewsSliverListSection extends StatelessWidget {
+  const NewsSliverListSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,9 @@ class NewsListSection extends StatelessWidget {
             child: RetryWidget(
               message: state.failure.errMessage,
               onPressed: () {
+                context.read<BannersCubit>().getBanners();
                 context.read<NewsCubit>().getAllNews();
+                context.read<ActivitesCubit>().getActivites();
               },
             ),
           );

@@ -1,3 +1,4 @@
+import 'package:fayoum_club/core/constants/app_colors.dart';
 import 'package:fayoum_club/core/constants/app_strings.dart';
 import 'package:fayoum_club/core/functions/dummy_lists.dart';
 import 'package:fayoum_club/core/widgets/retry_widget.dart';
@@ -19,6 +20,7 @@ class ActivitesHorizontalListViewSection extends StatelessWidget {
       builder: (context, state) {
         if (state is ActivitesLoading) {
           return Skeletonizer(
+            containersColor: AppColors.loadingEffectColor,
             textBoneBorderRadius: TextBoneBorderRadius(
               BorderRadius.circular(4),
             ),

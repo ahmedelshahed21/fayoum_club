@@ -63,10 +63,10 @@ class _BannersSlidersState extends State<BannersSliders> {
                       borderRadius: BorderRadius.circular(8),
                       gradient: LinearGradient(
                         colors: [
-                          AppColors.primaryColor,
-                          AppColors.primaryColor.withValues(alpha: 0.7),
-                          AppColors.primaryColor.withValues(alpha: 0.4),
-                          Colors.transparent,
+                          AppColors.greenColor.withValues(alpha: 0.7),
+                          AppColors.greenColor.withValues(alpha: 0.5),
+                          AppColors.greenColor.withValues(alpha: 0.4),
+
                         ],
                         begin: AlignmentDirectional.centerStart,
                         end: AlignmentDirectional.centerEnd,
@@ -113,7 +113,7 @@ class _BannersSlidersState extends State<BannersSliders> {
           options: CarouselOptions(
             enlargeCenterPage: true,
             autoPlay: true,
-            aspectRatio: 1.7,
+            aspectRatio: 2,
             enableInfiniteScroll: true,
             viewportFraction: 1,
             onPageChanged: (index, reason) {
