@@ -31,19 +31,19 @@ class TrainerTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(256),
               child: CachedNetworkImage(
                 imageUrl: trainer.image??AppConstants.noImageUrl,
-                width: 80,
-                height: 80,
+                width: 60,
+                height: 60,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => const ImageLoadingEffect(),
                 errorWidget:
                     (context, url, error) => Container(
-                      width: 80,
-                      height: 80,
+                      width: 60,
+                      height: 60,
                       color: AppColors.pureWhiteColor,
                       child: Icon(
                         Iconsax.user_copy,
                         color: AppColors.greenColor,
-                        size: 42,
+                        size: 28,
                       ),
                     ),
               ),
