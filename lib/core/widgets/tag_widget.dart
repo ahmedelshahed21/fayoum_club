@@ -16,13 +16,13 @@ class TagWidget extends StatelessWidget {
       padding:
       const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: AppColors.primaryColor.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(8),
+        color: AppColors.lightGreyColor,
+        borderRadius: BorderRadius.circular(4),
       ),
       child: Text(
         tag,
         style: AppStyles.styleMedium14(context).copyWith(
-          color: AppColors.primaryColor,
+          color: AppColors.pureBlackColor,
         ),
       ),
     );

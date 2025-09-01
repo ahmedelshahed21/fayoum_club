@@ -5,6 +5,7 @@ import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
+import 'package:fayoum_club/core/widgets/tag_widget.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -41,27 +42,35 @@ class NewsTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(7),topRight: Radius.circular(7)),
-                child: CachedNetworkImage(
-                  height: 150,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                  imageUrl:
-                      news.image.isNotEmpty
-                          ? news.image
-                          : AppConstants.noImageUrl,
-                  placeholder: (context, url) => const ImageLoadingEffect(),
-                  errorWidget:
-                      (context, url, error) => CachedNetworkImage(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(7),
+                  topRight: Radius.circular(7),
+                ),
+                child: Stack(
+                  children: [
+                    /// صورة الخبر
+                    CachedNetworkImage(
+                      height: 150,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      imageUrl: news.image.isNotEmpty ? news.image : AppConstants.noImageUrl,
+                      placeholder: (context, url) => const ImageLoadingEffect(),
+                      errorWidget: (context, url, error) => CachedNetworkImage(
                         imageUrl: AppConstants.noImageUrl,
-                        placeholder:
-                            (context, url) => const ImageLoadingEffect(),
-                        errorWidget:
-                            (context, url, error) => const Icon(Icons.error),
+                        placeholder: (context, url) => const ImageLoadingEffect(),
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
                         fit: BoxFit.cover,
                       ),
+                    ),
+                    Positioned(
+                      top: 8,
+                      right: 8,
+                      child: TagWidget(tag: news.typeOption=='practice'?'ممارسة':"منافسة"),
+                    ),
+                  ],
                 ),
               ),
+
               const VerticalSpace(6),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 4.0),

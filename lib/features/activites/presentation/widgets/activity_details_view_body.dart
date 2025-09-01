@@ -96,7 +96,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
           onPressed: () {
             isGuest
                 ? showLoginIsRequiredDialog(context)
-                : GoRouter.of(context).push(
+                : GoRouter.of(context).go(
                   AppRouter.payMobView,
                   extra: detailsData,
                 );
