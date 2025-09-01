@@ -19,6 +19,6 @@ abstract class AppColors {
   static Color customGreyColor = const Color(0xFF9E9E9E);
   static Color rateColor = const Color(0xFF66737F);
   static Color busesSectionColor = const Color(0xFFD58A19);
-  static Color residencesSectionColor = const Color(0xFF258451);
+  static Color residencesSectionColor = const Color(0xFF16A358);
   static Color greenColor = Colors.green;
 }

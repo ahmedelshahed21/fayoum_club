@@ -26,10 +26,10 @@ class ActivityCard extends StatelessWidget {
             },
           ),
       child: Card(
-        color: AppColors.residencesSectionColor,
+        color: AppColors.pureWhiteColor,
         shadowColor: AppColors.offWhiteColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(8),
         ),
         margin: EdgeInsets.symmetric(vertical: 16),
         child: Padding(
@@ -54,13 +54,13 @@ class ActivityCard extends StatelessWidget {
                       ),
                 ),
               ),
-              VerticalSpace(8),
+              VerticalSpace(4),
               Center(
                 child: Text(
                   activityItem.title!,
                   style: AppStyles.styleSemiBold18(
                     context,
-                  ).copyWith(color: AppColors.pureWhiteColor),
+                  ).copyWith(color: AppColors.primaryColor),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,

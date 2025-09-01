@@ -29,7 +29,7 @@ class ActivitesListView extends StatelessWidget {
             separatorBuilder: (context, index) => const HorizontalSpace(12),
             itemBuilder:
                 (context, index) => AspectRatio(
-                  aspectRatio: 0.7,
+                  aspectRatio: 0.8,
                   child: ActivityCard(activityItem: activites[index]),
                 ),
           ),
