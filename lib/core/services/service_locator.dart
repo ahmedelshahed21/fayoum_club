@@ -5,6 +5,8 @@ import 'package:fayoum_club/features/activites/data/repos/activites_repo/activit
 import 'package:fayoum_club/features/activites/data/repos/activity_details_repo/activity_details_repo.dart';
 import 'package:fayoum_club/features/activites/data/repos/activity_details_repo/activity_details_repo_impl.dart';
 import 'package:fayoum_club/features/activites/presentation/manager/activity_details_cubit/activity_details_cubit.dart';
+import 'package:fayoum_club/features/general/data/repos/contact_us_repo/contact_us_repo_impl.dart';
+import 'package:fayoum_club/features/general/presentation/manager/contact_us_cubit/contact_us_cubit.dart';
 import 'package:fayoum_club/features/home/data/repos/banners_repo/banners_repo.dart';
 import 'package:fayoum_club/features/home/data/repos/banners_repo/banners_repo_impl.dart';
 import 'package:fayoum_club/features/activites/presentation/manager/activites_cubit/activites_cubit.dart';
@@ -109,4 +111,19 @@ void setupServiceLocator() {
     ),
   );
   getIt.registerFactory<NewsCubit>(() => NewsCubit(news: getIt<NewsRepo>()));
+
+
+
+
+  // Contact Us dependencies
+  getIt.registerSingleton<ContactUsRepoImpl>(
+    ContactUsRepoImpl(
+      dioConsumer: getIt.get<DioConsumer>(),
+      secureStorageHelper: getIt<SecureStorageHelper>(),
+      networkCubit: getIt<NetworkConnectionCubit>(),
+    ),
+  );
+  getIt.registerFactory<ContactUsCubit>(
+        () => ContactUsCubit(contactUsRepo: getIt<ContactUsRepoImpl>()),
+  );
 }

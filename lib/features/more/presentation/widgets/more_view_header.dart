@@ -43,14 +43,14 @@ class MoreViewHeader extends StatelessWidget {
                     FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
-                        userData.getUserName()!,
+                        userData.getUserName()??'ll',
                         style: AppStyles.styleExtraBold18(context)
                             .copyWith(color: AppColors.pureBlackColor),
                       ),
                     ),
                     const VerticalSpace(4),
                     Text(
-                      userData.getUserPhoneNumber()!,
+                      userData.getUserPhoneNumber()??'n',
                       style: AppStyles.styleSemiBold18(context)
                           .copyWith(color: AppColors.greyColor),
                     ),

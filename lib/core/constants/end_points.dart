@@ -1,11 +1,13 @@
 class EndPoints {
-  static const String baserUrl = "https://8244b9620c6a.ngrok-free.app/api";
+  static const String baserUrl = "https://652b71ec433d.ngrok-free.app/api";
   static const String oneSignal = "/general/update-user-one-signal-token";
   static const String login = "/login";
   static const String register = "/register";
   static const String banners = "/banners";
   static const String news = "/news/lookup";
   static const String activites = "/activate";
+
+  static const String contactUs = "/details";
 
   // static const String transportations = "/user/transportations";
   // static String transportationInvoice(String transportationId) =>
@@ -22,11 +24,6 @@ class EndPoints {
   // static const String updatePassword = "/profile/update-password";
   // static const String logout = "/logout";
   // static const String deleteAccount = '/profile/delete';
-  // static const String contactUs = "/contact-requests";
-  // static const String defaultPage = '/general/default-pages';
-  // static const String privacyPolicy = '/privacy-policy';
-  // static const String aboutUs = '/about-us';
-  // static const String termsAndConditions = '/terms-and-conditions';
 }
 
 class ApiKey {
@@ -54,6 +51,7 @@ class ApiKey {
   static const String to = "to";
   static const String total = "total";
   static const String description = "description";
+  static const String details = "details";
   static const String price = "price";
   static const String value = "value";
   static const String category = "category";
@@ -64,6 +62,7 @@ class ApiKey {
   static const String accessToken = "accessToken";
   static const String user = "user";
   static const String avatar = "avatar";
+
   // static const String latitude = "latitude";
   // static const String longitude = "longitude";
   static const String phone = "phone";

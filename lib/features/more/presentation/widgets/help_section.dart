@@ -29,7 +29,7 @@ class HelpSection extends StatelessWidget {
             title: AppStrings.getInTouch.tr(),
             svgPath: AppAssets.phoneIcon,
             onPressed: () {
-              // customPush(context, AppRouter.contactUsView);
+              customPush(context, AppRouter.contactUsView);
             },
           ),
 
