@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fayoum_club/core/functions/darbi_snack_bars.dart';
+import 'package:fayoum_club/core/functions/app_snack_bars.dart';
 import 'package:flutter/material.dart';
 import 'package:fayoum_club/core/constants/app_strings.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -2,16 +2,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/constants/app_strings.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart' show PrimaryAppBar;
 import 'package:fayoum_club/core/widgets/spacing.dart';
-import 'package:fayoum_club/features/general/presentation/widgets/contact_us_form.dart';
+import 'package:fayoum_club/features/more/presentation/widgets/contact_us_form.dart';
 import 'package:flutter/material.dart';
-
 
 class ContactUsView extends StatelessWidget {
   const ContactUsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: PrimaryAppBar(title: AppStrings.getInTouch.tr()),
       body: const SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -19,11 +18,7 @@ class ContactUsView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            VerticalSpace(16),
-            ContactUsForm(),
-            VerticalSpace(8),
-          ],
+          children: [VerticalSpace(16), ContactUsForm(), VerticalSpace(8)],
         ),
       ),
     );

@@ -3,7 +3,6 @@ import 'package:fayoum_club/core/constants/app_colors.dart';
 import 'package:fayoum_club/core/constants/app_constants.dart';
 import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart';
-import 'package:fayoum_club/core/widgets/app_buttons.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
@@ -14,21 +13,14 @@ class TrainerView extends StatelessWidget {
   const TrainerView({super.key, required this.trainer});
 
   final CaptainModel trainer;
+  // final ActivityDetailsData activityDetailsData;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: AppColors.lightGreyColor,
       appBar: PrimaryAppBar(title: "المدرب"),
-      // appBar: AppBar(
-      //   title: Text(
-      //     "المدرب",
-      //     style: AppStyles.styleBold18(context),
-      //   ),
-      //   backgroundColor: AppColors.pureWhiteColor,
-      //   elevation: 0,
-      //   iconTheme:  IconThemeData(color: AppColors.greenColor),
-      // ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
@@ -81,11 +73,6 @@ class TrainerView extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Spacer(),
-            PrimaryButton(
-              backgroundColor: AppColors.blueColor,
-              onPressed: () {},
-              text: 'الاشتراك',
-            ),
             VerticalSpace(24),
           ],
         ),

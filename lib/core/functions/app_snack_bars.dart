@@ -141,7 +141,7 @@ void redirectedSnackBar(
 }) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.blueColor,
       padding: const EdgeInsets.symmetric(vertical: 48.0, horizontal: 16),
       behavior: SnackBarBehavior.floating,
       margin: EdgeInsets.symmetric(

@@ -1,7 +1,7 @@
 import 'package:fayoum_club/core/constants/app_colors.dart';
 import 'package:fayoum_club/core/constants/app_strings.dart';
 import 'package:fayoum_club/core/constants/app_styles.dart';
-import 'package:fayoum_club/core/functions/darbi_snack_bars.dart';
+import 'package:fayoum_club/core/functions/app_snack_bars.dart';
 import 'package:fayoum_club/core/functions/navigation.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';

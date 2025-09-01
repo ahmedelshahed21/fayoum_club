@@ -6,10 +6,9 @@ import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
 import 'package:fayoum_club/core/databases/api/dio_consumer.dart';
 import 'package:fayoum_club/core/databases/cache/secure_storage_helper.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_cubit.dart';
-import 'package:fayoum_club/features/general/data/models/contact_us_request_model.dart';
-import 'package:fayoum_club/features/general/data/models/contact_us_success_model.dart';
-import 'package:fayoum_club/features/general/data/repos/contact_us_repo/contact_us_repo.dart';
-
+import 'package:fayoum_club/features/more/data/models/contact_us_request_model.dart';
+import 'package:fayoum_club/features/more/data/models/contact_us_success_model.dart';
+import 'package:fayoum_club/features/more/data/repos/contact_us_repo/contact_us_repo.dart';
 
 class ContactUsRepoImpl implements ContactUsRepo {
   final DioConsumer dioConsumer;
@@ -23,8 +22,9 @@ class ContactUsRepoImpl implements ContactUsRepo {
   });
 
   @override
-  Future<Either<AuthFailureModel, ContactUSSuccessModel>> contactUs(
-      {required ContactUsRequestModel contactData}) async {
+  Future<Either<AuthFailureModel, ContactUSSuccessModel>> contactUs({
+    required ContactUsRequestModel contactData,
+  }) async {
     final isConnected = await networkCubit.networkInfo.isConnected;
 
     if (!isConnected) {

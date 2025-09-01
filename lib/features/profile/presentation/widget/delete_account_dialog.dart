@@ -8,7 +8,7 @@
 // import '../../../../core/constants/app_strings.dart';
 // import '../../../../core/databases/cache/user_data_manager.dart';
 // import '../../../../core/functions/is_arabic.dart';
-// import '../../../../core/functions/darbi_snack_bars.dart';
+// import '../../../../core/functions/app_snack_bars.dart';
 // import '../../../../core/routes/app_router.dart';
 // import '../../../../core/services/service_locator.dart';
 // import '../../../../core/state_management/user_cubit/user_session_cubit.dart';
