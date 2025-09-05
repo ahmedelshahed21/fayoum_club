@@ -29,7 +29,7 @@ class ActivityDetailsRepoImpl implements ActivityDetailsRepo {
     }
 
     try {
-      final response = await dioConsumer.get('${EndPoints.activites}/${id.toString()}');
+      final response = await dioConsumer.get('${EndPoints.activities}/${id.toString()}');
 
       print(response);
 

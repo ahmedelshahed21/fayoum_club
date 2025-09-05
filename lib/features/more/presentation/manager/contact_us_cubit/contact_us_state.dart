@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
+import 'package:fayoum_club/core/data/models/validation_model.dart';
 import 'package:fayoum_club/features/more/data/models/contact_us_success_model.dart';
 
 abstract class ContactUsState extends Equatable {
@@ -23,7 +23,7 @@ class ContactUsSuccessState extends ContactUsState {
 }
 
 class ContactUsFailureState extends ContactUsState {
-  final AuthFailureModel failure;
+  final ValidationModel failure;
 
   const ContactUsFailureState(this.failure);
 

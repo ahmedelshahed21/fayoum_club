@@ -9,8 +9,8 @@ import 'package:fayoum_club/features/activites/data/models/activity_details_mode
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-class TrainerView extends StatelessWidget {
-  const TrainerView({super.key, required this.trainer});
+class TrainerDetailsView extends StatelessWidget {
+  const TrainerDetailsView({super.key, required this.trainer});
 
   final CaptainModel trainer;
   // final ActivityDetailsData activityDetailsData;

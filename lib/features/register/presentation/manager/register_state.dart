@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
+import 'package:fayoum_club/core/data/models/validation_model.dart';
 import 'package:fayoum_club/core/data/models/auth_success_model.dart';
 import 'package:equatable/equatable.dart';
 
@@ -23,7 +23,7 @@ class RegisterSuccessState extends RegisterState {
 }
 
 class RegisterFailureState extends RegisterState {
-  final AuthFailureModel failedModel;
+  final ValidationModel failedModel;
 
   const RegisterFailureState(this.failedModel);
 

@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
+import 'package:fayoum_club/core/data/models/validation_model.dart';
 import 'package:fayoum_club/core/data/models/auth_success_model.dart';
 import 'package:equatable/equatable.dart';
 
@@ -24,7 +24,7 @@ class LoginSuccessState extends LoginState {
 }
 
 class LoginFailureState extends LoginState {
-  final AuthFailureModel failedModel;
+  final ValidationModel failedModel;
 
   const LoginFailureState(this.failedModel);
 

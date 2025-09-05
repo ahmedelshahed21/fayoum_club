@@ -25,6 +25,7 @@ class ActivityDetailsView extends StatelessWidget {
             builder: (context, state) {
               if (state is ActivityDetailsLoading) {
                 return Skeletonizer(
+                  containersColor: AppColors.loadingEffectColor,
                   textBoneBorderRadius: TextBoneBorderRadius(BorderRadius.circular(4)),
                   child: ActivityDetailsViewBody(
                     detailsData: getDummyActivityDetails(), // dummy

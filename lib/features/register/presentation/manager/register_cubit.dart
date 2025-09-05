@@ -1,6 +1,6 @@
 import 'package:fayoum_club/core/data/models/auth_success_model.dart';
 import 'package:fayoum_club/features/register/data/models/register_data_model.dart';
-import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
+import 'package:fayoum_club/core/data/models/validation_model.dart';
 import 'package:fayoum_club/features/register/data/repos/register_repo.dart';
 import 'package:fayoum_club/features/register/presentation/manager/register_state.dart';
 import 'package:dartz/dartz.dart';
@@ -14,7 +14,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   Future<void> register(RegisterDataModel registerData) async {
     emit(RegisterLoadingState());
 
-    final Either<AuthFailureModel, AuthSuccessModel> result = await registerRepo
+    final Either<ValidationModel, AuthSuccessModel> result = await registerRepo
         .register(registerData: registerData);
 
     result.fold((failure) => emit(RegisterFailureState(failure)), (register) {

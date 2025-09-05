@@ -4,7 +4,7 @@ import 'package:fayoum_club/core/databases/api/dio_consumer.dart';
 import 'package:fayoum_club/core/databases/cache/secure_storage_helper.dart';
 import 'package:fayoum_club/core/databases/cache/user_data_manager.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_cubit.dart';
-import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
+import 'package:fayoum_club/core/data/models/validation_model.dart';
 import 'package:fayoum_club/core/data/models/auth_success_model.dart';
 import 'package:fayoum_club/features/register/data/models/register_data_model.dart';
 import 'package:fayoum_club/features/register/data/repos/register_repo.dart';
@@ -25,14 +25,14 @@ class RegisterRepoImpl implements RegisterRepo {
   });
 
   @override
-  Future<Either<AuthFailureModel, AuthSuccessModel>> register({
+  Future<Either<ValidationModel, AuthSuccessModel>> register({
     required RegisterDataModel registerData,
   }) async {
     final isConnected = await networkCubit.networkInfo.isConnected;
 
     if (!isConnected) {
       return Left(
-        AuthFailureModel(
+        ValidationModel(
           status: "error",
           message: AppStrings.noInternetConnection.tr(),
           errors: [AppStrings.noInternetConnection.tr()],
@@ -67,11 +67,11 @@ class RegisterRepoImpl implements RegisterRepo {
 
           return Right(registerSuccessModel);
         } else {
-          return Left(AuthFailureModel.fromJson(response));
+          return Left(ValidationModel.fromJson(response));
         }
       } else {
         return Left(
-          AuthFailureModel(
+          ValidationModel(
             status: "error",
             message: AppStrings.serverConnectionFailed.tr(),
             errors: [AppStrings.serverConnectionFailed.tr()],
@@ -81,7 +81,7 @@ class RegisterRepoImpl implements RegisterRepo {
       }
     } catch (e) {
       return Left(
-        AuthFailureModel(
+        ValidationModel(
           status: "error",
           message: AppStrings.unexpectedError.tr(),
           errors: [AppStrings.unexpectedError.tr()],

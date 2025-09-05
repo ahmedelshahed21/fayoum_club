@@ -4,7 +4,6 @@ import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
-import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
 import 'package:flutter/material.dart';
@@ -29,19 +28,22 @@ class ActivityCard extends StatelessWidget {
         color: AppColors.pureWhiteColor,
         shadowColor: AppColors.offWhiteColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(6),
+          side: BorderSide(
+            color: AppColors.primaryColor.withValues(alpha: 0.3),
+            width: 1.5
+          )
         ),
-        margin: EdgeInsets.symmetric(vertical: 16),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(4),
+        margin: EdgeInsets.symmetric(vertical:2.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(6),topRight: Radius.circular(6)),
                 child: CachedNetworkImage(
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                   imageUrl: activityItem.image ?? AppConstants.noImageUrl,
                   placeholder: (context, url) => const ImageLoadingEffect(),
                   errorWidget:
@@ -54,11 +56,13 @@ class ActivityCard extends StatelessWidget {
                       ),
                 ),
               ),
-              VerticalSpace(4),
-              Center(
+            ),
+
+            Expanded(
+              child: Center(
                 child: Text(
                   activityItem.title!,
-                  style: AppStyles.styleSemiBold18(
+                  style: AppStyles.styleBold14(
                     context,
                   ).copyWith(color: AppColors.primaryColor),
                   maxLines: 2,
@@ -66,9 +70,9 @@ class ActivityCard extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              VerticalSpace(4),
-            ],
-          ),
+            ),
+
+          ],
         ),
       ),
     );

@@ -16,7 +16,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -31,26 +30,8 @@ class _LoginFormState extends State<LoginForm> {
   final TextEditingController _passwordController = TextEditingController();
   String? oneSignalToken;
 
-  @override
-  void initState() {
-    super.initState();
-    OneSignal.User.pushSubscription.addObserver((state) {
-      final playerId = state.current.id;
-      // print("📲 Token from observer: $playerId");
-      setState(() {
-        oneSignalToken = playerId;
-      });
-    });
 
-    Future.delayed(const Duration(seconds: 2), () async {
-      final playerId = OneSignal.User.pushSubscription.id;
-      // print("📲 Token from direct access: $playerId");
-      setState(() {
-        oneSignalToken = playerId;
-      });
-    });
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {

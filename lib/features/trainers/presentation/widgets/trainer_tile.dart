@@ -65,7 +65,7 @@ class TrainerTile extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-             GoRouter.of(context).push(AppRouter.trainerView,extra: trainer);
+             GoRouter.of(context).push(AppRouter.trainerDetailsView,extra: trainer);
               },
               icon: Icon(
                 Icons.arrow_forward_ios_outlined,

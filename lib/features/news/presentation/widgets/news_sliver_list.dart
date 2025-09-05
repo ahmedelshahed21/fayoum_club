@@ -22,7 +22,7 @@ class NewsSliverList extends StatelessWidget {
             context,
           ).copyWith(color: AppColors.pureBlackColor),
         ),
-        VerticalSpace(16),
+        VerticalSpace(8),
         SliverList(
           delegate: SliverChildBuilderDelegate(
             childCount: news.length,

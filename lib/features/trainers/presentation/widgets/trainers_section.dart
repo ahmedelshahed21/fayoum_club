@@ -2,7 +2,7 @@ import 'package:fayoum_club/core/constants/app_colors.dart';
 import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
-import 'package:fayoum_club/features/activites/presentation/widgets/trainer_tile.dart';
+import 'package:fayoum_club/features/trainers/presentation/widgets/trainer_tile.dart';
 import 'package:flutter/material.dart';
 
 class TrainersSection extends StatelessWidget {

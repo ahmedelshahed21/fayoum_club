@@ -1,29 +1,12 @@
 class EndPoints {
-  static const String baserUrl = "https://652b71ec433d.ngrok-free.app/api";
-  static const String oneSignal = "/general/update-user-one-signal-token";
+  static const String baserUrl = "https://fayoum-club.com/GovernorateClub/api";
   static const String login = "/login";
   static const String register = "/register";
   static const String banners = "/banners";
   static const String news = "/news/lookup";
-  static const String activites = "/activate";
+  static const String activities = "/activate";
 
   static const String contactUs = "/details";
-
-  // static const String transportations = "/user/transportations";
-  // static String transportationInvoice(String transportationId) =>
-  //     '/user/transportations/$transportationId/invoice';
-  // static String subscribeForTransportations(String transportationId) =>
-  //     '/user/transportations/$transportationId/subscribe';
-  // static const String residences = "/user/housings";
-  // static String residencesInvoice(String residenceId) =>
-  //     '/user/housings/$residenceId/invoice';
-  // static String subscribeForResidence(String residenceId) =>
-  //     '/user/housings/$residenceId/subscribe';
-  //
-  // static const String updateProfile = "/profile/update";
-  // static const String updatePassword = "/profile/update-password";
-  // static const String logout = "/logout";
-  // static const String deleteAccount = '/profile/delete';
 }
 
 class ApiKey {
@@ -49,12 +32,9 @@ class ApiKey {
   static const String path = "path";
   static const String perPage = "per_page";
   static const String to = "to";
-  static const String total = "total";
+  static const String title = "title";
   static const String description = "description";
   static const String details = "details";
-  static const String price = "price";
-  static const String value = "value";
-  static const String category = "category";
   static const String phoneNumber = 'phone';
   static const String email = 'email';
   static const String password = 'password';
@@ -63,26 +43,17 @@ class ApiKey {
   static const String accessToken = "accessToken";
   static const String user = "user";
   static const String avatar = "avatar";
-
-  // static const String latitude = "latitude";
-  // static const String longitude = "longitude";
   static const String phone = "phone";
   static const String status = "status";
   static const String message = "message";
   static const String errors = "errors";
-  static const String payload = 'payload';
   static const String body = 'body';
   static const String subject = 'subject';
   static const String items = 'items';
-  static const String driver = 'driver';
-  static const String currency = "currency";
-  static const String itemPrice = "item_price";
   static const String userId = "user_id";
   static const String item = "item";
   static const String code = "code";
   static const String address = 'address';
-  static const String picture = 'picture';
-  static const String administrator = 'administrator';
   static const String currentPassword = 'oldPassword';
   static const String newPassword = 'newPassword';
   static const String newPasswordConfirmation = 'confirmPassword';

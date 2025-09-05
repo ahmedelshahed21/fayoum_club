@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fayoum_club/core/constants/app_colors.dart';
 import 'package:fayoum_club/core/constants/app_constants.dart';
+import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
@@ -24,10 +25,7 @@ class NewsTile extends StatelessWidget {
           runIfConnected(
             context: context,
             onConnected: () {
-              GoRouter.of(context).push(
-                AppRouter.newsDetailsView,
-                extra: news,
-              );
+              GoRouter.of(context).push(AppRouter.newsDetailsView, extra: news);
             },
           );
         },
@@ -53,19 +51,29 @@ class NewsTile extends StatelessWidget {
                       height: 150,
                       width: double.infinity,
                       fit: BoxFit.cover,
-                      imageUrl: news.image.isNotEmpty ? news.image : AppConstants.noImageUrl,
+                      imageUrl:
+                      news.image.isNotEmpty
+                          ? news.image
+                          : AppConstants.noImageUrl,
                       placeholder: (context, url) => const ImageLoadingEffect(),
-                      errorWidget: (context, url, error) => CachedNetworkImage(
+                      errorWidget:
+                          (context, url, error) => CachedNetworkImage(
                         imageUrl: AppConstants.noImageUrl,
-                        placeholder: (context, url) => const ImageLoadingEffect(),
-                        errorWidget: (context, url, error) => const Icon(Icons.error),
+                        placeholder:
+                            (context, url) => const ImageLoadingEffect(),
+                        errorWidget:
+                            (context, url, error) =>
+                        const Icon(Icons.error),
                         fit: BoxFit.cover,
                       ),
                     ),
                     Positioned(
                       top: 8,
                       right: 8,
-                      child: TagWidget(tag: news.typeOption=='practice'?'ممارسة':"منافسة"),
+                      child: TagWidget(
+                        tag:
+                        news.typeOption == 'practice' ? 'ممارسة' : "منافسة",
+                      ),
                     ),
                   ],
                 ),
@@ -73,15 +81,17 @@ class NewsTile extends StatelessWidget {
 
               const VerticalSpace(6),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 4.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8.0,
+                  vertical: 4.0,
+                ),
                 child: Text(
                   news.title,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: AppStyles.styleSemiBold16(
+                    context,
+                  ).copyWith(color: AppColors.greyColor),
                 ),
               ),
               const VerticalSpace(8),
@@ -92,3 +102,4 @@ class NewsTile extends StatelessWidget {
     );
   }
 }
+

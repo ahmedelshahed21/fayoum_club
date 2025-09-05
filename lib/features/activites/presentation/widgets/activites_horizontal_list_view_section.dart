@@ -5,7 +5,7 @@ import 'package:fayoum_club/core/widgets/retry_widget.dart';
 import 'package:fayoum_club/features/activites/presentation/manager/activites_cubit/activites_cubit.dart';
 import 'package:fayoum_club/features/activites/presentation/manager/activites_cubit/activites_state.dart';
 import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/banners_cubit.dart';
-import 'package:fayoum_club/features/activites/presentation/widgets/activites_list_view.dart';
+import 'package:fayoum_club/features/activites/presentation/widgets/activites_horizontal_list_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,10 +24,12 @@ class ActivitesHorizontalListViewSection extends StatelessWidget {
             textBoneBorderRadius: TextBoneBorderRadius(
               BorderRadius.circular(4),
             ),
-            child: ActivitesListView(activites: getDummyActivitiesList()),
+            child: ActivitesHorizontalListView(
+              activites: getDummyActivitiesList(),
+            ),
           );
         } else if (state is ActivitesSuccess) {
-          return ActivitesListView(
+          return ActivitesHorizontalListView(
             activites: state.activitesModel.data!.items.take(8).toList(),
           );
         } else if (state is ActivitesFailure) {

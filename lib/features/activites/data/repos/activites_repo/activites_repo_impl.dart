@@ -24,7 +24,7 @@ class ActivitesRepoImpl implements ActivitesRepo {
     }
 
     try {
-      final response = await dioConsumer.get(EndPoints.activites);
+      final response = await dioConsumer.get(EndPoints.activities);
 
       print(response);
 

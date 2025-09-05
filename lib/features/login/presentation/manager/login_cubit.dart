@@ -1,5 +1,5 @@
 import 'package:fayoum_club/core/data/models/auth_success_model.dart';
-import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
+import 'package:fayoum_club/core/data/models/validation_model.dart';
 import 'package:fayoum_club/features/login/data/repos/login_repo.dart';
 import 'package:fayoum_club/features/login/presentation/manager/login_state.dart';
 import 'package:dartz/dartz.dart';
@@ -16,7 +16,7 @@ class LoginCubit extends Cubit<LoginState> {
   }) async {
     emit(LoginLoadingState());
 
-    final Either<AuthFailureModel, AuthSuccessModel> result = await loginRepo
+    final Either<ValidationModel, AuthSuccessModel> result = await loginRepo
         .login(phoneNumber: phoneNumber, password: password);
 
     result.fold((failure) => emit(LoginFailureState(failure)), (login) {

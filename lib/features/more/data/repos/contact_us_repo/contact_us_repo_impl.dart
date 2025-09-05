@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/constants/app_strings.dart';
 import 'package:fayoum_club/core/constants/end_points.dart';
-import 'package:fayoum_club/core/data/models/auth_failure_model.dart';
+import 'package:fayoum_club/core/data/models/validation_model.dart';
 import 'package:fayoum_club/core/databases/api/dio_consumer.dart';
 import 'package:fayoum_club/core/databases/cache/secure_storage_helper.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_cubit.dart';
@@ -22,14 +22,14 @@ class ContactUsRepoImpl implements ContactUsRepo {
   });
 
   @override
-  Future<Either<AuthFailureModel, ContactUSSuccessModel>> contactUs({
+  Future<Either<ValidationModel, ContactUSSuccessModel>> contactUs({
     required ContactUsRequestModel contactData,
   }) async {
     final isConnected = await networkCubit.networkInfo.isConnected;
 
     if (!isConnected) {
       return Left(
-        AuthFailureModel(
+        ValidationModel(
           status: "error",
           message: AppStrings.serverConnectionFailed.tr(),
           errors: [AppStrings.serverConnectionFailed.tr()],
@@ -48,11 +48,11 @@ class ContactUsRepoImpl implements ContactUsRepo {
         if (response[ApiKey.code] == 200) {
           return Right(ContactUSSuccessModel.fromJson(response));
         } else {
-          return Left(AuthFailureModel.fromJson(response));
+          return Left(ValidationModel.fromJson(response));
         }
       } else {
         return Left(
-          AuthFailureModel(
+          ValidationModel(
             status: "error",
             message: AppStrings.serverConnectionFailed.tr(),
             errors: [AppStrings.serverConnectionFailed.tr()],
@@ -62,7 +62,7 @@ class ContactUsRepoImpl implements ContactUsRepo {
       }
     } catch (e) {
       return Left(
-        AuthFailureModel(
+        ValidationModel(
           status: "error",
           message: AppStrings.serverConnectionFailed.tr(),
           errors: [AppStrings.serverConnectionFailed.tr()],

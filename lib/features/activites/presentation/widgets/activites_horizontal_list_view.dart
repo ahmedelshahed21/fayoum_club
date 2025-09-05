@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/state_management/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
 
-class ActivitesListView extends StatelessWidget {
-  const ActivitesListView({super.key, required this.activites});
+class ActivitesHorizontalListView extends StatelessWidget {
+  const ActivitesHorizontalListView({super.key, required this.activites});
 
   final List<ActivityItem> activites;
 
@@ -20,8 +20,9 @@ class ActivitesListView extends StatelessWidget {
           onPressed:
               () => context.read<BottomNavigationBarCubit>().changeIndex(1),
         ),
+        VerticalSpace(6),
         SizedBox(
-          height: MediaQuery.sizeOf(context).height * 0.2,
+          height: MediaQuery.sizeOf(context).height * 0.16,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: activites.length,
@@ -29,9 +30,9 @@ class ActivitesListView extends StatelessWidget {
             separatorBuilder: (context, index) => const HorizontalSpace(12),
             itemBuilder:
                 (context, index) => AspectRatio(
-                  aspectRatio: 0.8,
-                  child: ActivityCard(activityItem: activites[index]),
-                ),
+              aspectRatio: 0.85,
+              child: ActivityCard(activityItem: activites[index]),
+            ),
           ),
         ),
       ],

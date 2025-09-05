@@ -2,13 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fayoum_club/core/constants/app_colors.dart';
 import 'package:fayoum_club/core/constants/app_styles.dart';
-import 'package:fayoum_club/core/constants/end_points.dart';
-import 'package:fayoum_club/features/news/data/models/news_model.dart';
-import 'package:fayoum_club/core/functions/is_arabic.dart';
 import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
+import 'package:fayoum_club/features/home/presentation/widgets/dots_indicator.dart';
+import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -49,7 +48,7 @@ class _BannersSlidersState extends State<BannersSliders> {
                     borderRadius: BorderRadius.circular(8),
                     child: CachedNetworkImage(
                       imageUrl:
-                          EndPoints.baserUrl + widget.newsData[index].image,
+                      widget.newsData[index].image,
                       fit: BoxFit.cover,
                       width: double.infinity,
                       height: 200,
@@ -66,7 +65,6 @@ class _BannersSlidersState extends State<BannersSliders> {
                           AppColors.greenColor.withValues(alpha: 0.7),
                           AppColors.greenColor.withValues(alpha: 0.5),
                           AppColors.greenColor.withValues(alpha: 0.4),
-
                         ],
                         begin: AlignmentDirectional.centerStart,
                         end: AlignmentDirectional.centerEnd,
@@ -79,10 +77,7 @@ class _BannersSlidersState extends State<BannersSliders> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          isArabic(context)
-                              ? widget.newsData[index].title
-                              : widget.newsData[index].title,
+                        Text(widget.newsData[index].title,
                           style: AppStyles.styleBold20(
                             context,
                           ).copyWith(color: AppColors.lightGreyColor),
@@ -124,10 +119,7 @@ class _BannersSlidersState extends State<BannersSliders> {
           ),
         ),
         const VerticalSpace(12),
-        // DotsIndicator(
-        //   categories: widget.bannerData,
-        //   currentIndex: currentIndex,
-        // ),
+        DotsIndicator(news: widget.newsData, currentIndex: currentIndex),
       ],
     );
   }

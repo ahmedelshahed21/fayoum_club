@@ -1,11 +1,11 @@
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/activites/presentation/views/activity_details_view.dart';
 import 'package:fayoum_club/features/activites/presentation/views/pay_mob_view.dart';
-import 'package:fayoum_club/features/activites/presentation/views/trainer_view.dart';
+import 'package:fayoum_club/features/trainers/presentation/views/trainer_details_view.dart';
 import 'package:fayoum_club/features/more/presentation/views/contact_us_view.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_page.dart';
-import 'package:fayoum_club/features/home/presentation/views/news_details_view.dart';
+import 'package:fayoum_club/features/news/presentation/views/news_details_view.dart';
 import 'package:fayoum_club/features/profile/presentation/view/profile_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/login/presentation/views/login_view.dart';
@@ -18,7 +18,7 @@ abstract class AppRouter {
   static const registerView = '/registerView';
   static const homePage = '/homePage';
   static const activityDetailsView = '/activityDetailsView';
-  static const trainerView = '/trainerView';
+  static const trainerDetailsView = '/trainerView';
   static const payMobView = '/payMobView';
   static const newsDetailsView = '/newsDetailsView';
 
@@ -53,10 +53,10 @@ abstract class AppRouter {
         },
       ),
       GoRoute(
-        path: trainerView,
+        path: trainerDetailsView,
         builder: (context, state) {
           final CaptainModel trainer = state.extra as CaptainModel;
-          return TrainerView(trainer: trainer);
+          return TrainerDetailsView(trainer: trainer);
         },
       ),
       GoRoute(
@@ -66,18 +66,6 @@ abstract class AppRouter {
           return PayMobView(activityDetailsData: activityDetailsData);
         },
       ),
-      // GoRoute(
-      //   path: payMobView,
-      //   builder: (context, state) {
-      //     final data = state.extra as Map<String, dynamic>;
-      //     return PayMobView(
-      //       activityDetailsData: data['activityDetailsData'],
-      //       transactionId: data['transactionId'],
-      //       residenceBookingInvoiceData: data['residenceBookingInvoiceData'],
-      //
-      //     );
-      //   },
-      // ),
       GoRoute(
         path: profileView,
         builder: (context, state) => const ProfileView(),
