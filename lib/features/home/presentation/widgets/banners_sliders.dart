@@ -80,7 +80,7 @@ class _BannersSlidersState extends State<BannersSliders> {
                         Text(widget.newsData[index].title,
                           style: AppStyles.styleBold20(
                             context,
-                          ).copyWith(color: AppColors.lightGreyColor),
+                          ).copyWith(color: AppColors.pureBlackColor),
                         ),
                         // const VerticalSpace(96),
                         // SecondaryButton(

@@ -78,7 +78,7 @@ class NewsDetailsView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const VerticalSpace(16),
+                  const VerticalSpace(32),
                   Text(
                     news.description,
                     style: AppStyles.styleRegular16(context),
