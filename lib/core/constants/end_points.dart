@@ -2,9 +2,10 @@ class EndPoints {
   static const String baserUrl = "https://fayoum-club.com/GovernorateClub/api";
   static const String login = "/login";
   static const String register = "/register";
-  static const String banners = "/banners";
-  static const String news = "/news/lookup";
-  static const String activities = "/activate";
+  static const String banners = "/news/lookup";
+  static const String news = "/news";
+  static const String activities = "/activate/lookup";
+  static const String activityDetails = "/activate";
 
   static const String contactUs = "/details";
 }

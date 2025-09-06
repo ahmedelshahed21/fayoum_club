@@ -1,8 +1,48 @@
+import 'package:fayoum_club/core/data/models/activity_model.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/home/data/models/banners_models/urgent_news_model.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
 
-List<NewsItem> getDummyBanners() {
+List<UrgentNewsItem> getDummyBanners() {
+  return [
+    UrgentNewsItem(
+      id: 1,
+      title: 'خبر رقم 1',
+      description: 'ده وصف تجريبي للخبر الأول',
+      activate: Activate(id: 1, title: 'مفعل'),
+      status: 1,
+      typeOption: 'practice',
+      image: '/News/dummy_image_1.png',
+      createdAt: DateTime.now(),
+      updatedAt:DateTime.now(),
+    ),
+    UrgentNewsItem(
+      id: 2,
+      title: 'خبر رقم 2',
+      description: 'ده وصف تجريبي للخبر التاني',
+      activate: Activate(id: 2, title: 'غير مفعل'),
+      status: 0,
+      typeOption: 'announcement',
+      image: '/News/dummy_image_2.jpeg',
+      createdAt:DateTime.now(),
+      updatedAt: DateTime.now(),
+    ),
+    UrgentNewsItem(
+      id: 3,
+      title: 'خبر رقم 3',
+      description: 'ده وصف تجريبي للخبر التالت',
+      activate: Activate(id: 1, title: 'مفعل'),
+      status: 1,
+      typeOption: 'event',
+      image: '/News/dummy_image_3.png',
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
+    ),
+  ];
+}
+
+List<NewsItem> getDummyNews() {
   return [
     NewsItem(
       id: 1,
@@ -13,7 +53,7 @@ List<NewsItem> getDummyBanners() {
       typeOption: 'practice',
       image: '/News/dummy_image_1.png',
       createdAt: DateTime.now(),
-      updatedAt: DateTime.now(),
+      updatedAt:DateTime.now(),
     ),
     NewsItem(
       id: 2,
@@ -23,7 +63,7 @@ List<NewsItem> getDummyBanners() {
       status: 0,
       typeOption: 'announcement',
       image: '/News/dummy_image_2.jpeg',
-      createdAt: DateTime.now(),
+      createdAt:DateTime.now(),
       updatedAt: DateTime.now(),
     ),
     NewsItem(

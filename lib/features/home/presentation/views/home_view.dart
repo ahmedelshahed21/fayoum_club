@@ -12,8 +12,26 @@ import 'package:fayoum_club/features/news/presentation/widgets/news_sliver_list_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels >=
+          _scrollController.position.maxScrollExtent - 100) {
+        context.read<NewsCubit>().fetchNews();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,40 +43,32 @@ class HomeView extends StatelessWidget {
           internetConnectionStatusSnackBar(context, isConnected: false);
         }
       },
-      // builder: (context, state) {
-      //   if (state is NetworkDisconnected) {
-      //     return Center(
-      //       child: NoInternetConnectionContainer(
-      //         message: AppStrings.noInternetConnection.tr(),
-      //       ),
-      //     );
-      //   }
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: PrimaryRefreshIndicator(
           onRefresh: () async {
             context.read<BannersCubit>().getBanners();
             context.read<ActivitesCubit>().getActivites();
-            context.read<NewsCubit>().getAllNews();
+            context.read<NewsCubit>().fetchNews(refresh: true);
           },
           child: CustomScrollView(
+            controller: _scrollController,
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             physics: const BouncingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const VerticalSpace(16),
-                    const BannersSection(),
-                    const VerticalSpace(12),
+                  children: const [
+                    VerticalSpace(16),
+                    BannersSection(),
+                    VerticalSpace(12),
                     ActivitesHorizontalListViewSection(),
-
                   ],
                 ),
               ),
-              SliverToBoxAdapter(child: const VerticalSpace(12)),
-              NewsSliverListSection(),
+              const SliverToBoxAdapter(child: VerticalSpace(12)),
+              const NewsSliverListSection(),
             ],
           ),
         ),
@@ -66,3 +76,4 @@ class HomeView extends StatelessWidget {
     );
   }
 }
+

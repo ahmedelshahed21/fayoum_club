@@ -24,7 +24,7 @@ class ActivitesGridViewSection extends StatelessWidget {
           } else if (state is ActivitesSuccess) {
             return Stack(
               children: [
-                ActivitesGridView(activites: state.activitesModel.data!.items),
+                ActivitesGridView(activites: state.activitesModel.data),
               ],
             );
           } else if (state is ActivitesFailure) {

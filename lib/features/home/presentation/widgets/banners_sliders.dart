@@ -6,15 +6,15 @@ import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
+import 'package:fayoum_club/features/home/data/models/banners_models/urgent_news_model.dart';
 import 'package:fayoum_club/features/home/presentation/widgets/dots_indicator.dart';
-import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BannersSliders extends StatefulWidget {
   const BannersSliders({super.key, required this.newsData});
 
-  final List<NewsItem> newsData;
+  final List<UrgentNewsItem> newsData;
 
   @override
   State<BannersSliders> createState() => _BannersSlidersState();

@@ -106,12 +106,12 @@ void setupServiceLocator() {
 
   // News dependencies
   getIt.registerLazySingleton<NewsRepo>(
-    () => NewsRepoImpl(
+        () => NewsRepoImpl(
       dioConsumer: getIt<DioConsumer>(),
       networkCubit: getIt<NetworkConnectionCubit>(),
     ),
   );
-  getIt.registerFactory<NewsCubit>(() => NewsCubit(news: getIt<NewsRepo>()));
+  getIt.registerFactory<NewsCubit>(() => NewsCubit(newsRepo: getIt<NewsRepo>()));
 
   // Contact Us dependencies
   getIt.registerSingleton<ContactUsRepoImpl>(

@@ -13,19 +13,10 @@ class Pagination {
 
   factory Pagination.fromJson(Map<String, dynamic> json) {
     return Pagination(
-      total: json['total'] ?? 0,
-      currentPage: json['currentPage'] ?? 0,
-      perPage: json['perPage'] ?? 0,
-      totalPages: json['totalPages'] ?? 0,
+      total: json['total'],
+      currentPage: json['currentPage'],
+      perPage: json['perPage'],
+      totalPages: json['totalPages'],
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      "total": total,
-      "currentPage": currentPage,
-      "perPage": perPage,
-      "totalPages": totalPages,
-    };
   }
 }

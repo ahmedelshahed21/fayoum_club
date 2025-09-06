@@ -30,7 +30,7 @@ class FayoumClubApp extends StatelessWidget {
           create: (_) => getIt<BannersCubit>()..getBanners(),
         ),
         BlocProvider<NewsCubit>(
-          create: (_) => getIt<NewsCubit>()..getAllNews(),
+          create: (_) => getIt<NewsCubit>()..fetchNews(),
         ),
         BlocProvider<ActivitesCubit>(
           create: (_) => getIt<ActivitesCubit>()..getActivites(),

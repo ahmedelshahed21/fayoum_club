@@ -1,18 +1,16 @@
-import '../../../../../core/data/models/pagination_model.dart';
-
 class ActivitesModel {
   final int? version;
   final int? code;
   final String? status;
   final String? message;
-  final ActivitiesData? data;
+  final List<ActivityItem> data;
 
   ActivitesModel({
     this.version,
     this.code,
     this.status,
     this.message,
-    this.data,
+    required this.data,
   });
 
   factory ActivitesModel.fromJson(Map<String, dynamic> json) {
@@ -21,28 +19,10 @@ class ActivitesModel {
       code: json['code'] as int?,
       status: json['status'] as String?,
       message: json['message'] as String?,
-      data: json['data'] != null ? ActivitiesData.fromJson(json['data']) : null,
-    );
-  }
-}
-
-class ActivitiesData {
-  final List<ActivityItem> items;
-  final Pagination? pagination;
-
-  ActivitiesData({required this.items, this.pagination});
-
-  factory ActivitiesData.fromJson(Map<String, dynamic> json) {
-    return ActivitiesData(
-      items:
-          (json['items'] as List<dynamic>?)
-              ?.map((e) => ActivityItem.fromJson(e))
-              .toList() ??
-          [], // 👈 هنا لو فاضي هيرجع ليست فاضية
-      pagination:
-          json['pagination'] != null
-              ? Pagination.fromJson(json['pagination'])
-              : null,
+      data: (json['data'] as List<dynamic>?)
+          ?.map((e) => ActivityItem.fromJson(e))
+          .toList() ??
+          [],
     );
   }
 }
@@ -53,6 +33,8 @@ class ActivityItem {
   final String? description;
   final String? type;
   final String? image;
+  final int? monyMember;
+  final int? mony;
   final String? createdAt;
   final String? updatedAt;
 
@@ -62,6 +44,8 @@ class ActivityItem {
     this.description,
     this.type,
     this.image,
+    this.monyMember,
+    this.mony,
     this.createdAt,
     this.updatedAt,
   });
@@ -73,6 +57,8 @@ class ActivityItem {
       description: json['description'] as String?,
       type: json['type'] as String?,
       image: json['image'] as String?,
+      monyMember: json['monyMember'] as int?,
+      mony: json['mony'] as int?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
     );

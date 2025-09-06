@@ -7,6 +7,7 @@ import 'package:fayoum_club/features/activites/presentation/manager/activites_cu
 import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/banners_cubit.dart';
 import 'package:fayoum_club/features/activites/presentation/widgets/activites_horizontal_list_view.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -30,7 +31,7 @@ class ActivitesHorizontalListViewSection extends StatelessWidget {
           );
         } else if (state is ActivitesSuccess) {
           return ActivitesHorizontalListView(
-            activites: state.activitesModel.data!.items.take(8).toList(),
+            activites: state.activitesModel.data.take(8).toList(),
           );
         } else if (state is ActivitesFailure) {
           return RetryWidget(
@@ -38,6 +39,7 @@ class ActivitesHorizontalListViewSection extends StatelessWidget {
             onPressed: () {
               context.read<BannersCubit>().getBanners();
               context.read<ActivitesCubit>().getActivites();
+              context.read<NewsCubit>().fetchNews(refresh: true);
             },
           );
         } else {
