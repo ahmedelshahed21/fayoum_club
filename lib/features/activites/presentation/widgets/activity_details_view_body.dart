@@ -82,7 +82,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
                       SubscriptionSection(detailsData: detailsData),
                       const VerticalSpace(24),
                       TrainersSection(detailsData: detailsData),
-                      const VerticalSpace(80),
+                      const VerticalSpace(24),
                     ],
                   ),
                 ),
@@ -92,21 +92,19 @@ class ActivityDetailsViewBody extends StatelessWidget {
         ),
 
         /// bottomNavigationBar
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: PrimaryButton(
-              backgroundColor: AppColors.blueColor,
-              onPressed: () {
-                isGuest
-                    ? showLoginIsRequiredDialog(context)
-                    : GoRouter.of(context).go(
-                  AppRouter.payMobView,
-                  extra: detailsData,
-                );
-              },
-              text: 'الاشتراك',
-            ),
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: PrimaryButton(
+            backgroundColor: AppColors.blueColor,
+            onPressed: () {
+              isGuest
+                  ? showLoginIsRequiredDialog(context)
+                  : GoRouter.of(context).go(
+                AppRouter.payMobView,
+                extra: detailsData,
+              );
+            },
+            text: 'الاشتراك',
           ),
         ),
       ],

@@ -1,9 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_constants.dart';
 import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
-import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
@@ -17,61 +15,42 @@ class TrainerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      color: AppColors.primaryColor.withValues(alpha: 0.2),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+    return InkWell(
+      borderRadius: BorderRadius.circular(12),
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.trainerDetailsView, extra: trainer);
+      },
+      child: SizedBox(
+        width: 100,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(256),
-              child: CachedNetworkImage(
-                imageUrl: trainer.image??AppConstants.noImageUrl,
-                width: 60,
-                height: 60,
-                fit: BoxFit.cover,
-                placeholder: (context, url) => const ImageLoadingEffect(),
-                errorWidget:
-                    (context, url, error) => Container(
-                      width: 60,
-                      height: 60,
-                      color: AppColors.pureWhiteColor,
-                      child: Icon(
-                        Iconsax.user_copy,
-                        color: AppColors.greenColor,
-                        size: 28,
-                      ),
-                    ),
-              ),
+            CircleAvatar(
+              radius: 40,
+              backgroundColor: AppColors.primaryColor.withValues(alpha: 0.1),
+              backgroundImage: trainer.image != null
+                  ? CachedNetworkImageProvider(trainer.image!)
+                  : null,
+              child: trainer.image == null
+                  ? Icon(
+                Iconsax.user_copy,
+                color: AppColors.greenColor,
+                size: 32,
+              )
+                  : null,
             ),
-            HorizontalSpace(12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    trainer.name,
-                    style: AppStyles.styleBold18(
-                      context,
-                    ).copyWith(color: AppColors.pureBlackColor),
-                  ),
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-             GoRouter.of(context).push(AppRouter.trainerDetailsView,extra: trainer);
-              },
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
+
+            const VerticalSpace(8),
+
+            // الاسم
+            Text(
+              trainer.name,
+              textAlign: TextAlign.center,
+              style: AppStyles.styleBold14(context).copyWith(
                 color: AppColors.pureBlackColor,
-                size: 28,
               ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
@@ -79,3 +58,5 @@ class TrainerTile extends StatelessWidget {
     );
   }
 }
+
+

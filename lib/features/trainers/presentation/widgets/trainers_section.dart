@@ -14,26 +14,30 @@ class TrainersSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return detailsData.captans.isNotEmpty
         ? Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "المدربون",
-              style: AppStyles.styleBold18(
-                context,
-              ).copyWith(color: AppColors.pureBlackColor),
-            ),
-            const VerticalSpace(4),
-            Column(
-              children:
-                  detailsData.captans
-                      .map((trainer) => TrainerTile(trainer: trainer))
-                      .toList(),
-            ),
-          ],
-        )
-        : Text(
-          "لا يوجد مدربين متاحين",
-          style: AppStyles.styleRegular16(context),
-        );
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "المدربون",
+          style: AppStyles.styleBold18(
+            context,
+          ).copyWith(color: AppColors.pureBlackColor),
+        ),
+        const VerticalSpace(16),
+        SizedBox(
+          height: 150,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            itemCount: detailsData.captans.length,
+            separatorBuilder: (_, __) => const HorizontalSpace(12),
+            itemBuilder: (context, index) {
+              return TrainerTile(trainer: detailsData.captans[index]);
+            },
+          ),
+        ),
+      ],
+    )
+        : SizedBox.shrink();
   }
 }
+

@@ -59,6 +59,7 @@ class ActivityCard extends StatelessWidget {
             ),
 
             Expanded(
+              flex: 1,
               child: Center(
                 child: Text(
                   activityItem.title!,

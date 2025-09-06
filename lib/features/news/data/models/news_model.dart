@@ -3,7 +3,7 @@ class NewsModel {
   final int code;
   final String status;
   final String? message;
-  final List<NewsItem>? data; // <-- هنا List مباشرة
+  final List<NewsItem>? data;
 
   NewsModel({
     required this.version,
@@ -46,8 +46,8 @@ class NewsItem {
   final int status;
   final String typeOption;
   final String image;
-  final String createdAt;
-  final String updatedAt;
+  final DateTime createdAt;
+  final DateTime updatedAt;
 
   NewsItem({
     required this.id,
@@ -72,8 +72,8 @@ class NewsItem {
       status: json['status'] ?? 0,
       typeOption: json['typeOption'] ?? '',
       image: json['image'] ?? '',
-      createdAt: json['createdAt'] ?? '',
-      updatedAt: json['updatedAt'] ?? '',
+      createdAt: DateTime.parse(json['createdAt']),
+      updatedAt:DateTime.parse(json['updatedAt']),
     );
   }
 

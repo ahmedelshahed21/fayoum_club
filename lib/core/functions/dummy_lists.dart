@@ -12,8 +12,8 @@ List<NewsItem> getDummyBanners() {
       status: 1,
       typeOption: 'practice',
       image: '/News/dummy_image_1.png',
-      createdAt: '2025-08-31 12:00:00',
-      updatedAt: '2025-08-31 12:00:00',
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
     ),
     NewsItem(
       id: 2,
@@ -23,8 +23,8 @@ List<NewsItem> getDummyBanners() {
       status: 0,
       typeOption: 'announcement',
       image: '/News/dummy_image_2.jpeg',
-      createdAt: '2025-08-31 13:00:00',
-      updatedAt: '2025-08-31 13:00:00',
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
     ),
     NewsItem(
       id: 3,
@@ -34,8 +34,8 @@ List<NewsItem> getDummyBanners() {
       status: 1,
       typeOption: 'event',
       image: '/News/dummy_image_3.png',
-      createdAt: '2025-08-31 14:00:00',
-      updatedAt: '2025-08-31 14:00:00',
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
     ),
   ];
 }
