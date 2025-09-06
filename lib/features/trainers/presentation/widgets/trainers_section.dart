@@ -24,7 +24,7 @@ class TrainersSection extends StatelessWidget {
         ),
         const VerticalSpace(16),
         SizedBox(
-          height: 150,
+          height: 120,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
