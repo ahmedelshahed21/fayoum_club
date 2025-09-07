@@ -1,5 +1,5 @@
 import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/features/home/data/models/banners_models/urgent_news_model.dart';
+import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:flutter/material.dart';
 
 class DotsIndicator extends StatelessWidget {
@@ -9,7 +9,7 @@ class DotsIndicator extends StatelessWidget {
     required int currentIndex,
   }) : _currentIndex = currentIndex;
 
-  final List<UrgentNewsItem> news;
+  final List<NewsItem> news;
   final int _currentIndex;
 
   @override

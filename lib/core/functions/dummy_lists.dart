@@ -1,12 +1,11 @@
 import 'package:fayoum_club/core/data/models/activity_model.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
-import 'package:fayoum_club/features/home/data/models/banners_models/urgent_news_model.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
 
-List<UrgentNewsItem> getDummyBanners() {
+List<NewsItem> getDummyBanners() {
   return [
-    UrgentNewsItem(
+    NewsItem(
       id: 1,
       title: 'خبر رقم 1',
       description: 'ده وصف تجريبي للخبر الأول',
@@ -17,7 +16,7 @@ List<UrgentNewsItem> getDummyBanners() {
       createdAt: DateTime.now(),
       updatedAt:DateTime.now(),
     ),
-    UrgentNewsItem(
+    NewsItem(
       id: 2,
       title: 'خبر رقم 2',
       description: 'ده وصف تجريبي للخبر التاني',
@@ -28,7 +27,7 @@ List<UrgentNewsItem> getDummyBanners() {
       createdAt:DateTime.now(),
       updatedAt: DateTime.now(),
     ),
-    UrgentNewsItem(
+    NewsItem(
       id: 3,
       title: 'خبر رقم 3',
       description: 'ده وصف تجريبي للخبر التالت',
