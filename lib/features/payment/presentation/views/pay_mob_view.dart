@@ -5,6 +5,7 @@ import 'package:fayoum_club/core/functions/app_snack_bars.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/payment/data/models/payment_process_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:go_router/go_router.dart';
@@ -24,6 +25,7 @@ class PayMobViewState extends State<PayMobView> {
   late InAppWebViewController _webViewController;
   bool _isLoading = true;
   static const String kCallbackUrl = "https://accept.paymobsolutions.com";
+  late PaymentProcessRequestModel paymentProcessRequestModel;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +84,7 @@ class PayMobViewState extends State<PayMobView> {
       } else {
         amount = widget.activityDetailsData.mony;
       }
-      String paymentKey = await PayMobRepo().getPaymentKey(amount+1, "EGP", "df");
+      String paymentKey = await PayMobRepo().getPaymentKey(amount, "EGP", "df");
       String url =
           "https://accept.paymob.com/api/acceptance/iframes/896654?payment_token=$paymentKey";
       await _webViewController.loadUrl(
@@ -94,13 +96,24 @@ class PayMobViewState extends State<PayMobView> {
   }
 
   Future<void> _onPaymentSuccess(String transactionId) async {
-    GoRouter.of(context).push(
-      AppRouter.homePage,
-      extra: {
-        // 'transactionId': transactionId,
-        // 'transportationId': widget.transportationDetailsData.id,
-        // 'transportationsInvoiceData': widget.transportationsInvoiceData,
-      },
+    final UserDataManager userData = getIt<UserDataManager>();
+    int amount = 0;
+
+    if (userData.getUserMembership() != null) {
+      amount = widget.activityDetailsData.monyMember;
+    } else {
+      amount = widget.activityDetailsData.mony;
+    }
+    paymentProcessRequestModel = PaymentProcessRequestModel(
+      activityId: widget.activityDetailsData.id,
+      transactionId: transactionId,
+      amount: amount,
     );
+
+    GoRouter.of(context).push(
+      AppRouter.successView,
+      extra: paymentProcessRequestModel,
+    );
+
   }
 }

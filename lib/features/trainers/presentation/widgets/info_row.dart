@@ -16,16 +16,20 @@ class InfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           title,
-          style: AppStyles.styleBold18(context)
+          style: AppStyles.styleBold14(context)
               .copyWith(color: AppColors.pureBlackColor),
         ),
-        Text(
-          value,
-          style: AppStyles.styleRegular14(context)
-              .copyWith(color: AppColors.greyColor),
+        Center(
+          child: Text(
+            value,
+            style: AppStyles.styleBold24(context)
+                .copyWith(color: AppColors.primaryColor),
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );

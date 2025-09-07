@@ -14,6 +14,8 @@ import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/ban
 import 'package:fayoum_club/features/news/data/repos/news_repo/news_repo.dart';
 import 'package:fayoum_club/features/news/data/repos/news_repo/news_repo_impl.dart';
 import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_cubit.dart';
+import 'package:fayoum_club/features/payment/data/repos/payment_process_repo/payment_process_repo_impl.dart';
+import 'package:fayoum_club/features/payment/presentation/manager/payment_process_cubit/payment_process_cubit.dart';
 import 'package:get_it/get_it.dart';
 import '../../features/login/data/repos/login_repo_impl.dart';
 import '../../features/login/presentation/manager/login_cubit.dart';
@@ -112,6 +114,19 @@ void setupServiceLocator() {
     ),
   );
   getIt.registerFactory<NewsCubit>(() => NewsCubit(newsRepo: getIt<NewsRepo>()));
+
+// Payment dependencies
+  getIt.registerSingleton<PaymentProcessRepoImpl>(
+    PaymentProcessRepoImpl(
+      dioConsumer: getIt<DioConsumer>(),
+      secureStorageHelper: getIt<SecureStorageHelper>(),
+      networkCubit: getIt<NetworkConnectionCubit>(),
+    ),
+  );
+
+  getIt.registerFactory<PaymentProcessCubit>(
+        () => PaymentProcessCubit(paymentProcessRepo: getIt<PaymentProcessRepoImpl>()),
+  );
 
   // Contact Us dependencies
   getIt.registerSingleton<ContactUsRepoImpl>(

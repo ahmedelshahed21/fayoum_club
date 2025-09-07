@@ -6,7 +6,7 @@ class EndPoints {
   static const String news = "/news";
   static const String activities = "/activate/lookup";
   static const String activityDetails = "/activate";
-
+  static const String paymentProcess = "/mony-pay";
   static const String contactUs = "/details";
 }
 

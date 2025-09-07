@@ -20,11 +20,11 @@ import 'package:go_router/go_router.dart';
 class ActivityDetailsViewBody extends StatelessWidget {
   const ActivityDetailsViewBody({
     super.key,
-    required this.detailsData,
+    required this.activityDetailsData,
     required this.scrollController,
   });
 
-  final ActivityDetailsData detailsData;
+  final ActivityDetailsData activityDetailsData;
   final ScrollController scrollController;
 
   @override
@@ -45,7 +45,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
                 pinned: true,
                 centerTitle: true,
                 title: Text(
-                  detailsData.title,
+                  activityDetailsData.title,
                   style: AppStyles.styleSemiBold18(
                     context,
                   ).copyWith(color: AppColors.pureWhiteColor),
@@ -57,7 +57,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
                 ),
                 flexibleSpace: FlexibleSpaceBar(
                   background: CachedNetworkImage(
-                    imageUrl: detailsData.image ?? AppConstants.noImageUrl,
+                    imageUrl: activityDetailsData.image ?? AppConstants.noImageUrl,
                     width: double.infinity,
                     fit: BoxFit.cover,
                     placeholder: (context, url) => const ImageLoadingEffect(),
@@ -81,13 +81,13 @@ class ActivityDetailsViewBody extends StatelessWidget {
                     children: [
                       const VerticalSpace(12),
                       Text(
-                        detailsData.description ?? '',
+                        activityDetailsData.description ?? '',
                         style: AppStyles.styleRegular16(context),
                       ),
                       const VerticalSpace(24),
-                      SubscriptionSection(detailsData: detailsData),
+                      SubscriptionSection(detailsData: activityDetailsData),
                       const VerticalSpace(24),
-                      TrainersSection(detailsData: detailsData),
+                      TrainersSection(detailsData: activityDetailsData),
                       const VerticalSpace(24),
                     ],
                   ),
@@ -95,7 +95,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
               ),
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                sliver: CategorizedNewsSliverListSection(activityId: detailsData.id),
+                sliver: CategorizedNewsSliverListSection(activityId: activityDetailsData.id),
               ),
             ],
           ),
@@ -111,7 +111,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
                   ? showLoginIsRequiredDialog(context)
                   : GoRouter.of(
                     context,
-                  ).go(AppRouter.payMobView, extra: detailsData);
+                  ).push(AppRouter.payMobView, extra: activityDetailsData);
             },
             text: 'الاشتراك',
           ),

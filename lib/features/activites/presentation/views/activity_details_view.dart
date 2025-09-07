@@ -55,13 +55,13 @@ class _ActivityDetailsViewState extends State<ActivityDetailsView> {
                 textBoneBorderRadius: TextBoneBorderRadius(BorderRadius.circular(4)),
                 child: ActivityDetailsViewBody(
                   scrollController: _scrollController,
-                  detailsData: getDummyActivityDetails(), // dummy
+                  activityDetailsData: getDummyActivityDetails(), // dummy
                 ),
               );
             } else if (state is ActivityDetailsSuccess) {
               return ActivityDetailsViewBody(
                 scrollController: _scrollController,
-                detailsData: state.activityDetailsModel.data!,
+                activityDetailsData: state.activityDetailsModel.data!,
               );
             } else if (state is ActivityDetailsFailure) {
               return RetryWidget(

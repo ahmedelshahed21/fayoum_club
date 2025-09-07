@@ -305,13 +305,13 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle styleExtraBold28(BuildContext context) {
+  static TextStyle styleBold28(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(
         context,
         fontSize: isArabic(context) ? 26 : 28,
       ),
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: AppFonts.almaraiFont,
       color: AppColors.primaryColor,
     );
