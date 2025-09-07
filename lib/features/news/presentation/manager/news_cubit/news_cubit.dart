@@ -15,7 +15,7 @@ class NewsCubit extends Cubit<NewsState> {
   bool _isLoading = false;
   final List<NewsItem> _items = [];
 
-  Future<void> fetchNews({bool refresh = false, int? activityId}) async {
+  Future<void> fetchNews({bool refresh = false, int? activityId,int? status,String? typeOption}) async {
     if (_isLoading) return;
 
     if (refresh) {
@@ -30,7 +30,7 @@ class NewsCubit extends Cubit<NewsState> {
     if (_currentPage == 1) emit(const NewsLoading());
 
     final Either<Failure, NewsModel> result =
-    await newsRepo.getAllNews(page: _currentPage,activityId: activityId);
+    await newsRepo.getAllNews(page: _currentPage,activityId: activityId,status: status,typeOption: typeOption);
 
     result.fold(
           (failure) {

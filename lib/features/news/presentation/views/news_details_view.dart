@@ -3,11 +3,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/core/widgets/tag_widget.dart';
+import 'package:fayoum_club/features/news/presentation/widgets/related_news_section.dart';
 import 'package:flutter/material.dart';
 import 'package:fayoum_club/core/constants/app_colors.dart';
 import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
+
 
 class NewsDetailsView extends StatelessWidget {
   final NewsItem news;
@@ -20,6 +22,7 @@ class NewsDetailsView extends StatelessWidget {
       'dd/MM/yyyy  HH:mm',
       'en',
     ).format(news.createdAt);
+
     return Scaffold(
       backgroundColor: AppColors.offWhiteColor,
       appBar: PrimaryAppBar(title: "تفاصيل الخبر"),
@@ -38,8 +41,7 @@ class NewsDetailsView extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => const ImageLoadingEffect(),
-                errorWidget:
-                    (context, url, error) => Container(
+                errorWidget: (context, url, error) => Container(
                   height: 220,
                   color: AppColors.lightGreyColor,
                   child: const Icon(
@@ -58,9 +60,8 @@ class NewsDetailsView extends StatelessWidget {
                   const VerticalSpace(16),
                   Text(
                     news.title,
-                    style: AppStyles.styleBold20(
-                      context,
-                    ).copyWith(color: AppColors.pureBlackColor),
+                    style: AppStyles.styleBold20(context)
+                        .copyWith(color: AppColors.pureBlackColor),
                   ),
                   const VerticalSpace(8),
                   Row(
@@ -72,8 +73,8 @@ class NewsDetailsView extends StatelessWidget {
                       const Spacer(),
                       TagWidget(
                         tag: news.typeOption,
-                        backgroundColor: AppColors.primaryColor
-                            .withValues(alpha: 0.3),
+                        backgroundColor:
+                        AppColors.primaryColor.withValues(alpha: 0.3),
                         textColor: AppColors.pureBlackColor,
                       ),
                     ],
@@ -84,7 +85,10 @@ class NewsDetailsView extends StatelessWidget {
                     style: AppStyles.styleRegular16(context),
                     textAlign: TextAlign.justify,
                   ),
-                  const VerticalSpace(24),
+                  const VerticalSpace(64),
+
+                 if(news.activate!=null)
+                   RelatedNewsSection(news: news),
                 ],
               ),
             ),
@@ -94,3 +98,5 @@ class NewsDetailsView extends StatelessWidget {
     );
   }
 }
+
+
