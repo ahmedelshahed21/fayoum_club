@@ -32,7 +32,7 @@ class CategorizedNewsTile extends StatelessWidget {
           decoration: ShapeDecoration(
             color: AppColors.pureWhiteColor,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(6),
               // side: BorderSide(color: AppColors.lightGreyColor, width: 1.5),
             ),
           ),
@@ -42,12 +42,12 @@ class CategorizedNewsTile extends StatelessWidget {
               /// صورة الخبر
               ClipRRect(
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(7),
-                  bottomLeft: Radius.circular(7),
+                  topRight: Radius.circular(6),
+                  bottomRight: Radius.circular(6),
                 ),
                 child: CachedNetworkImage(
-                  height: 86,
-                  width: 86,
+                  height: 80,
+                  width: 96,
                   fit: BoxFit.cover,
                   imageUrl: news.image.isNotEmpty
                       ? news.image
@@ -70,7 +70,7 @@ class CategorizedNewsTile extends StatelessWidget {
                     news.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: AppStyles.styleSemiBold14(
+                    style: AppStyles.styleBold14(
                       context,
                     ).copyWith(color: AppColors.greyColor),
                   ),

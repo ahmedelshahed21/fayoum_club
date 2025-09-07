@@ -13,13 +13,13 @@ class TrainerDetailsView extends StatelessWidget {
   const TrainerDetailsView({super.key, required this.trainer});
 
   final CaptainModel trainer;
-  // final ActivityDetailsData activityDetailsData;
+
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: AppColors.lightGreyColor,
+
       appBar: PrimaryAppBar(title: "المدرب"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -60,7 +60,7 @@ class TrainerDetailsView extends StatelessWidget {
                   trainer.name,
                   style: AppStyles.styleBold20(
                     context,
-                  ).copyWith(color: AppColors.pureBlackColor),
+                  ).copyWith(color: AppColors.primaryColor),
                 ),
               ],
             ),

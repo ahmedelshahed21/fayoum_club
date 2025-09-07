@@ -41,13 +41,11 @@ class TrainerTile extends StatelessWidget {
             ),
 
             const VerticalSpace(8),
-
-            // الاسم
             Text(
               trainer.name,
               textAlign: TextAlign.center,
               style: AppStyles.styleBold14(context).copyWith(
-                color: AppColors.pureBlackColor,
+                color: AppColors.primaryColor,
               ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

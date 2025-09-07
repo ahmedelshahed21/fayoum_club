@@ -41,7 +41,7 @@ class ActivityCard extends StatelessWidget {
           children: [
             Expanded(
               child: ClipRRect(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(6),topRight: Radius.circular(6)),
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(5),topRight: Radius.circular(5)),
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
                   imageUrl: activityItem.image ?? AppConstants.noImageUrl,
