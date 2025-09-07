@@ -32,8 +32,8 @@ class NewsDetailsView extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(24),
-                bottomRight: Radius.circular(24),
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
               ),
               child: CachedNetworkImage(
                 imageUrl: news.image,
@@ -63,19 +63,20 @@ class NewsDetailsView extends StatelessWidget {
                     style: AppStyles.styleBold20(context)
                         .copyWith(color: AppColors.pureBlackColor),
                   ),
-                  const VerticalSpace(8),
+                  const VerticalSpace(24),
                   Row(
                     children: [
-                      Text(
-                        formattedDate,
-                        style: AppStyles.styleMedium14(context),
-                      ),
-                      const Spacer(),
                       TagWidget(
-                        tag: news.typeOption,
+                        tag:
+                        news.typeOption == 'practice' ? 'ممارسة' : "منافسة",
                         backgroundColor:
                         AppColors.primaryColor.withValues(alpha: 0.3),
                         textColor: AppColors.pureBlackColor,
+                      ),
+                      const Spacer(),
+                      Text(
+                        formattedDate,
+                        style: AppStyles.styleMedium14(context),
                       ),
                     ],
                   ),
@@ -86,7 +87,6 @@ class NewsDetailsView extends StatelessWidget {
                     textAlign: TextAlign.justify,
                   ),
                   const VerticalSpace(64),
-
                  if(news.activate!=null)
                    RelatedNewsSection(news: news),
                 ],
