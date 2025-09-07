@@ -15,7 +15,7 @@ class NewsRepoImpl implements NewsRepo {
   NewsRepoImpl({required this.dioConsumer, required this.networkCubit});
 
   @override
-  Future<Either<Failure, NewsModel>> getAllNews({int page = 1}) async {
+  Future<Either<Failure, NewsModel>> getAllNews({int page = 1,int? activityId}) async {
     final isConnected = await networkCubit.networkInfo.isConnected;
 
     if (!isConnected) {
@@ -28,7 +28,8 @@ class NewsRepoImpl implements NewsRepo {
       final response = await dioConsumer.get(EndPoints.news,
           queryParameters: {
             Params.page:page,
-            'perPage':3
+            'perPage':3,
+            'activateId': activityId
           }
       );
 

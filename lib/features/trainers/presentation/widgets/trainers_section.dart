@@ -14,30 +14,29 @@ class TrainersSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return detailsData.captans.isNotEmpty
         ? Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "المدربون",
-          style: AppStyles.styleBold18(
-            context,
-          ).copyWith(color: AppColors.pureBlackColor),
-        ),
-        const VerticalSpace(16),
-        SizedBox(
-          height: 120,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            itemCount: detailsData.captans.length,
-            separatorBuilder: (_, __) => const HorizontalSpace(12),
-            itemBuilder: (context, index) {
-              return TrainerTile(trainer: detailsData.captans[index]);
-            },
-          ),
-        ),
-      ],
-    )
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "المدربون",
+              style: AppStyles.styleSemiBold16(
+                context,
+              ).copyWith(color: AppColors.pureBlackColor),
+            ),
+            const VerticalSpace(16),
+            SizedBox(
+              height: 120,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                itemCount: detailsData.captans.length,
+                separatorBuilder: (_, __) => const HorizontalSpace(12),
+                itemBuilder: (context, index) {
+                  return TrainerTile(trainer: detailsData.captans[index]);
+                },
+              ),
+            ),
+          ],
+        )
         : SizedBox.shrink();
   }
 }
-

@@ -11,31 +11,37 @@ import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/activites/presentation/widgets/subscription_section.dart';
+import 'package:fayoum_club/features/news/presentation/widgets/categorized_news_sliver_list_section.dart';
 import 'package:fayoum_club/features/trainers/presentation/widgets/trainers_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class ActivityDetailsViewBody extends StatelessWidget {
-  const ActivityDetailsViewBody({super.key, required this.detailsData});
+  const ActivityDetailsViewBody({
+    super.key,
+    required this.detailsData,
+    required this.scrollController,
+  });
 
   final ActivityDetailsData detailsData;
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
-
     final bool isGuest = context.select<UserSessionCubit, bool>(
-          (cubit) => cubit.state.isGuest,
+      (cubit) => cubit.state.isGuest,
     );
     return Column(
       children: [
         Expanded(
           child: CustomScrollView(
+            controller: scrollController,
             physics: const BouncingScrollPhysics(),
             slivers: [
               /// SliverAppBar لعرض صورة النشاط
               SliverAppBar(
-                expandedHeight: 220,
+                expandedHeight: 180,
                 pinned: true,
                 centerTitle: true,
                 title: Text(
@@ -57,11 +63,11 @@ class ActivityDetailsViewBody extends StatelessWidget {
                     placeholder: (context, url) => const ImageLoadingEffect(),
                     errorWidget:
                         (context, url, error) => Container(
-                      color: Colors.grey.shade300,
-                      width: double.infinity,
-                      height: 220,
-                      child: const Icon(Icons.broken_image, size: 40),
-                    ),
+                          color: Colors.grey.shade300,
+                          width: double.infinity,
+                          height: 220,
+                          child: const Icon(Icons.broken_image, size: 40),
+                        ),
                   ),
                 ),
               ),
@@ -69,11 +75,11 @@ class ActivityDetailsViewBody extends StatelessWidget {
               /// باقي المحتوى
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const VerticalSpace(8),
+                      const VerticalSpace(12),
                       Text(
                         detailsData.description ?? '',
                         style: AppStyles.styleRegular16(context),
@@ -87,22 +93,25 @@ class ActivityDetailsViewBody extends StatelessWidget {
                   ),
                 ),
               ),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: CategorizedNewsSliverListSection(activityId: detailsData.id),
+              ),
             ],
           ),
         ),
 
         /// bottomNavigationBar
         Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: PrimaryButton(
             backgroundColor: AppColors.blueColor,
             onPressed: () {
               isGuest
                   ? showLoginIsRequiredDialog(context)
-                  : GoRouter.of(context).go(
-                AppRouter.payMobView,
-                extra: detailsData,
-              );
+                  : GoRouter.of(
+                    context,
+                  ).go(AppRouter.payMobView, extra: detailsData);
             },
             text: 'الاشتراك',
           ),

@@ -27,7 +27,7 @@ class SubscriptionSection extends StatelessWidget {
           children: [
             Text(
               "قيمة الاشتراك",
-              style: AppStyles.styleBold18(
+              style: AppStyles.styleSemiBold16(
                 context,
               ).copyWith(color: AppColors.pureBlackColor),
             ),
@@ -57,7 +57,7 @@ class SubscriptionSection extends StatelessWidget {
           children: [
             Text(
               "قيمة الاشتراك",
-              style: AppStyles.styleBold18(
+              style: AppStyles.styleSemiBold16(
                 context,
               ).copyWith(color: AppColors.pureBlackColor),
             ),
