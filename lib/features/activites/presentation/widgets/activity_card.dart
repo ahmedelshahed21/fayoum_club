@@ -40,10 +40,12 @@ class ActivityCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
+              flex: 3,
               child: ClipRRect(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(5),topRight: Radius.circular(5)),
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
+                  width: double.infinity,
                   imageUrl: activityItem.image ?? AppConstants.noImageUrl,
                   placeholder: (context, url) => const ImageLoadingEffect(),
                   errorWidget:
@@ -59,11 +61,11 @@ class ActivityCard extends StatelessWidget {
             ),
 
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Center(
                 child: Text(
                   activityItem.title!,
-                  style: AppStyles.styleBold14(
+                  style: AppStyles.styleBold16(
                     context,
                   ).copyWith(color: AppColors.primaryColor),
                   maxLines: 2,

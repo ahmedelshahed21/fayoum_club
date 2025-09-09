@@ -16,8 +16,21 @@ class NewsTile extends StatelessWidget {
 
   final NewsItem news;
 
+  String? _mapTypeOption(String type) {
+    switch (type) {
+      case 'practice':
+        return 'ممارسة';
+      case 'competition':
+        return 'منافسة';
+      default:
+        return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final tag = _mapTypeOption(news.typeOption);
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 24.0),
       child: GestureDetector(
@@ -46,52 +59,43 @@ class NewsTile extends StatelessWidget {
                 ),
                 child: Stack(
                   children: [
-                    /// صورة الخبر
                     CachedNetworkImage(
                       height: 150,
                       width: double.infinity,
                       fit: BoxFit.cover,
-                      imageUrl:
-                      news.image.isNotEmpty
+                      imageUrl: news.image.isNotEmpty
                           ? news.image
                           : AppConstants.noImageUrl,
-                      placeholder: (context, url) => const ImageLoadingEffect(),
-                      errorWidget:
-                          (context, url, error) => CachedNetworkImage(
+                      placeholder: (context, url) =>
+                      const ImageLoadingEffect(),
+                      errorWidget: (context, url, error) => CachedNetworkImage(
                         imageUrl: AppConstants.noImageUrl,
-                        placeholder:
-                            (context, url) => const ImageLoadingEffect(),
-                        errorWidget:
-                            (context, url, error) =>
+                        placeholder: (context, url) =>
+                        const ImageLoadingEffect(),
+                        errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                         fit: BoxFit.cover,
                       ),
                     ),
-                    Positioned(
-                      top: 8,
-                      right: 8,
-                      child: TagWidget(
-                        tag:
-                        news.typeOption == 'practice' ? 'ممارسة' : "منافسة",
+                    if (tag != null)
+                      Positioned(
+                        top: 8,
+                        right: 8,
+                        child: TagWidget(tag: tag),
                       ),
-                    ),
                   ],
                 ),
               ),
-
               const VerticalSpace(6),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8.0,
-                  vertical: 4.0,
-                ),
+                padding:
+                const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                 child: Text(
                   news.title,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: AppStyles.styleSemiBold16(
-                    context,
-                  ).copyWith(color: AppColors.greyColor),
+                  style: AppStyles.styleSemiBold16(context)
+                      .copyWith(color: AppColors.greyColor),
                 ),
               ),
               const VerticalSpace(8),

@@ -52,7 +52,7 @@ class _ActivityDetailsViewState extends State<ActivityDetailsView> {
             if (state is ActivityDetailsLoading) {
               return Skeletonizer(
                 containersColor: AppColors.loadingEffectColor,
-                textBoneBorderRadius: TextBoneBorderRadius(BorderRadius.circular(4)),
+                textBoneBorderRadius: TextBoneBorderRadius(BorderRadius.circular(2)),
                 child: ActivityDetailsViewBody(
                   scrollController: _scrollController,
                   activityDetailsData: getDummyActivityDetails(), // dummy

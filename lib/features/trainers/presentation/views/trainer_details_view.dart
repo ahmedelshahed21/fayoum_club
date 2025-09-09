@@ -67,7 +67,7 @@ class TrainerDetailsView extends StatelessWidget {
             VerticalSpace(48),
             Text(
               trainer.description ?? '',
-              style: AppStyles.styleRegular14(
+              style: AppStyles.styleMedium16(
                 context,
               ).copyWith(color: AppColors.greyColor),
               textAlign: TextAlign.center,

@@ -1,3 +1,4 @@
+import 'package:fayoum_club/core/constants/app_constants.dart';
 import 'package:fayoum_club/core/data/models/activity_model.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
@@ -124,9 +125,9 @@ List<ActivityItem> getDummyActivitiesList() {
 ActivityDetailsData getDummyActivityDetails() {
   return  ActivityDetailsData(
       id: 1,
-      description: "3444444444",
+      description: "/Activates/1756655605_d5282c72-decf-41e3-9cc1-9d84f13ce576.jpeg ",
       type: null,
-      image: "/Activates/1756655605_d5282c72-decf-41e3-9cc1-9d84f13ce576.jpeg",
+      image: AppConstants.noImageUrl,
       title: "332",
       createdAt: "2025-08-31 15:53:26",
       updatedAt: "2025-08-31 15:53:26",

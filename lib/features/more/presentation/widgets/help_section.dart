@@ -19,7 +19,7 @@ class HelpSection extends StatelessWidget {
           const VerticalSpace(16),
           Text(
             AppStrings.help.tr(),
-            style: AppStyles.styleExtraBold16(
+            style: AppStyles.styleBold16(
               context,
             ).copyWith(color: AppColors.pureBlackColor),
           ),

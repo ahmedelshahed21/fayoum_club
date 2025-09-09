@@ -5,29 +5,29 @@ import 'package:flutter/material.dart';
 class TagWidget extends StatelessWidget {
   const TagWidget({
     super.key,
-    required this.tag,
+    this.tag,
     this.backgroundColor,
     this.textColor,
   });
 
-  final String tag;
+  final String? tag;
   final Color? backgroundColor;
   final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return tag!=null ? Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.offWhiteColor,
         borderRadius: BorderRadius.circular(4),
       ),
       child: Text(
-        tag,
+        tag!,
         style: AppStyles.styleMedium14(
           context,
         ).copyWith(color: textColor ?? AppColors.primaryColor),
       ),
-    );
+    ):SizedBox.shrink();
   }
 }

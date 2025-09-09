@@ -10,11 +10,22 @@ import 'package:fayoum_club/core/constants/app_styles.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 
-
 class NewsDetailsView extends StatelessWidget {
   final NewsItem news;
 
   const NewsDetailsView({super.key, required this.news});
+
+  /// نفس logic الـ NewsTile
+  String? _mapTypeOption(String? type) {
+    switch (type) {
+      case 'practice':
+        return 'ممارسة';
+      case 'competition':
+        return 'منافسة';
+      default:
+        return null;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +33,8 @@ class NewsDetailsView extends StatelessWidget {
       'dd/MM/yyyy  HH:mm',
       'en',
     ).format(news.createdAt);
+
+    final tag = _mapTypeOption(news.typeOption);
 
     return Scaffold(
       backgroundColor: AppColors.offWhiteColor,
@@ -37,12 +50,12 @@ class NewsDetailsView extends StatelessWidget {
               ),
               child: CachedNetworkImage(
                 imageUrl: news.image,
-                height: 220,
+                height: 200,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => const ImageLoadingEffect(),
                 errorWidget: (context, url, error) => Container(
-                  height: 220,
+                  height: 200,
                   color: AppColors.lightGreyColor,
                   child: const Icon(
                     Icons.image_not_supported,
@@ -51,7 +64,6 @@ class NewsDetailsView extends StatelessWidget {
                 ),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
@@ -63,16 +75,16 @@ class NewsDetailsView extends StatelessWidget {
                     style: AppStyles.styleBold20(context)
                         .copyWith(color: AppColors.pureBlackColor),
                   ),
-                  const VerticalSpace(24),
+                  const VerticalSpace(12),
                   Row(
                     children: [
-                      TagWidget(
-                        tag:
-                        news.typeOption == 'practice' ? 'ممارسة' : "منافسة",
-                        backgroundColor:
-                        AppColors.primaryColor.withValues(alpha: 0.3),
-                        textColor: AppColors.pureBlackColor,
-                      ),
+                      if (tag != null)
+                        TagWidget(
+                          tag: tag,
+                          backgroundColor:
+                          AppColors.primaryColor.withValues(alpha: 0.3),
+                          textColor: AppColors.pureBlackColor,
+                        ),
                       const Spacer(),
                       Text(
                         formattedDate,
@@ -87,8 +99,7 @@ class NewsDetailsView extends StatelessWidget {
                     textAlign: TextAlign.justify,
                   ),
                   const VerticalSpace(64),
-                 if(news.activate!=null)
-                   RelatedNewsSection(news: news),
+                  if (news.activate != null) RelatedNewsSection(news: news),
                 ],
               ),
             ),
@@ -98,5 +109,3 @@ class NewsDetailsView extends StatelessWidget {
     );
   }
 }
-
-

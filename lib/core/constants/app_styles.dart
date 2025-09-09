@@ -245,13 +245,13 @@ abstract class AppStyles {
   }
 
   // ExtraBold (FontWeight.w800)
-  static TextStyle styleExtraBold16(BuildContext context) {
+  static TextStyle styleBold16(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(
         context,
         fontSize: isArabic(context) ? 15 : 16,
       ),
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: AppFonts.almaraiFont,
       color: AppColors.pureBlackColor,
     );

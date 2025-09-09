@@ -28,7 +28,7 @@ class LogoutSection extends StatelessWidget {
               const VerticalSpace(16),
               Text(
                 AppStrings.login.tr(),
-                style: AppStyles.styleExtraBold16(
+                style: AppStyles.styleBold16(
                   context,
                 ).copyWith(color: AppColors.pureBlackColor),
               ),
@@ -49,7 +49,7 @@ class LogoutSection extends StatelessWidget {
               const VerticalSpace(16),
               Text(
                 AppStrings.logout.tr(),
-                style: AppStyles.styleExtraBold16(
+                style: AppStyles.styleBold16(
                   context,
                 ).copyWith(color: AppColors.pureBlackColor),
               ),
