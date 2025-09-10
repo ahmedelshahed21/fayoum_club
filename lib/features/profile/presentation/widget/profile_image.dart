@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/app_assets.dart';
+import 'package:fayoum_club/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
 class ProfileImage extends StatelessWidget {
@@ -11,10 +11,7 @@ class ProfileImage extends StatelessWidget {
       child: Stack(
         alignment: AlignmentDirectional.bottomEnd,
         children: [
-          CircleAvatar(
-            radius: 48,
-            backgroundImage: AssetImage(AppAssets.man),
-          ),
+          CircleAvatar(radius: 48, backgroundImage: AssetImage(AppAssets.man)),
           // InkWell(
           //   onTap: () {},
           //   child: Container(

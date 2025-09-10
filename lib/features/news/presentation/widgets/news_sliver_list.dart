@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/app_indicators.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
@@ -26,21 +26,25 @@ class NewsSliverList extends StatelessWidget {
       children: [
         Text(
           'الأخبار',
-          style: AppStyles.styleBold18(context).copyWith(
-            color: AppColors.pureBlackColor,
-          ),
+          style: AppStyles.styleBold18(
+            context,
+          ).copyWith(color: AppColors.pureBlackColor),
         ),
         VerticalSpace(12),
         SliverList(
           delegate: SliverChildBuilderDelegate(
             childCount: hasMore ? news.length + 1 : news.length,
-                (context, index) {
+            (context, index) {
               if (index < news.length) {
                 return NewsTile(news: news[index]);
               } else {
-                return  Padding(
+                return Padding(
                   padding: EdgeInsets.all(8),
-                  child: Center(child: PrimaryCircularProgressIndicator(color: AppColors.primaryColor)),
+                  child: Center(
+                    child: PrimaryCircularProgressIndicator(
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
                 );
               }
             },
@@ -50,4 +54,3 @@ class NewsSliverList extends StatelessWidget {
     );
   }
 }
-

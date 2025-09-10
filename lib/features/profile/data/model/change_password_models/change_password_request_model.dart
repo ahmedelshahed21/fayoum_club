@@ -1,24 +1,21 @@
-import 'package:fayoum_club/core/constants/end_points.dart';
+import 'package:fayoum_club/core/utils/end_points.dart';
 
 class ChangePasswordRequestModel {
   final String currentPassword;
   final String newPassword;
   final String newPasswordConfirmation;
 
-
-  ChangePasswordRequestModel(
-      {
-        required this.currentPassword,
-        required this.newPassword,
-        required this.newPasswordConfirmation,
-      });
+  ChangePasswordRequestModel({
+    required this.currentPassword,
+    required this.newPassword,
+    required this.newPasswordConfirmation,
+  });
 
   Map<String, dynamic> toJson() {
     return {
       ApiKey.currentPassword: currentPassword,
       ApiKey.newPassword: newPassword,
       ApiKey.newPasswordConfirmation: newPasswordConfirmation,
-
     };
   }
 

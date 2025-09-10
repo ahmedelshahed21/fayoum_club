@@ -4,17 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../../core/constants/app_assets.dart';
-import '../../../../core/constants/app_colors.dart';
+import '../../../../core/utils/app_assets.dart';
+import '../../../../core/utils/app_colors.dart';
 import '../../../../core/databases/cache/user_data_manager.dart';
 import '../../../../core/services/service_locator.dart';
 
-
 class EditableProfileAvatar extends StatefulWidget {
-  const EditableProfileAvatar({
-    super.key,
-    required this.onImageSelected,
-  });
+  const EditableProfileAvatar({super.key, required this.onImageSelected});
   final Function(File?) onImageSelected;
   @override
   State<EditableProfileAvatar> createState() => _EditableProfileAvatarState();
@@ -23,7 +19,6 @@ class EditableProfileAvatar extends StatefulWidget {
 class _EditableProfileAvatarState extends State<EditableProfileAvatar> {
   File? _selectedImage;
   UserDataManager userDataManager = getIt<UserDataManager>();
-
 
   Future<void> pickImage() async {
     final ImagePicker picker = ImagePicker();
@@ -51,10 +46,13 @@ class _EditableProfileAvatarState extends State<EditableProfileAvatar> {
             child: CircleAvatar(
               radius: 48,
               backgroundColor: AppColors.lightGreyColor.withValues(alpha: 0.5),
-              backgroundImage: _selectedImage != null
-                  ? FileImage(_selectedImage!)
-                  : CachedNetworkImageProvider(userDataManager.getUserAvatarUrl()!)
-              as ImageProvider<Object>?,
+              backgroundImage:
+                  _selectedImage != null
+                      ? FileImage(_selectedImage!)
+                      : CachedNetworkImageProvider(
+                            userDataManager.getUserAvatarUrl()!,
+                          )
+                          as ImageProvider<Object>?,
             ),
           ),
         ),
@@ -70,15 +68,20 @@ class _EditableProfileAvatarState extends State<EditableProfileAvatar> {
               backgroundColor: AppColors.pureWhiteColor,
               radius: 18,
               child: CircleAvatar(
-                  radius: 17,
-                  backgroundColor: AppColors.pureWhiteColor,
-                  child: SvgPicture.asset(AppAssets.editAvatarIcon,
-                    height: 20,
-                    colorFilter: ColorFilter.mode(AppColors.primaryColor, BlendMode.srcIn),
-                  )),
+                radius: 17,
+                backgroundColor: AppColors.pureWhiteColor,
+                child: SvgPicture.asset(
+                  AppAssets.editAvatarIcon,
+                  height: 20,
+                  colorFilter: ColorFilter.mode(
+                    AppColors.primaryColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

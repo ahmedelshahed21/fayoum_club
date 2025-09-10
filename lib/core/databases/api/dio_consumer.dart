@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/end_points.dart' show EndPoints;
+import 'package:fayoum_club/core/utils/end_points.dart' show EndPoints;
 import 'package:fayoum_club/core/databases/api/api_consumer.dart'
     show ApiConsumer;
 import 'package:dio/dio.dart';

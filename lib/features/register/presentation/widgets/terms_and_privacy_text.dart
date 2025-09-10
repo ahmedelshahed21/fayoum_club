@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 
 class TermsAndPrivacyText extends StatelessWidget {
   final VoidCallback onTermsTap;

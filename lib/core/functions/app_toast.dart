@@ -1,6 +1,6 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_fonts.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_fonts.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 

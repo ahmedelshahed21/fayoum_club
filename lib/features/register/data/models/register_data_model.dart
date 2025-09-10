@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/end_points.dart';
+import 'package:fayoum_club/core/utils/end_points.dart';
 
 class RegisterDataModel {
   final String name;
@@ -22,7 +22,7 @@ class RegisterDataModel {
   Map<String, dynamic> toJson() {
     return {
       ApiKey.name: name,
-      ApiKey.phoneNumber: phoneNumber,
+      ApiKey.phone: phoneNumber,
       ApiKey.email: email,
       ApiKey.password: password,
       ApiKey.isMember: isMember,
@@ -34,10 +34,10 @@ class RegisterDataModel {
   factory RegisterDataModel.fromJson(Map<String, dynamic> json) {
     return RegisterDataModel(
       name: json[ApiKey.name],
-      phoneNumber: json[ApiKey.phoneNumber],
+      phoneNumber: json[ApiKey.phone],
       email: json[ApiKey.email],
       password: json[ApiKey.password],
-      isMember:  json[ApiKey.isMember],
+      isMember: json[ApiKey.isMember],
       code: json[ApiKey.code],
       gender: json[ApiKey.gender],
     );

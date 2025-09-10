@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/functions/navigation.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/state_management/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
@@ -33,14 +33,17 @@ class LoginView extends StatelessWidget {
               const VerticalSpace(12),
               const Spacer(),
               SecondaryButton(
-                  text: AppStrings.continueAsAGuest.tr(),
-                  borderColor: AppColors.primaryColor,
-                  onPressed: () {
-                    FocusScope.of(context).unfocus();
-                    context.read<BottomNavigationBarCubit>().changeIndex(0);
-                    context.read<UserSessionCubit>().setGuestStatus(isGuest: true);
-                    customGo(context, AppRouter.homePage);
-                  }),
+                text: AppStrings.continueAsAGuest.tr(),
+                borderColor: AppColors.primaryColor,
+                onPressed: () {
+                  FocusScope.of(context).unfocus();
+                  context.read<BottomNavigationBarCubit>().changeIndex(0);
+                  context.read<UserSessionCubit>().setGuestStatus(
+                    isGuest: true,
+                  );
+                  customGo(context, AppRouter.homePage);
+                },
+              ),
 
               HaveAnAccount(
                 text: AppStrings.doNotHaveAnAccount.tr(),

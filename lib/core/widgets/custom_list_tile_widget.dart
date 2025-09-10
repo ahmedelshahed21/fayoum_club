@@ -1,10 +1,9 @@
 import 'package:fayoum_club/core/widgets/icon_in_box_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_styles.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_styles.dart';
 import '../../../../core/widgets/spacing.dart';
-
 
 class CustomListTileWidget extends StatelessWidget {
   const CustomListTileWidget({
@@ -14,9 +13,9 @@ class CustomListTileWidget extends StatelessWidget {
     this.svgPath,
     required this.onPressed,
   }) : assert(
-  iconData != null || svgPath != null,
-  'Provide either iconData or svgPath',
-  );
+         iconData != null || svgPath != null,
+         'Provide either iconData or svgPath',
+       );
 
   final String title;
   final IconData? iconData;
@@ -46,24 +45,25 @@ class CustomListTileWidget extends StatelessWidget {
           child: Row(
             children: [
               IconInBoxWidget(
-                child: iconData != null
-                    ? Icon(iconData, color: AppColors.primaryColor)
-                    : SvgPicture.asset(
-                  svgPath!,
-                  height: 22,
-                  colorFilter:  ColorFilter.mode(
-                    AppColors.primaryColor,
-                    BlendMode.srcIn,
-                  ),
-                ),
+                child:
+                    iconData != null
+                        ? Icon(iconData, color: AppColors.primaryColor)
+                        : SvgPicture.asset(
+                          svgPath!,
+                          height: 22,
+                          colorFilter: ColorFilter.mode(
+                            AppColors.primaryColor,
+                            BlendMode.srcIn,
+                          ),
+                        ),
               ),
               const HorizontalSpace(16),
               Expanded(
                 child: Text(
                   title,
-                  style: AppStyles.styleRegular16(context).copyWith(
-                    color: AppColors.offGreyColor,
-                  ),
+                  style: AppStyles.styleRegular16(
+                    context,
+                  ).copyWith(color: AppColors.offGreyColor),
                 ),
               ),
               Icon(
@@ -77,7 +77,4 @@ class CustomListTileWidget extends StatelessWidget {
       ),
     );
   }
-
-
 }
-

@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/end_points.dart';
+import 'package:fayoum_club/core/utils/end_points.dart';
 
 class BasicModel {
   final int version;
@@ -18,9 +18,9 @@ class BasicModel {
   factory BasicModel.fromJson(Map<String, dynamic> json) {
     return BasicModel(
       version: json['version'] as int,
-      code: json[ ApiKey.code] as int,
-      status: json[ ApiKey.status] as String,
-      message: json[ ApiKey.message] as String?,
+      code: json[ApiKey.code] as int,
+      status: json[ApiKey.status] as String,
+      message: json[ApiKey.message] as String?,
       data: json[ApiKey.data],
     );
   }

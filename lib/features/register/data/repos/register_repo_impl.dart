@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_strings.dart';
-import 'package:fayoum_club/core/constants/end_points.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
+import 'package:fayoum_club/core/utils/end_points.dart';
 import 'package:fayoum_club/core/databases/api/dio_consumer.dart';
 import 'package:fayoum_club/core/databases/cache/secure_storage_helper.dart';
 import 'package:fayoum_club/core/databases/cache/user_data_manager.dart';
@@ -55,15 +55,23 @@ class RegisterRepoImpl implements RegisterRepo {
             token: response[ApiKey.data][ApiKey.accessToken],
           );
 
-          userDataManager.saveUserName(name: response[ApiKey.data][ApiKey.name]);
-          userDataManager.saveUserPhoneNumber(phoneNumber: response[ApiKey.data][ApiKey.phone]);
-          userDataManager.saveUserEmail(email: response[ApiKey.data][ApiKey.email]);
-          userDataManager.saveUserGender(gender: response[ApiKey.data][ApiKey.gender],);
+          userDataManager.saveUserName(
+            name: response[ApiKey.data][ApiKey.name],
+          );
+          userDataManager.saveUserPhoneNumber(
+            phoneNumber: response[ApiKey.data][ApiKey.phone],
+          );
+          userDataManager.saveUserEmail(
+            email: response[ApiKey.data][ApiKey.email],
+          );
+          userDataManager.saveUserGender(
+            gender: response[ApiKey.data][ApiKey.gender],
+          );
           response[ApiKey.data][ApiKey.code] == null
               ? null
               : userDataManager.saveUserMembership(
-              membershipCode: response[ApiKey.data][ApiKey.code]);
-
+                membershipCode: response[ApiKey.data][ApiKey.code],
+              );
 
           return Right(registerSuccessModel);
         } else {

@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_strings.dart';
-import 'package:fayoum_club/core/constants/end_points.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
+import 'package:fayoum_club/core/utils/end_points.dart';
 import 'package:fayoum_club/core/databases/api/dio_consumer.dart';
 import 'package:fayoum_club/core/errors/failure.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_cubit.dart';

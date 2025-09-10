@@ -1,23 +1,19 @@
-class Activate {
+import 'package:fayoum_club/core/utils/end_points.dart';
+
+class ActivityModel {
   final int id;
   final String title;
 
-  Activate({
-    required this.id,
-    required this.title,
-  });
+  ActivityModel({required this.id, required this.title});
 
-  factory Activate.fromJson(Map<String, dynamic> json) {
-    return Activate(
-      id: json['id'] ?? 0,
-      title: json['title'] ?? '',
+  factory ActivityModel.fromJson(Map<String, dynamic> json) {
+    return ActivityModel(
+      id: json[ApiKey.id] ?? 0,
+      title: json[ApiKey.title] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      "id": id,
-      "title": title,
-    };
+    return {ApiKey.id: id, ApiKey.title: title};
   }
 }

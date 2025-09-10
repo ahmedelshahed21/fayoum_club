@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,10 +13,7 @@ class BackIconButton extends StatelessWidget {
         GoRouter.of(context).pop();
       },
       color: iconColor ?? AppColors.pureWhiteColor,
-      icon: Icon(
-       Icons.arrow_back_ios_outlined,
-        size: 28,
-      ),
+      icon: Icon(Icons.arrow_back_ios_outlined, size: 28),
     );
   }
 }

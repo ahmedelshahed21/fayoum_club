@@ -3,10 +3,10 @@ import 'package:fayoum_club/core/widgets/app_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
-import '../constants/app_assets.dart';
-import '../constants/app_colors.dart';
-import '../constants/app_strings.dart';
-import '../constants/app_styles.dart';
+import '../utils/app_assets.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_strings.dart';
+import '../utils/app_styles.dart';
 import '../functions/navigation.dart';
 import '../routes/app_router.dart';
 

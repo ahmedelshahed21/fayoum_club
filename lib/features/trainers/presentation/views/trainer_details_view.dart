@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_constants.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_constants.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
@@ -14,12 +14,9 @@ class TrainerDetailsView extends StatelessWidget {
 
   final CaptainModel trainer;
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       appBar: PrimaryAppBar(title: "المدرب"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),

@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:flutter/material.dart';
 
@@ -18,16 +18,16 @@ class DotsIndicator extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         news.length,
-            (index) => AnimatedContainer(
+        (index) => AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           margin: const EdgeInsets.symmetric(horizontal: 4),
           width: _currentIndex == index ? 16 : 8,
           height: 8,
           decoration: BoxDecoration(
             color:
-            _currentIndex == index
-                ? AppColors.primaryColor
-                : AppColors.greyColor.withValues(alpha: 0.3),
+                _currentIndex == index
+                    ? AppColors.primaryColor
+                    : AppColors.greyColor.withValues(alpha: 0.3),
             borderRadius: BorderRadius.circular(4),
           ),
         ),

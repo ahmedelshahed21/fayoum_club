@@ -5,7 +5,7 @@ import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_c
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../core/constants/app_colors.dart';
+import '../core/utils/app_colors.dart';
 import '../core/routes/app_router.dart';
 import '../core/services/service_locator.dart';
 import '../core/state_management/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
@@ -29,9 +29,7 @@ class FayoumClubApp extends StatelessWidget {
         BlocProvider<BannersCubit>(
           create: (_) => getIt<BannersCubit>()..getBanners(),
         ),
-        BlocProvider<NewsCubit>(
-          create: (_) => getIt<NewsCubit>()..fetchNews(),
-        ),
+        BlocProvider<NewsCubit>(create: (_) => getIt<NewsCubit>()..fetchNews()),
         BlocProvider<ActivitesCubit>(
           create: (_) => getIt<ActivitesCubit>()..getActivites(),
         ),

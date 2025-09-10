@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/functions/navigation.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/app_name_and_logo_widget.dart';

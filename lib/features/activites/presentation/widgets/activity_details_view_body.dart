@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_constants.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_constants.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/show_login_is_required_dialog.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/state_management/user_cubit/user_session_cubit.dart';
@@ -57,7 +57,8 @@ class ActivityDetailsViewBody extends StatelessWidget {
                 ),
                 flexibleSpace: FlexibleSpaceBar(
                   background: CachedNetworkImage(
-                    imageUrl: activityDetailsData.image ?? AppConstants.noImageUrl,
+                    imageUrl:
+                        activityDetailsData.image ?? AppConstants.noImageUrl,
                     width: double.infinity,
                     fit: BoxFit.cover,
                     placeholder: (context, url) => const ImageLoadingEffect(),
@@ -95,7 +96,9 @@ class ActivityDetailsViewBody extends StatelessWidget {
               ),
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                sliver: CategorizedNewsSliverListSection(activityId: activityDetailsData.id),
+                sliver: CategorizedNewsSliverListSection(
+                  activityId: activityDetailsData.id,
+                ),
               ),
             ],
           ),

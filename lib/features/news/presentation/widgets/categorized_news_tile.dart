@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_constants.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_constants.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
@@ -49,9 +49,10 @@ class CategorizedNewsTile extends StatelessWidget {
                   height: 80,
                   width: 96,
                   fit: BoxFit.cover,
-                  imageUrl: news.image.isNotEmpty
-                      ? news.image
-                      : AppConstants.noImageUrl,
+                  imageUrl:
+                      news.image.isNotEmpty
+                          ? news.image
+                          : AppConstants.noImageUrl,
                   placeholder: (context, url) => const ImageLoadingEffect(),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
@@ -83,5 +84,3 @@ class CategorizedNewsTile extends StatelessWidget {
     );
   }
 }
-
-

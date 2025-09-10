@@ -1,9 +1,8 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/is_arabic.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
-
 
 class ProfileInfoContainer extends StatelessWidget {
   final String labelText;
@@ -22,26 +21,31 @@ class ProfileInfoContainer extends StatelessWidget {
       children: [
         Text(
           labelText,
-          style: AppStyles.styleSemiBold12(context)
-              .copyWith(color: AppColors.greyColor),
+          style: AppStyles.styleSemiBold12(
+            context,
+          ).copyWith(color: AppColors.greyColor),
         ),
         const VerticalSpace(4),
         Container(
           width: double.infinity,
-        //  constraints: const BoxConstraints(maxHeight: 50),
+          //  constraints: const BoxConstraints(maxHeight: 50),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
             color: AppColors.lightGreyColor,
             borderRadius: BorderRadius.circular(4),
           ),
           child: Align(
-            alignment: isArabic(context) ?Alignment.centerRight : Alignment.centerLeft,
+            alignment:
+                isArabic(context)
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
                 valueText,
-                style: AppStyles.styleBold18(context)
-                    .copyWith(color: AppColors.pureBlackColor),
+                style: AppStyles.styleBold18(
+                  context,
+                ).copyWith(color: AppColors.pureBlackColor),
                 textAlign: TextAlign.start,
               ),
             ),

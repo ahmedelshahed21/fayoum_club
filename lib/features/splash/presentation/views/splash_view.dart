@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fayoum_club/features/splash/presentation/widgets/splash_view_body.dart';
 
@@ -9,7 +9,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-        body: SplashViewBody()
+      body: SplashViewBody(),
     );
   }
 }

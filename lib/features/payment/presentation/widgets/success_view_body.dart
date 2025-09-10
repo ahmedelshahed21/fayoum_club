@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/navigation.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/state_management/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
@@ -38,7 +38,9 @@ class SuccessViewBody extends StatelessWidget {
             const VerticalSpace(12),
             Text(
               AppStrings.paymentSuccess.tr(),
-              style: AppStyles.styleBold28(context).copyWith(color: AppColors.greenColor),
+              style: AppStyles.styleBold28(
+                context,
+              ).copyWith(color: AppColors.greenColor),
               textAlign: TextAlign.center,
             ),
             const VerticalSpace(32),
@@ -76,12 +78,12 @@ class SuccessViewBody extends StatelessWidget {
                   ).copyWith(color: AppColors.pureBlackColor),
                 ),
                 PriceWidget(
-                    price: amount,
-                    priceStyle: AppStyles.styleBold32(
-                      context,
-                    ).copyWith(color: AppColors.blueColor),
-                    currency: 'ج.م'
-                )
+                  price: amount,
+                  priceStyle: AppStyles.styleBold32(
+                    context,
+                  ).copyWith(color: AppColors.blueColor),
+                  currency: 'ج.م',
+                ),
               ],
             ),
             const VerticalSpace(100),

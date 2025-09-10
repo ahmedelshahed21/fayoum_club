@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
@@ -28,25 +28,27 @@ class TrainerTile extends StatelessWidget {
             CircleAvatar(
               radius: 40,
               backgroundColor: AppColors.primaryColor.withValues(alpha: 0.1),
-              backgroundImage: trainer.image != null
-                  ? CachedNetworkImageProvider(trainer.image!)
-                  : null,
-              child: trainer.image == null
-                  ? Icon(
-                Iconsax.user_copy,
-                color: AppColors.greenColor,
-                size: 32,
-              )
-                  : null,
+              backgroundImage:
+                  trainer.image != null
+                      ? CachedNetworkImageProvider(trainer.image!)
+                      : null,
+              child:
+                  trainer.image == null
+                      ? Icon(
+                        Iconsax.user_copy,
+                        color: AppColors.greenColor,
+                        size: 32,
+                      )
+                      : null,
             ),
 
             const VerticalSpace(8),
             Text(
               trainer.name,
               textAlign: TextAlign.center,
-              style: AppStyles.styleBold14(context).copyWith(
-                color: AppColors.primaryColor,
-              ),
+              style: AppStyles.styleBold14(
+                context,
+              ).copyWith(color: AppColors.primaryColor),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -56,5 +58,3 @@ class TrainerTile extends StatelessWidget {
     );
   }
 }
-
-

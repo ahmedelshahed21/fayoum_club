@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/features/activites/presentation/views/activites_view.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_view.dart';
 import 'package:fayoum_club/features/more/presentation/views/more_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import '../../../../core/constants/app_styles.dart';
+import '../../../../core/utils/app_styles.dart';
 import '../../../../core/state_management/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
 
 class HomePage extends StatefulWidget {

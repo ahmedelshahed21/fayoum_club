@@ -5,8 +5,8 @@ import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/core/widgets/tag_widget.dart';
 import 'package:fayoum_club/features/news/presentation/widgets/related_news_section.dart';
 import 'package:flutter/material.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 
@@ -54,14 +54,12 @@ class NewsDetailsView extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => const ImageLoadingEffect(),
-                errorWidget: (context, url, error) => Container(
-                  height: 200,
-                  color: AppColors.lightGreyColor,
-                  child: const Icon(
-                    Icons.image_not_supported,
-                    size: 60,
-                  ),
-                ),
+                errorWidget:
+                    (context, url, error) => Container(
+                      height: 200,
+                      color: AppColors.lightGreyColor,
+                      child: const Icon(Icons.image_not_supported, size: 60),
+                    ),
               ),
             ),
             Padding(
@@ -72,8 +70,9 @@ class NewsDetailsView extends StatelessWidget {
                   const VerticalSpace(16),
                   Text(
                     news.title,
-                    style: AppStyles.styleBold20(context)
-                        .copyWith(color: AppColors.pureBlackColor),
+                    style: AppStyles.styleBold20(
+                      context,
+                    ).copyWith(color: AppColors.pureBlackColor),
                   ),
                   const VerticalSpace(12),
                   Row(
@@ -81,8 +80,9 @@ class NewsDetailsView extends StatelessWidget {
                       if (tag != null)
                         TagWidget(
                           tag: tag,
-                          backgroundColor:
-                          AppColors.primaryColor.withValues(alpha: 0.3),
+                          backgroundColor: AppColors.primaryColor.withValues(
+                            alpha: 0.3,
+                          ),
                           textColor: AppColors.pureBlackColor,
                         ),
                       const Spacer(),

@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/widgets/app_buttons.dart';
 import 'package:fayoum_club/core/widgets/error_container.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';

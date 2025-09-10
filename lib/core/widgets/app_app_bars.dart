@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/state_management/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
 import 'package:fayoum_club/core/widgets/back_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +58,8 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.pureWhiteColor,
-      leading: leading ??
+      leading:
+          leading ??
           IconButton(
             onPressed: () {
               context.read<BottomNavigationBarCubit>().changeIndex(0);

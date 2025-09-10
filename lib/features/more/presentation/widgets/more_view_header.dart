@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/databases/cache/user_data_manager.dart';
 import 'package:fayoum_club/core/functions/is_arabic.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';
@@ -15,9 +15,7 @@ class MoreViewHeader extends StatelessWidget {
     final UserDataManager userData = getIt<UserDataManager>();
     return Material(
       color: AppColors.pureWhiteColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -25,36 +23,39 @@ class MoreViewHeader extends StatelessWidget {
             CircleAvatar(
               radius: 36,
               backgroundColor: AppColors.primaryColor,
-              backgroundImage:  const AssetImage("assets/images/man.png"),
+              backgroundImage: const AssetImage("assets/images/man.png"),
             ),
             const HorizontalSpace(16),
             Expanded(
               child: Column(
-                crossAxisAlignment: isArabic(context)
-                    ? CrossAxisAlignment.start
-                    : CrossAxisAlignment.end,
+                crossAxisAlignment:
+                    isArabic(context)
+                        ? CrossAxisAlignment.start
+                        : CrossAxisAlignment.end,
                 children: [
                   FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
-                      userData.getUserName()??'',
-                      style: AppStyles.styleExtraBold18(context)
-                          .copyWith(color: AppColors.pureBlackColor),
+                      userData.getUserName() ?? '',
+                      style: AppStyles.styleExtraBold18(
+                        context,
+                      ).copyWith(color: AppColors.pureBlackColor),
                     ),
                   ),
                   const VerticalSpace(4),
                   Text(
-                    userData.getUserPhoneNumber()??'',
-                    style: AppStyles.styleSemiBold18(context)
-                        .copyWith(color: AppColors.greyColor),
+                    userData.getUserPhoneNumber() ?? '',
+                    style: AppStyles.styleSemiBold18(
+                      context,
+                    ).copyWith(color: AppColors.greyColor),
                   ),
                 ],
               ),
             ),
             const Spacer(),
-          if(userData.getUserMembership()!=null)
-             Icon(Iconsax.verify, color: AppColors.primaryColor, size: 32),
-            HorizontalSpace(4)
+            if (userData.getUserMembership() != null)
+              Icon(Iconsax.verify, color: AppColors.primaryColor, size: 32),
+            HorizontalSpace(4),
           ],
         ),
       ),

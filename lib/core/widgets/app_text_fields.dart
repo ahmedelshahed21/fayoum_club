@@ -1,10 +1,9 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/input_border.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 
 class PrimaryTextFormField extends StatelessWidget {
   final String? labelText;
@@ -24,24 +23,25 @@ class PrimaryTextFormField extends StatelessWidget {
   final String? svgPath;
   final void Function()? onTap;
 
-  const PrimaryTextFormField(
-      {super.key,
-        this.labelText,
-        this.hintText,
-        this.controller,
-        this.obscureText,
-        this.suffixIcon,
-        this.validate,
-        this.type,
-        this.onSubmit,
-        this.onChanged,
-        this.prefixIcon,
-        this.maxLength,
-        this.minLines,
-        this.maxLines,
-        this.readOnly,
-        this.onTap,
-        this.svgPath});
+  const PrimaryTextFormField({
+    super.key,
+    this.labelText,
+    this.hintText,
+    this.controller,
+    this.obscureText,
+    this.suffixIcon,
+    this.validate,
+    this.type,
+    this.onSubmit,
+    this.onChanged,
+    this.prefixIcon,
+    this.maxLength,
+    this.minLines,
+    this.maxLines,
+    this.readOnly,
+    this.onTap,
+    this.svgPath,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -64,13 +64,13 @@ class PrimaryTextFormField extends StatelessWidget {
           minLines: minLines,
           maxLines: maxLines,
           maxLength: maxLength,
-          buildCounter: (
-              context, {
+          buildCounter:
+              (
+                context, {
                 required currentLength,
                 required isFocused,
                 required maxLength,
-              }) =>
-          const SizedBox.shrink(),
+              }) => const SizedBox.shrink(),
           obscureText: obscureText ?? false,
           onFieldSubmitted: onSubmit,
           onChanged: onChanged,
@@ -81,15 +81,19 @@ class PrimaryTextFormField extends StatelessWidget {
           validator: validate,
           decoration: InputDecoration(
             border: InputBorder.none,
-            prefixIcon: svgPath != null
-                ? Transform.scale(
-                scale: 0.6,
-                child: SvgPicture.asset(
-                  svgPath!,
-                  colorFilter: ColorFilter.mode(
-                      AppColors.lightGreyColor, BlendMode.srcIn),
-                ))
-                : prefixIcon,
+            prefixIcon:
+                svgPath != null
+                    ? Transform.scale(
+                      scale: 0.6,
+                      child: SvgPicture.asset(
+                        svgPath!,
+                        colorFilter: ColorFilter.mode(
+                          AppColors.lightGreyColor,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                    )
+                    : prefixIcon,
             suffixIcon: suffixIcon,
             labelText: labelText,
             labelStyle: AppStyles.styleRegular16(
@@ -166,9 +170,9 @@ class SecondaryTextFormField extends StatelessWidget {
           onChanged: onChanged,
           onTap: onTap,
           readOnly: readOnly ?? false,
-          style: AppStyles.styleRegular16(context).copyWith(
-            color: AppColors.pureBlackColor,
-          ),
+          style: AppStyles.styleRegular16(
+            context,
+          ).copyWith(color: AppColors.pureBlackColor),
           keyboardType: textInputType,
           obscureText: obscureText ?? false,
           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -179,37 +183,47 @@ class SecondaryTextFormField extends StatelessWidget {
           minLines: minLines,
           maxLines: maxLines,
           maxLength: maxLength,
-          buildCounter: (_,
-              {required currentLength,
+          buildCounter:
+              (
+                _, {
+                required currentLength,
                 required isFocused,
-                required maxLength}) =>
-          const SizedBox.shrink(),
+                required maxLength,
+              }) => const SizedBox.shrink(),
           decoration: InputDecoration(
             labelText: labelText,
             filled: true,
             fillColor: Colors.white,
-            contentPadding:
-            const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+            contentPadding: const EdgeInsets.symmetric(
+              vertical: 16.0,
+              horizontal: 16.0,
+            ),
             prefix: prefix,
             suffix: suffix,
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             suffixIconColor: AppColors.lightGreyColor,
             hintText: hintText,
-            hintStyle: AppStyles.styleMedium16(context)
-                .copyWith(color: AppColors.lightGreyColor),
-            enabledBorder:
-            buildOutlineInputBorder(color: AppColors.lightGreyColor),
+            hintStyle: AppStyles.styleMedium16(
+              context,
+            ).copyWith(color: AppColors.lightGreyColor),
+            enabledBorder: buildOutlineInputBorder(
+              color: AppColors.lightGreyColor,
+            ),
             focusedBorder: buildOutlineInputBorder(
-                color: readOnly ?? false
-                    ? AppColors.lightGreyColor
-                    : AppColors.primaryColor,
-                width: readOnly ?? false ? 1 : 1.4),
+              color:
+                  readOnly ?? false
+                      ? AppColors.lightGreyColor
+                      : AppColors.primaryColor,
+              width: readOnly ?? false ? 1 : 1.4,
+            ),
             errorBorder: buildOutlineInputBorder(color: AppColors.redColor),
-            focusedErrorBorder:
-            buildOutlineInputBorder(color: AppColors.redColor),
-            disabledBorder:
-            buildOutlineInputBorder(color: AppColors.lightGreyColor),
+            focusedErrorBorder: buildOutlineInputBorder(
+              color: AppColors.redColor,
+            ),
+            disabledBorder: buildOutlineInputBorder(
+              color: AppColors.lightGreyColor,
+            ),
           ),
           controller: controller,
         ),

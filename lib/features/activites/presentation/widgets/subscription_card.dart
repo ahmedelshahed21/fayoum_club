@@ -1,15 +1,11 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/price_widget.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 
 class SubscriptionCard extends StatelessWidget {
-  const SubscriptionCard({
-    super.key,
-    required this.title,
-    required this.price,
-  });
+  const SubscriptionCard({super.key, required this.title, required this.price});
 
   final String title;
   final String price;
@@ -33,10 +29,7 @@ class SubscriptionCard extends StatelessWidget {
             ).copyWith(color: AppColors.pureBlackColor),
           ),
           const VerticalSpace(6),
-          PriceWidget(
-            price: price,
-            currency: 'ج.م',
-          ),
+          PriceWidget(price: price, currency: 'ج.م'),
         ],
       ),
     );

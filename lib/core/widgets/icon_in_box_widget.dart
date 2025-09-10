@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+import '../utils/app_colors.dart';
 
 class IconInBoxWidget extends StatelessWidget {
   const IconInBoxWidget({super.key, required this.child});

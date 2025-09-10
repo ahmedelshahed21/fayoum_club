@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_strings.dart';
+import '../../../../core/utils/app_strings.dart';
 import '../../../../core/databases/cache/cache_helper.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/widgets/language_selection_tile.dart';

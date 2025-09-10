@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/profile/presentation/widget/profile_image.dart';
@@ -26,8 +26,7 @@ class ProfileView extends StatelessWidget {
             const VerticalSpace(20),
             ProfileInfoContainer(
               labelText: AppStrings.name.tr(),
-              valueText:
-              userData.getUserName()!,
+              valueText: userData.getUserName()!,
             ),
             const VerticalSpace(12),
             ProfileInfoContainer(
@@ -45,7 +44,9 @@ class ProfileView extends StatelessWidget {
               valueText: "********",
             ),
             const VerticalSpace(16),
-            userData.getUserMembership() != null ? Icon(Iconsax.verify,color: AppColors.primaryColor,size: 96,):SizedBox.shrink(),
+            userData.getUserMembership() != null
+                ? Icon(Iconsax.verify, color: AppColors.primaryColor, size: 96)
+                : SizedBox.shrink(),
           ],
         ),
       ),

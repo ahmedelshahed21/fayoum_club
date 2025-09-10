@@ -1,3 +1,5 @@
+import 'package:fayoum_club/core/utils/end_points.dart';
+
 class ActivitesModel {
   final int? version;
   final int? code;
@@ -15,13 +17,14 @@ class ActivitesModel {
 
   factory ActivitesModel.fromJson(Map<String, dynamic> json) {
     return ActivitesModel(
-      version: json['version'] as int?,
-      code: json['code'] as int?,
-      status: json['status'] as String?,
-      message: json['message'] as String?,
-      data: (json['data'] as List<dynamic>?)
-          ?.map((e) => ActivityItem.fromJson(e))
-          .toList() ??
+      version: json[ApiKey.version] as int?,
+      code: json[ApiKey.code] as int?,
+      status: json[ApiKey.status] as String?,
+      message: json[ApiKey.message] as String?,
+      data:
+          (json[ApiKey.data] as List<dynamic>?)
+              ?.map((e) => ActivityItem.fromJson(e))
+              .toList() ??
           [],
     );
   }
@@ -52,15 +55,15 @@ class ActivityItem {
 
   factory ActivityItem.fromJson(Map<String, dynamic> json) {
     return ActivityItem(
-      id: json['id'] as int?,
-      title: json['title'] as String?,
-      description: json['description'] as String?,
-      type: json['type'] as String?,
-      image: json['image'] as String?,
-      monyMember: json['monyMember'] as int?,
-      mony: json['mony'] as int?,
-      createdAt: json['createdAt'] as String?,
-      updatedAt: json['updatedAt'] as String?,
+      id: json[ApiKey.id] as int?,
+      title: json[ApiKey.title] as String?,
+      description: json[ApiKey.description] as String?,
+      type: json[ApiKey.type] as String?,
+      image: json[ApiKey.image] as String?,
+      monyMember: json[ApiKey.moneyMember] as int?,
+      mony: json[ApiKey.money] as int?,
+      createdAt: json[ApiKey.createdAt] as String?,
+      updatedAt: json[ApiKey.updatedAt] as String?,
     );
   }
 }

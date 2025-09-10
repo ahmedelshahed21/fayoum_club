@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart' show PrimaryAppBar;
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/more/presentation/widgets/contact_us_form.dart';

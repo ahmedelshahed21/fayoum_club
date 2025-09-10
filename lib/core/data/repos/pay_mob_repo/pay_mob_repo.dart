@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/app_constants.dart';
+import 'package:fayoum_club/core/utils/app_constants.dart';
 import 'package:fayoum_club/core/databases/cache/user_data_manager.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';
 import 'package:dio/dio.dart';

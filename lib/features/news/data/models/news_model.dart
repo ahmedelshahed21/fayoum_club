@@ -1,22 +1,22 @@
 import 'package:fayoum_club/core/data/models/activity_model.dart';
 import 'package:fayoum_club/core/data/models/pagination_model.dart';
-
+import 'package:fayoum_club/core/utils/end_points.dart';
 
 class NewsModel {
   final List<NewsItem> items;
-  final Pagination pagination;
+  final PaginationModel pagination;
 
-  NewsModel({
-    required this.items,
-    required this.pagination,
-  });
+  NewsModel({required this.items, required this.pagination});
 
   factory NewsModel.fromJson(Map<String, dynamic> json) {
     return NewsModel(
-      items: (json['data']['items'] as List)
-          .map((e) => NewsItem.fromJson(e))
-          .toList(),
-      pagination: Pagination.fromJson(json['data']['pagination']),
+      items:
+          (json[ApiKey.data][ApiKey.items] as List)
+              .map((e) => NewsItem.fromJson(e))
+              .toList(),
+      pagination: PaginationModel.fromJson(
+        json[ApiKey.data][ApiKey.pagination],
+      ),
     );
   }
 }
@@ -25,7 +25,7 @@ class NewsItem {
   final int id;
   final String title;
   final String description;
-  final Activate? activate;
+  final ActivityModel? activate;
   final int status;
   final String typeOption;
   final String image;
@@ -46,18 +46,18 @@ class NewsItem {
 
   factory NewsItem.fromJson(Map<String, dynamic> json) {
     return NewsItem(
-      id: json['id'],
-      title: json['title'] ?? '',
-      description: json['description'] ?? '',
-      activate: json['activate'] != null
-          ? Activate.fromJson(json['activate'])
-          : null,
-      status: json['status'],
+      id: json[ApiKey.id],
+      title: json[ApiKey.title] ?? '',
+      description: json[ApiKey.description] ?? '',
+      activate:
+          json['activate'] != null
+              ? ActivityModel.fromJson(json['activate'])
+              : null,
+      status: json[ApiKey.status],
       typeOption: json['typeOption'] ?? '',
-      image: json['image'] ?? '',
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
+      image: json[ApiKey.image] ?? '',
+      createdAt: DateTime.parse(json[ApiKey.createdAt]),
+      updatedAt: DateTime.parse(json[ApiKey.updatedAt]),
     );
   }
 }
-

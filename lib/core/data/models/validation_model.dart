@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/end_points.dart';
+import 'package:fayoum_club/core/utils/end_points.dart';
 
 class ValidationModel {
   final String status;

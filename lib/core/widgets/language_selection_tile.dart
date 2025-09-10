@@ -1,6 +1,6 @@
-import 'package:fayoum_club/core/constants/app_assets.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart' show AppColors;
-import 'package:fayoum_club/core/constants/app_styles.dart' show AppStyles;
+import 'package:fayoum_club/core/utils/app_assets.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart' show AppColors;
+import 'package:fayoum_club/core/utils/app_styles.dart' show AppStyles;
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_assets.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_assets.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
 // import 'package:fayoum_club/core/databases/cache/app_data_manager.dart';
 import 'package:fayoum_club/core/functions/navigation.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
@@ -32,7 +32,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     Future.delayed(const Duration(seconds: 3), () {
       if (!mounted) return;
 
-    if (userCubit.state.isGuest == true) {
+      if (userCubit.state.isGuest == true) {
         customGo(context, AppRouter.loginView);
       } else if (userCubit.state.isGuest == false) {
         customGo(context, AppRouter.homePage);

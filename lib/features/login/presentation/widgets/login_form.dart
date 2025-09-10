@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/functions/app_snack_bars.dart';
 import 'package:fayoum_club/core/functions/navigation.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
@@ -29,9 +29,6 @@ class _LoginFormState extends State<LoginForm> {
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   String? oneSignalToken;
-
-
-
 
   @override
   Widget build(BuildContext context) {

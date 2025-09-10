@@ -1,6 +1,6 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_constants.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_constants.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
@@ -21,7 +21,9 @@ class ActivityCard extends StatelessWidget {
           () => runIfConnected(
             context: context,
             onConnected: () {
-              GoRouter.of(context).push(AppRouter.activityDetailsView, extra: activityItem.id);
+              GoRouter.of(
+                context,
+              ).push(AppRouter.activityDetailsView, extra: activityItem.id);
             },
           ),
       child: Card(
@@ -31,10 +33,10 @@ class ActivityCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
           side: BorderSide(
             color: AppColors.primaryColor.withValues(alpha: 0.3),
-            width: 1.5
-          )
+            width: 1.5,
+          ),
         ),
-        margin: EdgeInsets.symmetric(vertical:2.0),
+        margin: EdgeInsets.symmetric(vertical: 2.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +44,10 @@ class ActivityCard extends StatelessWidget {
             Expanded(
               flex: 3,
               child: ClipRRect(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(5),topRight: Radius.circular(5)),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(5),
+                  topRight: Radius.circular(5),
+                ),
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
                   width: double.infinity,
@@ -74,7 +79,6 @@ class ActivityCard extends StatelessWidget {
                 ),
               ),
             ),
-
           ],
         ),
       ),

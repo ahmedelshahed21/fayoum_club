@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/end_points.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/end_points.dart';
 import 'package:fayoum_club/core/widgets/back_icon_button.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:flutter/material.dart';

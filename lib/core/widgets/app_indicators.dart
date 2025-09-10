@@ -1,4 +1,4 @@
-import 'package:fayoum_club/core/constants/app_colors.dart' show AppColors;
+import 'package:fayoum_club/core/utils/app_colors.dart' show AppColors;
 import 'package:flutter/material.dart';
 
 class PrimaryCircularProgressIndicator extends StatelessWidget {

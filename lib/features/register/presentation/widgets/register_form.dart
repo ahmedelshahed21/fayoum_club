@@ -1,6 +1,6 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/app_snack_bars.dart';
 import 'package:fayoum_club/core/functions/navigation.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
@@ -38,8 +38,6 @@ class _RegisterFormState extends State<RegisterForm> {
   String? oneSignalToken;
   String selectedGender = "male";
   bool isMember = false;
-
-
 
   @override
   Widget build(BuildContext context) {

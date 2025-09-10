@@ -5,7 +5,7 @@ import 'package:fayoum_club/features/activites/presentation/widgets/activity_det
 import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';
 import 'package:fayoum_club/core/widgets/retry_widget.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -20,7 +20,6 @@ class ActivityDetailsView extends StatefulWidget {
 }
 
 class _ActivityDetailsViewState extends State<ActivityDetailsView> {
-
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -33,17 +32,22 @@ class _ActivityDetailsViewState extends State<ActivityDetailsView> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => getIt<ActivityDetailsCubit>()..getActivityDetails(widget.id),
+            create:
+                (context) =>
+                    getIt<ActivityDetailsCubit>()
+                      ..getActivityDetails(widget.id),
           ),
           BlocProvider(
-            create: (context) => getIt<NewsCubit>()..fetchNews(activityId: widget.id),
+            create:
+                (context) =>
+                    getIt<NewsCubit>()..fetchNews(activityId: widget.id),
           ),
         ],
 
@@ -52,7 +56,9 @@ class _ActivityDetailsViewState extends State<ActivityDetailsView> {
             if (state is ActivityDetailsLoading) {
               return Skeletonizer(
                 containersColor: AppColors.loadingEffectColor,
-                textBoneBorderRadius: TextBoneBorderRadius(BorderRadius.circular(2)),
+                textBoneBorderRadius: TextBoneBorderRadius(
+                  BorderRadius.circular(2),
+                ),
                 child: ActivityDetailsViewBody(
                   scrollController: _scrollController,
                   activityDetailsData: getDummyActivityDetails(), // dummy
@@ -66,9 +72,10 @@ class _ActivityDetailsViewState extends State<ActivityDetailsView> {
             } else if (state is ActivityDetailsFailure) {
               return RetryWidget(
                 message: state.failure.errMessage,
-                onPressed: () => context
-                    .read<ActivityDetailsCubit>()
-                    .getActivityDetails(widget.id),
+                onPressed:
+                    () => context
+                        .read<ActivityDetailsCubit>()
+                        .getActivityDetails(widget.id),
               );
             }
             return const SizedBox.shrink();

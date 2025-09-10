@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fayoum_club/core/constants/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
 
 class ClickableText extends StatelessWidget {
   const ClickableText({

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fayoum_club/core/constants/app_strings.dart';
-import 'package:fayoum_club/core/constants/end_points.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
+import 'package:fayoum_club/core/utils/end_points.dart';
 import 'package:fayoum_club/core/data/models/success_model.dart';
 import 'package:fayoum_club/core/data/models/validation_model.dart';
 import 'package:fayoum_club/core/databases/api/dio_consumer.dart';
@@ -23,7 +23,7 @@ class PaymentProcessRepoImpl implements PaymentProcessRepo {
 
   @override
   Future<Either<ValidationModel, BasicModel>> paymentProcess({
-  required PaymentProcessRequestModel requestModel
+    required PaymentProcessRequestModel requestModel,
   }) async {
     final isConnected = await networkCubit.networkInfo.isConnected;
 
@@ -43,9 +43,7 @@ class PaymentProcessRepoImpl implements PaymentProcessRepo {
       final response = await dioConsumer.post(
         EndPoints.paymentProcess,
         data: requestModel.toJson(),
-        headers: {
-          Params.authorization: '${Params.bearer} $token'
-        }
+        headers: {Params.authorization: '${Params.bearer} $token'},
       );
 
       if (response != null && response is Map<String, dynamic>) {

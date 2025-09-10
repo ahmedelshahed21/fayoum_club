@@ -1,3 +1,5 @@
+import 'package:fayoum_club/core/utils/end_points.dart';
+
 class ActivityDetailsModel {
   final int version;
   final int code;
@@ -15,21 +17,24 @@ class ActivityDetailsModel {
 
   factory ActivityDetailsModel.fromJson(Map<String, dynamic> json) {
     return ActivityDetailsModel(
-      version: json['version'] ?? 0,
-      code: json['code'] ?? 0,
-      status: json['status'],
-      message: json['message'],
-      data: json['data'] != null ? ActivityDetailsData.fromJson(json['data']) : null,
+      version: json[ApiKey.version] ?? 0,
+      code: json[ApiKey.code] ?? 0,
+      status: json[ApiKey.status],
+      message: json[ApiKey.message],
+      data:
+          json[ApiKey.data] != null
+              ? ActivityDetailsData.fromJson(json[ApiKey.data])
+              : null,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'version': version,
-      'code': code,
-      'status': status,
-      'message': message,
-      'data': data?.toJson(),
+      ApiKey.version: version,
+      ApiKey.code: code,
+      ApiKey.status: status,
+      ApiKey.message: message,
+      ApiKey.data: data?.toJson(),
     };
   }
 }
@@ -40,11 +45,11 @@ class ActivityDetailsData {
   final String? type;
   final String? image;
   final String title;
-  final int monyMember;
-  final int mony;
+  final int moneyMember;
+  final int money;
   final String createdAt;
   final String updatedAt;
-  final List<CaptainModel> captans;
+  final List<CaptainModel> captains;
 
   ActivityDetailsData({
     required this.id,
@@ -52,43 +57,44 @@ class ActivityDetailsData {
     this.type,
     this.image,
     required this.title,
-    required this.monyMember,
-    required this.mony,
+    required this.moneyMember,
+    required this.money,
     required this.createdAt,
     required this.updatedAt,
-    required this.captans,
+    required this.captains,
   });
 
   factory ActivityDetailsData.fromJson(Map<String, dynamic> json) {
     return ActivityDetailsData(
-      id: json['id'] ?? 0,
-      description: json['description'],
-      type: json['type'],
-      image: json['image'],
-      title: json['title'] ?? '',
-      monyMember: json['monyMember'] ?? 0,
-      mony: json['mony'] ?? 0,
-      createdAt: json['createdAt'] ?? '',
-      updatedAt: json['updatedAt'] ?? '',
-      captans: (json['captans'] as List<dynamic>?)
-          ?.map((e) => CaptainModel.fromJson(e))
-          .toList() ??
+      id: json[ApiKey.id] ?? 0,
+      description: json[ApiKey.description],
+      type: json[ApiKey.type],
+      image: json[ApiKey.image],
+      title: json[ApiKey.title] ?? '',
+      moneyMember: json[ApiKey.moneyMember] ?? 0,
+      money: json[ApiKey.money] ?? 0,
+      createdAt: json[ApiKey.createdAt] ?? '',
+      updatedAt: json[ApiKey.updatedAt] ?? '',
+      captains:
+          (json[ApiKey.captains] as List<dynamic>?)
+              ?.map((e) => CaptainModel.fromJson(e))
+              .toList() ??
           [],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
-      'description': description,
-      'type': type,
-      'image': image,
-      'title': title,
-      'monyMember': monyMember,
-      'mony': mony,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
-      'captans': captans.map((e) => e.toJson()).toList(),
+      ApiKey.id: id,
+      ApiKey.description: description,
+      ApiKey.type: type,
+      ApiKey.image: image,
+      ApiKey.title: title,
+      ApiKey.moneyMember: moneyMember,
+      ApiKey.money: money,
+      ApiKey.createdAt: createdAt,
+      ApiKey.updatedAt: updatedAt,
+      ApiKey.captains: captains.map((e) => e.toJson()).toList(),
     };
   }
 }
@@ -116,27 +122,27 @@ class CaptainModel {
 
   factory CaptainModel.fromJson(Map<String, dynamic> json) {
     return CaptainModel(
-      id: json['id'] ?? 0,
-      name: json['name'] ?? '',
-      description: json['description'],
-      activateId: json['activateId'] ?? 0,
-      isActive: json['isActive'] ?? 0,
-      image: json['image'],
-      createdAt: json['createdAt'] ?? '',
-      updatedAt: json['updatedAt'] ?? '',
+      id: json[ApiKey.id] ?? 0,
+      name: json[ApiKey.name] ?? '',
+      description: json[ApiKey.description],
+      activateId: json[ApiKey.activityId] ?? 0,
+      isActive: json[ApiKey.isActive] ?? 0,
+      image: json[ApiKey.image],
+      createdAt: json[ApiKey.createdAt] ?? '',
+      updatedAt: json[ApiKey.updatedAt] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
-      'name': name,
-      'description': description,
-      'activateId': activateId,
-      'isActive': isActive,
-      'image': image,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
+      ApiKey.id: id,
+      ApiKey.name: name,
+      ApiKey.description: description,
+      ApiKey.activityId: activateId,
+      ApiKey.isActive: isActive,
+      ApiKey.image: image,
+      ApiKey.createdAt: createdAt,
+      ApiKey.updatedAt: updatedAt,
     };
   }
 }

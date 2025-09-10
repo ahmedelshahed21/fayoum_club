@@ -1,5 +1,5 @@
-import 'package:fayoum_club/core/constants/app_colors.dart';
-import 'package:fayoum_club/core/constants/app_styles.dart';
+import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/trainers/presentation/widgets/trainer_tile.dart';
@@ -12,7 +12,7 @@ class TrainersSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return detailsData.captans.isNotEmpty
+    return detailsData.captains.isNotEmpty
         ? Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -28,10 +28,10 @@ class TrainersSection extends StatelessWidget {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
-                itemCount: detailsData.captans.length,
+                itemCount: detailsData.captains.length,
                 separatorBuilder: (_, __) => const HorizontalSpace(12),
                 itemBuilder: (context, index) {
-                  return TrainerTile(trainer: detailsData.captans[index]);
+                  return TrainerTile(trainer: detailsData.captains[index]);
                 },
               ),
             ),
