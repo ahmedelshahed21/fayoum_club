@@ -47,8 +47,7 @@ class _BannersSlidersState extends State<BannersSliders> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: CachedNetworkImage(
-                      imageUrl:
-                      widget.newsData[index].image,
+                      imageUrl: widget.newsData[index].image,
                       fit: BoxFit.cover,
                       width: double.infinity,
                       height: 200,
@@ -62,9 +61,9 @@ class _BannersSlidersState extends State<BannersSliders> {
                       borderRadius: BorderRadius.circular(8),
                       gradient: LinearGradient(
                         colors: [
-                          AppColors.greenColor.withValues(alpha: 0.7),
+                          AppColors.greenColor.withValues(alpha: 0.8),
+                          AppColors.greenColor.withValues(alpha: 0.6),
                           AppColors.greenColor.withValues(alpha: 0.5),
-                          AppColors.greenColor.withValues(alpha: 0.4),
                         ],
                         begin: AlignmentDirectional.centerStart,
                         end: AlignmentDirectional.centerEnd,
@@ -77,10 +76,11 @@ class _BannersSlidersState extends State<BannersSliders> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(widget.newsData[index].title,
+                        Text(
+                          widget.newsData[index].title,
                           style: AppStyles.styleBold20(
                             context,
-                          ).copyWith(color: AppColors.pureBlackColor),
+                          ).copyWith(color: AppColors.offWhiteColor),
                         ),
                         // const VerticalSpace(96),
                         // SecondaryButton(
