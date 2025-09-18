@@ -34,7 +34,7 @@ class NewsRepoImpl implements NewsRepo {
         EndPoints.news,
         queryParameters: {
           Params.page: page,
-          'perPage': 3,
+          'perPage': 5,
           'activateId': activityId,
           'status': status,
           'typeOption': typeOption,
