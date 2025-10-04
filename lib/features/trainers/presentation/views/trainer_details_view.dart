@@ -68,7 +68,7 @@ class TrainerDetailsView extends StatelessWidget {
               style: AppStyles.styleMedium16(
                 context,
               ).copyWith(color: AppColors.greyColor),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
             ),
             VerticalSpace(32),
            trainer.time.isNotEmpty ? TrainerTimeSection(trainer: trainer):SizedBox.shrink(),
