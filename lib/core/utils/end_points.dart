@@ -5,7 +5,7 @@ class EndPoints {
   static const String banners = "/news/lookup";
   static const String news = "/news";
   static const String activities = "/activate/lookup";
-  static const String activityDetails = "/activate";
+  static  String activityDetails(int activityId) => "/activate/$activityId";
   static const String paymentProcess = "/mony-pay";
   static const String contactUs = "/details";
 }
@@ -16,6 +16,7 @@ class ApiKey {
   static const String id = "id";
   static const String name = "name";
   static const String type = "type";
+  static const String typeOption="typeOption";
   static const String value = "value";
   static const String code = "code";
   static const String version = "version";
@@ -74,6 +75,14 @@ class ApiKey {
   static const String money = "mony";
   static const String captains = "captans";
   static const String activityId = "activateId";
+
+  // Captain Time
+  static const String time = "time";
+  static const String captainId = "captin_id";
+  static const String day = "day";
+  static const String fromTime = "from_time";
+  static const String toTime = "to_time";
+  static const String note = "note";
 }
 
 class Params {
@@ -85,4 +94,5 @@ class Params {
   static const String applicationJson = 'application/json';
   static const String contentType = 'contentType';
   static const String multipartFormData = 'multipartFormData';
+  static const String type = 'type';
 }

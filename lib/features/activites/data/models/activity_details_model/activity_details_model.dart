@@ -21,10 +21,9 @@ class ActivityDetailsModel {
       code: json[ApiKey.code] ?? 0,
       status: json[ApiKey.status],
       message: json[ApiKey.message],
-      data:
-          json[ApiKey.data] != null
-              ? ActivityDetailsData.fromJson(json[ApiKey.data])
-              : null,
+      data: json[ApiKey.data] != null
+          ? ActivityDetailsData.fromJson(json[ApiKey.data])
+          : null,
     );
   }
 
@@ -75,10 +74,9 @@ class ActivityDetailsData {
       money: json[ApiKey.money] ?? 0,
       createdAt: json[ApiKey.createdAt] ?? '',
       updatedAt: json[ApiKey.updatedAt] ?? '',
-      captains:
-          (json[ApiKey.captains] as List<dynamic>?)
-              ?.map((e) => CaptainModel.fromJson(e))
-              .toList() ??
+      captains: (json[ApiKey.captains] as List<dynamic>?)
+          ?.map((e) => CaptainModel.fromJson(e))
+          .toList() ??
           [],
     );
   }
@@ -108,6 +106,7 @@ class CaptainModel {
   final String? image;
   final String createdAt;
   final String updatedAt;
+  final List<CaptainTimeModel> time;
 
   CaptainModel({
     required this.id,
@@ -118,6 +117,7 @@ class CaptainModel {
     this.image,
     required this.createdAt,
     required this.updatedAt,
+    required this.time,
   });
 
   factory CaptainModel.fromJson(Map<String, dynamic> json) {
@@ -130,6 +130,10 @@ class CaptainModel {
       image: json[ApiKey.image],
       createdAt: json[ApiKey.createdAt] ?? '',
       updatedAt: json[ApiKey.updatedAt] ?? '',
+      time: (json[ApiKey.time] as List<dynamic>?)
+          ?.map((e) => CaptainTimeModel.fromJson(e))
+          .toList() ??
+          [],
     );
   }
 
@@ -141,6 +145,59 @@ class CaptainModel {
       ApiKey.activityId: activateId,
       ApiKey.isActive: isActive,
       ApiKey.image: image,
+      ApiKey.createdAt: createdAt,
+      ApiKey.updatedAt: updatedAt,
+      ApiKey.time: time.map((e) => e.toJson()).toList(),
+    };
+  }
+}
+
+class CaptainTimeModel {
+  final int id;
+  final int captainId;
+  final String day;
+  final String fromTime;
+  final String toTime;
+  final String status;
+  final String? note;
+  final String createdAt;
+  final String updatedAt;
+
+  CaptainTimeModel({
+    required this.id,
+    required this.captainId,
+    required this.day,
+    required this.fromTime,
+    required this.toTime,
+    required this.status,
+    this.note,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory CaptainTimeModel.fromJson(Map<String, dynamic> json) {
+    return CaptainTimeModel(
+      id: json[ApiKey.id] ?? 0,
+      captainId: json[ApiKey.captainId] ?? 0,
+      day: json[ApiKey.day] ?? '',
+      fromTime: json[ApiKey.fromTime] ?? '',
+      toTime: json[ApiKey.toTime] ?? '',
+      status: json[ApiKey.status] ?? '',
+      note: json[ApiKey.note],
+      createdAt: json[ApiKey.createdAt] ?? '',
+      updatedAt: json[ApiKey.updatedAt] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      ApiKey.id: id,
+      ApiKey.captainId: captainId,
+      ApiKey.day: day,
+      ApiKey.fromTime: fromTime,
+      ApiKey.toTime: toTime,
+      ApiKey.status: status,
+      ApiKey.note: note,
       ApiKey.createdAt: createdAt,
       ApiKey.updatedAt: updatedAt,
     };

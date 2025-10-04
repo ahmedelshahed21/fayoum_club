@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_strings.dart';
-import 'package:fayoum_club/features/activites/presentation/views/activites_view.dart';
+import 'package:fayoum_club/features/activites/presentation/views/activities_view.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_view.dart';
 import 'package:fayoum_club/features/more/presentation/views/more_view.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final List<Widget> views = [
       const HomeView(),
-      const ActivitesView(),
+      const ActivitiesView(),
       const MoreView(),
     ];
 
@@ -42,18 +42,18 @@ class _HomePageState extends State<HomePage> {
             unselectedItemColor: AppColors.lightGreyColor,
             type: BottomNavigationBarType.fixed,
             items: [
-              _buildNavItem(
+              buildNavItem(
                 icon: Iconsax.home_1,
                 name: AppStrings.home.tr(),
                 state == 0,
               ),
-              _buildNavItem(
+              buildNavItem(
                 icon: Iconsax.category_2,
                 name: 'الأنشطة',
                 state == 1,
               ),
-              _buildNavItem(
-                icon: Iconsax.user,
+              buildNavItem(
+                icon: Iconsax.user_copy,
                 name: AppStrings.profile.tr(),
                 state == 2,
               ),
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  BottomNavigationBarItem _buildNavItem(
+  BottomNavigationBarItem buildNavItem(
     bool isSelected, {
     required IconData icon,
     required String name,

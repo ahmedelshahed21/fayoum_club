@@ -14,7 +14,7 @@ class ActivitesRepoImpl implements ActivitesRepo {
 
   ActivitesRepoImpl({required this.dioConsumer, required this.networkCubit});
   @override
-  Future<Either<Failure, ActivitesModel>> getActivites() async {
+  Future<Either<Failure, ActivitesModel>> getActivites({String? type}) async {
     final isConnected = await networkCubit.networkInfo.isConnected;
 
     if (!isConnected) {
@@ -24,9 +24,11 @@ class ActivitesRepoImpl implements ActivitesRepo {
     }
 
     try {
-      final response = await dioConsumer.get(EndPoints.activities);
+      final response = await dioConsumer.get(EndPoints.activities,queryParameters: {
+        Params.type:type
+      });
 
-      print(response);
+      // print(response);
 
       if (response != null && response is Map<String, dynamic>) {
         if (response[ApiKey.code] == 200) {

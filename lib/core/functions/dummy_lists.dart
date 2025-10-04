@@ -1,4 +1,3 @@
-import 'package:fayoum_club/core/utils/app_constants.dart';
 import 'package:fayoum_club/core/data/models/activity_model.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
@@ -124,35 +123,72 @@ List<ActivityItem> getDummyActivitiesList() {
 ActivityDetailsData getDummyActivityDetails() {
   return ActivityDetailsData(
     id: 1,
+    title: "نشاط رياضي تجريبي",
     description:
-        "/Activates/1756655605_d5282c72-decf-41e3-9cc1-9d84f13ce576.jpeg ",
-    type: null,
-    image: AppConstants.noImageUrl,
-    title: "332",
+    "هذا وصف تجريبي لنشاط رياضي داخل النادي، يحتوي على تفاصيل مختصرة.",
+    type: "رياضة",
+    image: "/Activates/1756655605_d5282c72-decf-41e3-9cc1-9d84f13ce576.jpeg",
     createdAt: "2025-08-31 15:53:26",
-    updatedAt: "2025-08-31 15:53:26",
-    money: 0,
-    moneyMember: 0,
+    updatedAt: "2025-09-02 12:20:45",
+    money: 200,
+    moneyMember: 150,
     captains: [
       CaptainModel(
         id: 1,
-        name: "332",
-        description: "3444444444",
+        name: "الكابتن أحمد",
+        description: "مدرب ذو خبرة عالية في الألعاب الرياضية",
         activateId: 1,
         isActive: 1,
         image: "/Activates/1756680333_98f218b9-02e0-4a1c-a369-3f9c381ae238.jpg",
         createdAt: "2025-08-31 22:45:33",
-        updatedAt: "2025-08-31 22:45:33",
+        updatedAt: "2025-09-01 09:15:12",
+        time: [
+          CaptainTimeModel(
+            id: 1,
+            captainId: 1,
+            day: "السبت",
+            fromTime: "10:00",
+            toTime: "12:00",
+            status: "active",
+            note: "تمرين صباحي",
+            createdAt: "2025-09-01 08:00:00",
+            updatedAt: "2025-09-01 08:00:00",
+          ),
+          CaptainTimeModel(
+            id: 2,
+            captainId: 1,
+            day: "الإثنين",
+            fromTime: "18:00",
+            toTime: "20:00",
+            status: "active",
+            note: null,
+            createdAt: "2025-09-01 08:00:00",
+            updatedAt: "2025-09-01 08:00:00",
+          ),
+        ],
       ),
       CaptainModel(
         id: 2,
-        name: "قائد إضافي",
-        description: "وصف تجريبي لقائد إضافي",
+        name: "الكابتن محمد",
+        description: "مدرب متخصص في اللياقة البدنية",
         activateId: 1,
         isActive: 1,
         image: "/Activates/dummy_captain.png",
         createdAt: "2025-09-01 10:00:00",
-        updatedAt: "2025-09-01 10:00:00",
+        updatedAt: "2025-09-02 08:30:00",
+        time: [
+          CaptainTimeModel(
+            id: 3,
+            captainId: 2,
+            day: "الثلاثاء",
+            fromTime: "17:00",
+            toTime: "19:00",
+            status: "active",
+            note: "تمرين قوة",
+            createdAt: "2025-09-02 08:00:00",
+            updatedAt: "2025-09-02 08:00:00",
+          ),
+        ],
       ),
     ],
   );

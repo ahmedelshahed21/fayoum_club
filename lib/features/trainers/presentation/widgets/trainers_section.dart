@@ -22,9 +22,9 @@ class TrainersSection extends StatelessWidget {
                 context,
               ).copyWith(color: AppColors.pureBlackColor),
             ),
-            const VerticalSpace(16),
+            const VerticalSpace(12),
             SizedBox(
-              height: 120,
+              height: 128,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),

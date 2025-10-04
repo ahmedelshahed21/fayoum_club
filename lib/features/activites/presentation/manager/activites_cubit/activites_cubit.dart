@@ -10,11 +10,11 @@ class ActivitesCubit extends Cubit<ActivitesState> {
 
   ActivitesCubit({required this.activites}) : super(const ActivitesInitial());
 
-  Future<void> getActivites() async {
+  Future<void> getActivites({String? type}) async {
     emit(const ActivitesLoading());
 
     final Either<Failure, ActivitesModel> result =
-        await activites.getActivites();
+        await activites.getActivites(type: type);
 
     result.fold(
       (failure) => emit(ActivitesFailure(failure)),

@@ -44,7 +44,7 @@ class _CategorizedNewsSliverListSectionState extends State<CategorizedNewsSliver
               message: state.failure.errMessage,
               onPressed: () {
                 context.read<BannersCubit>().getBanners();
-                context.read<NewsCubit>().fetchNews(refresh: true);
+                context.read<NewsCubit>().fetchNews(refresh: true,activityId: widget.activityId);
               },
             ),
           );

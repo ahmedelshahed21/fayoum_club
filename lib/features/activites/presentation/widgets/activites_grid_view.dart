@@ -10,10 +10,11 @@ class ActivitesGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      padding: EdgeInsets.symmetric(horizontal: 16),
       physics: const BouncingScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.85,
+        childAspectRatio: 0.9,
         crossAxisSpacing: 16,
         mainAxisSpacing: 32,
       ),

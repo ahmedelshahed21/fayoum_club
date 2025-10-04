@@ -17,7 +17,7 @@ class BasicModel {
 
   factory BasicModel.fromJson(Map<String, dynamic> json) {
     return BasicModel(
-      version: json['version'] as int,
+      version: json[ApiKey.version] as int,
       code: json[ApiKey.code] as int,
       status: json[ApiKey.status] as String,
       message: json[ApiKey.message] as String?,
@@ -27,7 +27,7 @@ class BasicModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'version': version,
+      ApiKey.version: version,
       ApiKey.code: code,
       ApiKey.status: status,
       ApiKey.message: message,

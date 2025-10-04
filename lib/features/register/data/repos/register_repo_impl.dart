@@ -46,7 +46,7 @@ class RegisterRepoImpl implements RegisterRepo {
         EndPoints.register,
         data: registerData.toJson(),
       );
-      print(response);
+      // print(response);
       if (response != null && response is Map<String, dynamic>) {
         if (response[ApiKey.code] >= 200 && response[ApiKey.code] < 400) {
           final registerSuccessModel = AuthSuccessModel.fromJson(response);

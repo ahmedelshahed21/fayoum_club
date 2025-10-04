@@ -10,10 +10,9 @@ class NewsModel {
 
   factory NewsModel.fromJson(Map<String, dynamic> json) {
     return NewsModel(
-      items:
-          (json[ApiKey.data][ApiKey.items] as List)
-              .map((e) => NewsItem.fromJson(e))
-              .toList(),
+      items: (json[ApiKey.data][ApiKey.items] as List)
+          .map((e) => NewsItem.fromJson(e))
+          .toList(),
       pagination: PaginationModel.fromJson(
         json[ApiKey.data][ApiKey.pagination],
       ),
@@ -49,12 +48,11 @@ class NewsItem {
       id: json[ApiKey.id],
       title: json[ApiKey.title] ?? '',
       description: json[ApiKey.description] ?? '',
-      activate:
-          json['activate'] != null
-              ? ActivityModel.fromJson(json['activate'])
-              : null,
+      activate: json[ApiKey.activityId] != null
+          ? ActivityModel.fromJson(json[ApiKey.activityId])
+          : null,
       status: json[ApiKey.status],
-      typeOption: json['typeOption'] ?? '',
+      typeOption: json[ApiKey.typeOption] ?? '',
       image: json[ApiKey.image] ?? '',
       createdAt: DateTime.parse(json[ApiKey.createdAt]),
       updatedAt: DateTime.parse(json[ApiKey.updatedAt]),

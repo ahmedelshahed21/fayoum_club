@@ -6,6 +6,7 @@ import 'package:fayoum_club/core/widgets/app_app_bars.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/trainers/presentation/widgets/trainer_time_section.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -31,7 +32,7 @@ class TrainerDetailsView extends StatelessWidget {
               children: [
                 Center(
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(120),
+                    borderRadius: BorderRadius.circular(128),
                     child: CachedNetworkImage(
                       imageUrl: trainer.image ?? AppConstants.noImageUrl,
                       width: 150,
@@ -61,7 +62,7 @@ class TrainerDetailsView extends StatelessWidget {
                 ),
               ],
             ),
-            VerticalSpace(48),
+            VerticalSpace(32),
             Text(
               trainer.description ?? '',
               style: AppStyles.styleMedium16(
@@ -69,7 +70,8 @@ class TrainerDetailsView extends StatelessWidget {
               ).copyWith(color: AppColors.greyColor),
               textAlign: TextAlign.center,
             ),
-            Spacer(),
+            VerticalSpace(32),
+           trainer.time.isNotEmpty ? TrainerTimeSection(trainer: trainer):SizedBox.shrink(),
             VerticalSpace(24),
           ],
         ),

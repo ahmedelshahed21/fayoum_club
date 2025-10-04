@@ -16,7 +16,7 @@ class TrainerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(8),
       onTap: () {
         GoRouter.of(context).push(AppRouter.trainerDetailsView, extra: trainer);
       },
@@ -26,7 +26,7 @@ class TrainerTile extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             CircleAvatar(
-              radius: 40,
+              radius: 36,
               backgroundColor: AppColors.primaryColor.withValues(alpha: 0.1),
               backgroundImage:
                   trainer.image != null

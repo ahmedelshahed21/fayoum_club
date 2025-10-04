@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class EmptyWidget extends StatelessWidget {
-  const EmptyWidget({super.key});
+  const EmptyWidget({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -13,20 +15,21 @@ class EmptyWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(
-          Icons.directions_bus_filled,
-          size: 128,
-          color: AppColors.offGreyColor,
+          Iconsax.info_circle_copy,
+          size: 64,
+          color: AppColors.greyColor,
         ),
         const VerticalSpace(16),
         Center(
           child: Text(
-            "No buses found",
-            style: AppStyles.styleBold24(
-              context,
-            ).copyWith(color: AppColors.offGreyColor),
+            title,
+            style: AppStyles.styleBold24(context)
+                .copyWith(color: AppColors.greyColor),
           ),
         ),
       ],
     );
   }
 }
+
+

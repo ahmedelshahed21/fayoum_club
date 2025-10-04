@@ -1,3 +1,5 @@
+import 'package:fayoum_club/core/utils/end_points.dart';
+
 class ContactUSSuccessModel {
   final int version;
   final int code;
@@ -15,21 +17,21 @@ class ContactUSSuccessModel {
 
   factory ContactUSSuccessModel.fromJson(Map<String, dynamic> json) {
     return ContactUSSuccessModel(
-      version: json['version'] as int,
-      code: json['code'] as int,
-      status: json['status'] as String,
-      message: json['message'],
-      data: ContactUSData.fromJson(json['data']),
+      version: json[ApiKey.version] as int,
+      code: json[ApiKey.code] as int,
+      status: json[ApiKey.status] as String,
+      message: json[ApiKey.message],
+      data: ContactUSData.fromJson(json[ApiKey.data]),
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'version': version,
-      'code': code,
-      'status': status,
-      'message': message,
-      'data': data.toJson(),
+      ApiKey.version: version,
+      ApiKey.code: code,
+      ApiKey.status: status,
+      ApiKey.message: message,
+      ApiKey.data: data.toJson(),
     };
   }
 }
@@ -53,23 +55,23 @@ class ContactUSData {
 
   factory ContactUSData.fromJson(Map<String, dynamic> json) {
     return ContactUSData(
-      id: json['id'] as int,
-      details: json['details'] as String,
-      name: json['name'] as String,
-      phone: json['phone'] as String,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
+      id: json[ApiKey.id] as int,
+      details: json[ApiKey.details] as String,
+      name: json[ApiKey.name] as String,
+      phone: json[ApiKey.phone] as String,
+      createdAt: json[ApiKey.createdAt] as String,
+      updatedAt: json[ApiKey.updatedAt] as String,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
-      'details': details,
-      'name': name,
-      'phone': phone,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
+      ApiKey.id: id,
+      ApiKey.details: details,
+      ApiKey.name: name,
+      ApiKey.phone: phone,
+      ApiKey.createdAt: createdAt,
+      ApiKey.updatedAt: updatedAt,
     };
   }
 }

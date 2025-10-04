@@ -31,10 +31,10 @@ class ActivityDetailsRepoImpl implements ActivityDetailsRepo {
 
     try {
       final response = await dioConsumer.get(
-        '${EndPoints.activityDetails}/${id.toString()}',
+        EndPoints.activityDetails(id),
       );
 
-      print(response);
+      // print(response);
 
       if (response != null && response is Map<String, dynamic>) {
         if (response[ApiKey.code] == 200) {
@@ -51,7 +51,7 @@ class ActivityDetailsRepoImpl implements ActivityDetailsRepo {
         );
       }
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return Left(
         ServerFailure(errMessage: AppStrings.serverConnectionFailed.tr()),
       );
