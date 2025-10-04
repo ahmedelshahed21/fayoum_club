@@ -5,7 +5,7 @@ import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
+import 'package:fayoum_club/features/activities/data/models/activities_model/activities_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

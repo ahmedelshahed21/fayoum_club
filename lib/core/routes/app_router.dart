@@ -1,5 +1,5 @@
-import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
-import 'package:fayoum_club/features/activites/presentation/views/activity_details_view.dart';
+import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/activities/presentation/views/activity_details_view.dart';
 import 'package:fayoum_club/features/payment/data/models/payment_process_request_model.dart';
 import 'package:fayoum_club/features/payment/presentation/views/pay_mob_view.dart';
 import 'package:fayoum_club/features/payment/presentation/views/success_view.dart';
@@ -65,14 +65,16 @@ abstract class AppRouter {
       GoRoute(
         path: payMobView,
         builder: (context, state) {
-          final ActivityDetailsData activityDetailsData = state.extra as ActivityDetailsData;
+          final ActivityDetailsData activityDetailsData =
+              state.extra as ActivityDetailsData;
           return PayMobView(activityDetailsData: activityDetailsData);
         },
       ),
       GoRoute(
         path: successView,
         builder: (context, state) {
-          final PaymentProcessRequestModel paymentProcessRequestModel = state.extra as PaymentProcessRequestModel;
+          final PaymentProcessRequestModel paymentProcessRequestModel =
+              state.extra as PaymentProcessRequestModel;
           return SuccessView(
             paymentProcessRequestModel: paymentProcessRequestModel,
           );

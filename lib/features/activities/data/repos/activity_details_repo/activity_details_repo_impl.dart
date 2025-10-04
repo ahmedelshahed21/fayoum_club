@@ -1,20 +1,26 @@
+import 'package:dartz/dartz.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/end_points.dart';
 import 'package:fayoum_club/core/databases/api/dio_consumer.dart';
 import 'package:fayoum_club/core/errors/failure.dart';
 import 'package:fayoum_club/core/state_management/network_connection_cubit/network_connection_cubit.dart';
-import 'package:dartz/dartz.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
-import 'package:fayoum_club/features/activites/data/repos/activites_repo/activites_repo.dart';
+import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/activities/data/repos/activity_details_repo/activity_details_repo.dart';
 
-class ActivitesRepoImpl implements ActivitesRepo {
+class ActivityDetailsRepoImpl implements ActivityDetailsRepo {
   final DioConsumer dioConsumer;
   final NetworkConnectionCubit networkCubit;
 
-  ActivitesRepoImpl({required this.dioConsumer, required this.networkCubit});
+  ActivityDetailsRepoImpl({
+    required this.dioConsumer,
+    required this.networkCubit,
+  });
+
   @override
-  Future<Either<Failure, ActivitesModel>> getActivites({String? type}) async {
+  Future<Either<Failure, ActivityDetailsModel>> getActivityDetails({
+    required int id,
+  }) async {
     final isConnected = await networkCubit.networkInfo.isConnected;
 
     if (!isConnected) {
@@ -24,16 +30,14 @@ class ActivitesRepoImpl implements ActivitesRepo {
     }
 
     try {
-      final response = await dioConsumer.get(EndPoints.activities,queryParameters: {
-        Params.type:type
-      });
+      final response = await dioConsumer.get(EndPoints.activityDetails(id));
 
       // print(response);
 
       if (response != null && response is Map<String, dynamic>) {
         if (response[ApiKey.code] == 200) {
-          final categoriesModel = ActivitesModel.fromJson(response);
-          return Right(categoriesModel);
+          final detailsModel = ActivityDetailsModel.fromJson(response);
+          return Right(detailsModel);
         } else {
           return Left(
             ServerFailure(errMessage: AppStrings.serverConnectionFailed.tr()),
@@ -45,6 +49,7 @@ class ActivitesRepoImpl implements ActivitesRepo {
         );
       }
     } catch (e) {
+      // print(e.toString());
       return Left(
         ServerFailure(errMessage: AppStrings.serverConnectionFailed.tr()),
       );

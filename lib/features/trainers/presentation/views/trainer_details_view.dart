@@ -5,7 +5,7 @@ import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
-import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/trainers/presentation/widgets/trainer_time_section.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -71,7 +71,9 @@ class TrainerDetailsView extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
             VerticalSpace(32),
-           trainer.time.isNotEmpty ? TrainerTimeSection(trainer: trainer):SizedBox.shrink(),
+            trainer.time.isNotEmpty
+                ? TrainerTimeSection(trainer: trainer)
+                : SizedBox.shrink(),
             VerticalSpace(24),
           ],
         ),

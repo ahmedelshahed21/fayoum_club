@@ -1,13 +1,13 @@
 import 'package:fayoum_club/core/utils/end_points.dart';
 
-class ActivitesModel {
+class ActivitiesModel {
   final int? version;
   final int? code;
   final String? status;
   final String? message;
   final List<ActivityItem> data;
 
-  ActivitesModel({
+  ActivitiesModel({
     this.version,
     this.code,
     this.status,
@@ -15,8 +15,8 @@ class ActivitesModel {
     required this.data,
   });
 
-  factory ActivitesModel.fromJson(Map<String, dynamic> json) {
-    return ActivitesModel(
+  factory ActivitiesModel.fromJson(Map<String, dynamic> json) {
+    return ActivitiesModel(
       version: json[ApiKey.version] as int?,
       code: json[ApiKey.code] as int?,
       status: json[ApiKey.status] as String?,

@@ -1,15 +1,12 @@
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
-import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class TrainerTimeSection extends StatelessWidget {
-  const TrainerTimeSection({
-    super.key,
-    required this.trainer,
-  });
+  const TrainerTimeSection({super.key, required this.trainer});
 
   final CaptainModel trainer;
 
@@ -38,59 +35,57 @@ class TrainerTimeSection extends StatelessWidget {
           )
         else
           Column(
-            children: trainer.time.map((t) {
-              return Card(
-                color: AppColors.pureWhiteColor,
-                margin: const EdgeInsets.only(bottom: 8),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                elevation: 0,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0, vertical: 8.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Iconsax.calendar_1_copy,
-                        color: AppColors.greyColor,
+            children:
+                trainer.time.map((t) {
+                  return Card(
+                    color: AppColors.pureWhiteColor,
+                    margin: const EdgeInsets.only(bottom: 8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    elevation: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 8.0,
                       ),
-                      HorizontalSpace(12),
-                      Expanded(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic,
-                          children: [
-                            Text(
-                              t.day,
-                              style: AppStyles.styleBold18(
-                                context,
-                              ).copyWith(
-                                color: AppColors.greenColor,
-                              ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Iconsax.calendar_1_copy,
+                            color: AppColors.greyColor,
+                          ),
+                          HorizontalSpace(12),
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              textBaseline: TextBaseline.alphabetic,
+                              children: [
+                                Text(
+                                  t.day,
+                                  style: AppStyles.styleBold18(
+                                    context,
+                                  ).copyWith(color: AppColors.greenColor),
+                                ),
+                                Spacer(),
+                                Text(
+                                  "${_formatTime12(t.fromTime)} - ${_formatTime12(t.toTime)}",
+                                  style: AppStyles.styleSemiBold16(
+                                    context,
+                                  ).copyWith(color: AppColors.greyColor),
+                                ),
+                              ],
                             ),
-                            Spacer(),
-                            Text(
-                              "${_formatTime12(t.fromTime)} - ${_formatTime12(t.toTime)}",
-                              style: AppStyles.styleSemiBold16(
-                                context,
-                              ).copyWith(
-                                color: AppColors.greyColor,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              );
-            }).toList(),
+                    ),
+                  );
+                }).toList(),
           ),
       ],
     );
   }
-
 
   String _formatTime12(String time24) {
     try {

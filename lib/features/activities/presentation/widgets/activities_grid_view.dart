@@ -1,9 +1,9 @@
-import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
-import 'package:fayoum_club/features/activites/presentation/widgets/activity_card.dart';
+import 'package:fayoum_club/features/activities/data/models/activities_model/activities_model.dart';
+import 'package:fayoum_club/features/activities/presentation/widgets/activity_card.dart';
 import 'package:flutter/material.dart';
 
-class ActivitesGridView extends StatelessWidget {
-  const ActivitesGridView({super.key, required this.activites});
+class ActivitiesGridView extends StatelessWidget {
+  const ActivitiesGridView({super.key, required this.activites});
 
   final List<ActivityItem> activites;
 

@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_strings.dart';
-import 'package:fayoum_club/features/activites/presentation/views/activities_view.dart';
+import 'package:fayoum_club/features/activities/presentation/views/activities_view.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_view.dart';
 import 'package:fayoum_club/features/more/presentation/views/more_view.dart';
 import 'package:flutter/material.dart';

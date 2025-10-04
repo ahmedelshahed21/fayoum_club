@@ -1,7 +1,7 @@
 import 'package:fayoum_club/core/data/models/activity_model.dart';
-import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
-import 'package:fayoum_club/features/activites/data/models/activites_model/activites_model.dart';
+import 'package:fayoum_club/features/activities/data/models/activities_model/activities_model.dart';
 
 List<NewsItem> getDummyBanners() {
   return [
@@ -125,7 +125,7 @@ ActivityDetailsData getDummyActivityDetails() {
     id: 1,
     title: "نشاط رياضي تجريبي",
     description:
-    "هذا وصف تجريبي لنشاط رياضي داخل النادي، يحتوي على تفاصيل مختصرة.",
+        "هذا وصف تجريبي لنشاط رياضي داخل النادي، يحتوي على تفاصيل مختصرة.",
     type: "رياضة",
     image: "/Activates/1756655605_d5282c72-decf-41e3-9cc1-9d84f13ce576.jpeg",
     createdAt: "2025-08-31 15:53:26",

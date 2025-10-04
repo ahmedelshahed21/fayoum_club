@@ -1,7 +1,7 @@
 import 'package:fayoum_club/core/functions/dummy_lists.dart';
-import 'package:fayoum_club/features/activites/presentation/manager/activity_details_cubit/activity_details_cubit.dart';
-import 'package:fayoum_club/features/activites/presentation/manager/activity_details_cubit/activity_details_state.dart';
-import 'package:fayoum_club/features/activites/presentation/widgets/activity_details_view_body.dart';
+import 'package:fayoum_club/features/activities/presentation/manager/activity_details_cubit/activity_details_cubit.dart';
+import 'package:fayoum_club/features/activities/presentation/manager/activity_details_cubit/activity_details_state.dart';
+import 'package:fayoum_club/features/activities/presentation/widgets/activity_details_view_body.dart';
 import 'package:fayoum_club/features/news/presentation/manager/news_cubit/news_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

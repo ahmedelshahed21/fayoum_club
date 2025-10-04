@@ -4,7 +4,7 @@ import 'package:fayoum_club/core/databases/cache/user_data_manager.dart';
 import 'package:fayoum_club/core/functions/app_snack_bars.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';
-import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
 import 'package:fayoum_club/features/payment/data/models/payment_process_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';

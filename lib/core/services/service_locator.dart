@@ -1,15 +1,15 @@
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:dio/dio.dart';
-import 'package:fayoum_club/features/activites/data/repos/activites_repo/activites_repo.dart';
-import 'package:fayoum_club/features/activites/data/repos/activites_repo/activites_repo_impl.dart';
-import 'package:fayoum_club/features/activites/data/repos/activity_details_repo/activity_details_repo.dart';
-import 'package:fayoum_club/features/activites/data/repos/activity_details_repo/activity_details_repo_impl.dart';
-import 'package:fayoum_club/features/activites/presentation/manager/activity_details_cubit/activity_details_cubit.dart';
+import 'package:fayoum_club/features/activities/data/repos/activities_repo/activities_repo.dart';
+import 'package:fayoum_club/features/activities/data/repos/activities_repo/activities_repo_impl.dart';
+import 'package:fayoum_club/features/activities/data/repos/activity_details_repo/activity_details_repo.dart';
+import 'package:fayoum_club/features/activities/data/repos/activity_details_repo/activity_details_repo_impl.dart';
+import 'package:fayoum_club/features/activities/presentation/manager/activity_details_cubit/activity_details_cubit.dart';
 import 'package:fayoum_club/features/more/data/repos/contact_us_repo/contact_us_repo_impl.dart';
 import 'package:fayoum_club/features/more/presentation/manager/contact_us_cubit/contact_us_cubit.dart';
 import 'package:fayoum_club/features/home/data/repos/banners_repo/banners_repo.dart';
 import 'package:fayoum_club/features/home/data/repos/banners_repo/banners_repo_impl.dart';
-import 'package:fayoum_club/features/activites/presentation/manager/activites_cubit/activites_cubit.dart';
+import 'package:fayoum_club/features/activities/presentation/manager/activities_cubit/activities_cubit.dart';
 import 'package:fayoum_club/features/home/presentation/manager/banners_cubit/banners_cubit.dart';
 import 'package:fayoum_club/features/news/data/repos/news_repo/news_repo.dart';
 import 'package:fayoum_club/features/news/data/repos/news_repo/news_repo_impl.dart';
@@ -84,14 +84,14 @@ void setupServiceLocator() {
   );
 
   // Activites dependencies
-  getIt.registerLazySingleton<ActivitesRepo>(
-    () => ActivitesRepoImpl(
+  getIt.registerLazySingleton<ActivitiesRepo>(
+    () => ActivitiesRepoImpl(
       dioConsumer: getIt<DioConsumer>(),
       networkCubit: getIt<NetworkConnectionCubit>(),
     ),
   );
-  getIt.registerFactory<ActivitesCubit>(
-    () => ActivitesCubit(activites: getIt<ActivitesRepo>()),
+  getIt.registerFactory<ActivitiesCubit>(
+    () => ActivitiesCubit(activites: getIt<ActivitiesRepo>()),
   );
 
   // Activity Details dependencies
@@ -108,14 +108,16 @@ void setupServiceLocator() {
 
   // News dependencies
   getIt.registerLazySingleton<NewsRepo>(
-        () => NewsRepoImpl(
+    () => NewsRepoImpl(
       dioConsumer: getIt<DioConsumer>(),
       networkCubit: getIt<NetworkConnectionCubit>(),
     ),
   );
-  getIt.registerFactory<NewsCubit>(() => NewsCubit(newsRepo: getIt<NewsRepo>()));
+  getIt.registerFactory<NewsCubit>(
+    () => NewsCubit(newsRepo: getIt<NewsRepo>()),
+  );
 
-// Payment dependencies
+  // Payment dependencies
   getIt.registerSingleton<PaymentProcessRepoImpl>(
     PaymentProcessRepoImpl(
       dioConsumer: getIt<DioConsumer>(),
@@ -125,7 +127,9 @@ void setupServiceLocator() {
   );
 
   getIt.registerFactory<PaymentProcessCubit>(
-        () => PaymentProcessCubit(paymentProcessRepo: getIt<PaymentProcessRepoImpl>()),
+    () => PaymentProcessCubit(
+      paymentProcessRepo: getIt<PaymentProcessRepoImpl>(),
+    ),
   );
 
   // Contact Us dependencies

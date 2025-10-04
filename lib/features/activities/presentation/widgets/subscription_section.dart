@@ -5,8 +5,8 @@ import 'package:fayoum_club/core/services/service_locator.dart';
 import 'package:fayoum_club/core/state_management/user_cubit/user_session_cubit.dart';
 import 'package:fayoum_club/core/widgets/price_widget.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
-import 'package:fayoum_club/features/activites/data/models/activity_details_model/activity_details_model.dart';
-import 'package:fayoum_club/features/activites/presentation/widgets/subscription_card.dart';
+import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
+import 'package:fayoum_club/features/activities/presentation/widgets/subscription_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
