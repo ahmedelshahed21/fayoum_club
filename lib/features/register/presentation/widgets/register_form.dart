@@ -96,17 +96,20 @@ class _RegisterFormState extends State<RegisterForm> {
                   ),
                 ),
               ),
-              Text(AppStrings.gender.tr(), style: AppStyles.styleMedium16(context)),
+              Text(AppStrings.gender.tr(), style: AppStyles.styleSemiBold14(context)),
               Row(
                 children: [
                   Expanded(
                     child: RadioListTile<String>(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)
+                      ),
                       value: "male",
                       groupValue: selectedGender,
                       activeColor: AppColors.primaryColor,
                       title: Text(
                         AppStrings.male.tr(),
-                        style: AppStyles.styleRegular16(context),
+                        style: AppStyles.styleMedium18(context).copyWith(color: AppColors.greyColor),
                       ),
                       onChanged: (value) {
                         setState(() {
@@ -117,12 +120,15 @@ class _RegisterFormState extends State<RegisterForm> {
                   ),
                   Expanded(
                     child: RadioListTile<String>(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)
+                      ),
                       value: "female",
                       groupValue: selectedGender,
                       activeColor: AppColors.primaryColor,
                       title: Text(
                         AppStrings.female.tr(),
-                        style: AppStyles.styleRegular16(context),
+                        style: AppStyles.styleMedium18(context).copyWith(color: AppColors.greyColor),
                       ),
                       onChanged: (value) {
                         setState(() {
@@ -135,7 +141,7 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
               Text(
                 AppStrings.isClubMember.tr(),
-                style: AppStyles.styleMedium16(context),
+                style: AppStyles.styleSemiBold14(context)
               ),
               Row(
                 children: [
@@ -146,7 +152,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       activeColor: AppColors.primaryColor,
                       title: Text(
                         AppStrings.yes.tr(),
-                        style: AppStyles.styleRegular16(context),
+                        style: AppStyles.styleMedium18(context).copyWith(color: AppColors.greyColor),
                       ),
                       onChanged: (value) {
                         setState(() => isMember = value!);
@@ -155,12 +161,15 @@ class _RegisterFormState extends State<RegisterForm> {
                   ),
                   Expanded(
                     child: RadioListTile<bool>(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)
+                      ),
                       value: false,
                       groupValue: isMember,
                       activeColor: AppColors.primaryColor,
                       title: Text(
                         AppStrings.no.tr(),
-                        style: AppStyles.styleRegular16(context),
+                        style: AppStyles.styleMedium18(context).copyWith(color: AppColors.greyColor),
                       ),
                       onChanged: (value) {
                         setState(() => isMember = value!);
