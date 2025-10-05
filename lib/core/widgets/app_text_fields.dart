@@ -161,11 +161,17 @@ class SecondaryTextFormField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(
-          fieldName ?? '',
-          style: fieldNameStyle ?? AppStyles.styleMedium14(context),
-        ),
-        const VerticalSpace(6),
+        fieldName != null
+            ? Column(
+              children: [
+                Text(
+                  fieldName!,
+                  style: fieldNameStyle ?? AppStyles.styleMedium14(context),
+                ),
+                const VerticalSpace(6),
+              ],
+            )
+            : SizedBox.shrink(),
         TextFormField(
           onChanged: onChanged,
           onTap: onTap,
@@ -204,9 +210,9 @@ class SecondaryTextFormField extends StatelessWidget {
             suffixIcon: suffixIcon,
             suffixIconColor: AppColors.lightGreyColor,
             hintText: hintText,
-            hintStyle: AppStyles.styleMedium16(
+            hintStyle: AppStyles.styleMedium14(
               context,
-            ).copyWith(color: AppColors.lightGreyColor),
+            ),
             enabledBorder: buildOutlineInputBorder(
               color: AppColors.lightGreyColor,
             ),

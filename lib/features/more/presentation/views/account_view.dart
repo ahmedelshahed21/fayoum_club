@@ -3,13 +3,13 @@ import 'package:fayoum_club/core/widgets/guest_circle_avatar.dart';
 import 'package:fayoum_club/features/more/presentation/widgets/account_section.dart';
 import 'package:fayoum_club/features/more/presentation/widgets/help_section.dart';
 import 'package:fayoum_club/features/more/presentation/widgets/logout_section.dart';
-import 'package:fayoum_club/features/more/presentation/widgets/more_view_header.dart';
+import 'package:fayoum_club/features/more/presentation/widgets/account_view_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/spacing.dart';
 
-class MoreView extends StatelessWidget {
-  const MoreView({super.key});
+class AccountView extends StatelessWidget {
+  const AccountView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,18 +23,13 @@ class MoreView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const VerticalSpace(16),
-            isGuest ? const GuestCircleAvatar() : const MoreViewHeader(),
+            isGuest ? const GuestCircleAvatar() : const AccountViewHeader(),
             isGuest ? const SizedBox.shrink() : const VerticalSpace(64),
             isGuest ? const SizedBox.shrink() :  const AccountSection(),
-            // const VerticalSpace(16),
-            // const SettingsSection(),
             const VerticalSpace(16),
             const HelpSection(),
-            // const VerticalSpace(16),
-            // const AboutSection(),
             const VerticalSpace(16),
             const LogoutSection(),
-            // const VerticalSpace(24),
           ],
         ),
       ),

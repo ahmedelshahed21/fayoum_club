@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activities/presentation/manager/activities_cubit/activities_cubit.dart';
 import 'package:fayoum_club/features/activities/presentation/widgets/activities_grid_view_section.dart';
@@ -35,9 +37,9 @@ class _ActivitiesViewState extends State<ActivitiesView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const VerticalSpace(12),
+                const VerticalSpace(8),
                 Text(
-                  "الأنشطة",
+                 AppStrings.activities.tr(),
                   style: AppStyles.styleBold18(
                     context,
                   ).copyWith(color: AppColors.pureBlackColor),
@@ -70,18 +72,15 @@ class _ActivitiesViewState extends State<ActivitiesView> {
               ],
             ),
           ),
+          VerticalSpace(8),
           Expanded(
             child: TabBarView(
               children:
                   tabs.map((type) {
-                    final String? selectedType = type == "الكل" ? null : type;
-                    return BlocProvider(
-                      create:
-                          (context) =>
-                              getIt<ActivitiesCubit>()
-                                ..getActivites(type: selectedType),
-                      child: ActivitiesGridViewSection(type: selectedType),
-                    );
+                    return type != 'الكل' ? BlocProvider(
+                      create: (context) => getIt<ActivitiesCubit>()..getActivites(type: type),
+                      child: ActivitiesGridViewSection(type: type),
+                    ): ActivitiesGridViewSection();
                   }).toList(),
             ),
           ),

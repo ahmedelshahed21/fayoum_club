@@ -6,7 +6,6 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_styles.dart';
-
 import '../../../../core/widgets/custom_list_tile_widget.dart';
 import '../../../../core/widgets/spacing.dart';
 
@@ -33,14 +32,6 @@ class AccountSection extends StatelessWidget {
             customPush(context, AppRouter.profileView);
           },
         ),
-
-        // CustomListTileWidget(
-        //   title: AppStrings.qrCode,
-        //   iconData: Icons.qr_code_2,
-        //   onPressed: () {
-        //     customPush(context, AppRouter.qrCodeView);
-        //   },
-        // ),
       ],
     );
   }

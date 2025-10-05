@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activities/data/models/activities_model/activities_model.dart';
 import 'package:fayoum_club/features/activities/presentation/widgets/activity_card.dart';
@@ -16,7 +18,7 @@ class ActivitiesHorizontalListView extends StatelessWidget {
     return Column(
       children: [
         TitleAndViewAll(
-          title: 'الأنشطة',
+          title: AppStrings.activities.tr(),
           onPressed:
               () => context.read<BottomNavigationBarCubit>().changeIndex(1),
         ),

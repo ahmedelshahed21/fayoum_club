@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/dummy_lists.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';
@@ -65,7 +67,7 @@ class RelatedNewsSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'أخبار ذات صلة',
+                  AppStrings.relatedNews.tr(),
                   style: AppStyles.styleSemiBold16(
                     context,
                   ).copyWith(color: AppColors.pureBlackColor),

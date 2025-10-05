@@ -17,7 +17,7 @@ import 'package:fayoum_club/features/register/presentation/manager/register_stat
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -90,13 +90,13 @@ class _RegisterFormState extends State<RegisterForm> {
                   },
                   icon: Icon(
                     isPasswordObscured
-                        ? FontAwesomeIcons.eyeSlash
-                        : FontAwesomeIcons.eye,
-                    size: 20,
+                        ? Iconsax.eye_slash_copy
+                        : Iconsax.eye_copy,
+                    size: 24,
                   ),
                 ),
               ),
-              Text("النوع", style: AppStyles.styleMedium16(context)),
+              Text(AppStrings.gender.tr(), style: AppStyles.styleMedium16(context)),
               Row(
                 children: [
                   Expanded(
@@ -105,7 +105,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       groupValue: selectedGender,
                       activeColor: AppColors.primaryColor,
                       title: Text(
-                        "ذكر",
+                        AppStrings.male.tr(),
                         style: AppStyles.styleRegular16(context),
                       ),
                       onChanged: (value) {
@@ -121,7 +121,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       groupValue: selectedGender,
                       activeColor: AppColors.primaryColor,
                       title: Text(
-                        "أنثى",
+                        AppStrings.female.tr(),
                         style: AppStyles.styleRegular16(context),
                       ),
                       onChanged: (value) {
@@ -133,7 +133,10 @@ class _RegisterFormState extends State<RegisterForm> {
                   ),
                 ],
               ),
-              Text("عضو بالنادي؟", style: AppStyles.styleMedium16(context)),
+              Text(
+                AppStrings.isClubMember.tr(),
+                style: AppStyles.styleMedium16(context),
+              ),
               Row(
                 children: [
                   Expanded(
@@ -142,7 +145,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       groupValue: isMember,
                       activeColor: AppColors.primaryColor,
                       title: Text(
-                        "نعم",
+                        AppStrings.yes.tr(),
                         style: AppStyles.styleRegular16(context),
                       ),
                       onChanged: (value) {
@@ -156,7 +159,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       groupValue: isMember,
                       activeColor: AppColors.primaryColor,
                       title: Text(
-                        "لا",
+                        AppStrings.no.tr(),
                         style: AppStyles.styleRegular16(context),
                       ),
                       onChanged: (value) {
@@ -168,7 +171,7 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
               if (isMember)
                 PrimaryTextFormField(
-                  labelText: 'رقم العضوية',
+                  labelText: AppStrings.membershipNumber.tr(),
                   controller: _membershipCode,
                 ),
               const VerticalSpace(32),
@@ -182,16 +185,6 @@ class _RegisterFormState extends State<RegisterForm> {
                     text: AppStrings.signUp.tr(),
                     onPressed: () {
                       FocusScope.of(context).unfocus();
-                      // if (isMember && _membershipCode.text.isEmpty) {
-                      //   primarySnackBar(
-                      //     context,
-                      //     "من فضلك أدخل رقم العضوية",
-                      //     icon: Iconsax.danger,
-                      //     iconColor: Colors.yellowAccent,
-                      //     boxColor: AppColors.pureBlackColor,
-                      //   );
-                      //   return;
-                      // }
                       final registerData = RegisterDataModel(
                         name: _nameController.text,
                         email: _emailController.text,

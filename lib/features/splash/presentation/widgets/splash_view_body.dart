@@ -1,9 +1,7 @@
 import 'package:fayoum_club/core/utils/app_assets.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
-// import 'package:fayoum_club/core/databases/cache/app_data_manager.dart';
 import 'package:fayoum_club/core/functions/navigation.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
-// import 'package:fayoum_club/core/services/service_locator.dart';
 import 'package:fayoum_club/core/state_management/user_cubit/user_session_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

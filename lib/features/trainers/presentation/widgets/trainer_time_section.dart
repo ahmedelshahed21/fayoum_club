@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fayoum_club/core/functions/format_time_12.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
@@ -17,7 +20,7 @@ class TrainerTimeSection extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: Text(
-            "المواعيد",
+            AppStrings.schedule.tr(),
             style: AppStyles.styleSemiBold16(
               context,
             ).copyWith(color: AppColors.pureBlackColor),
@@ -25,14 +28,7 @@ class TrainerTimeSection extends StatelessWidget {
         ),
         VerticalSpace(16),
         if (trainer.time.isEmpty)
-          Center(
-            child: Text(
-              "لا توجد مواعيد حالياً",
-              style: AppStyles.styleRegular14(
-                context,
-              ).copyWith(color: AppColors.greyColor),
-            ),
-          )
+          SizedBox.shrink()
         else
           Column(
             children:
@@ -69,7 +65,7 @@ class TrainerTimeSection extends StatelessWidget {
                                 ),
                                 Spacer(),
                                 Text(
-                                  "${_formatTime12(t.fromTime)} - ${_formatTime12(t.toTime)}",
+                                  "${formatTime12(t.fromTime)} - ${formatTime12(t.toTime)}",
                                   style: AppStyles.styleSemiBold16(
                                     context,
                                   ).copyWith(color: AppColors.greyColor),
@@ -85,19 +81,5 @@ class TrainerTimeSection extends StatelessWidget {
           ),
       ],
     );
-  }
-
-  String _formatTime12(String time24) {
-    try {
-      final parts = time24.split(':');
-      int hour = int.parse(parts[0]);
-      final minute = int.parse(parts[1]);
-      final period = hour >= 12 ? 'م' : 'ص';
-      hour = hour % 12;
-      if (hour == 0) hour = 12; // 12 صباحاً أو مساءً
-      return "${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')} $period";
-    } catch (e) {
-      return time24;
-    }
   }
 }

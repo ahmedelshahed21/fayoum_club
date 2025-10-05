@@ -17,14 +17,14 @@ import 'package:fayoum_club/features/more/presentation/manager/contact_us_cubit/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ContactUsForm extends StatefulWidget {
-  const ContactUsForm({super.key});
+class SupportForm extends StatefulWidget {
+  const SupportForm({super.key});
 
   @override
-  State<ContactUsForm> createState() => _ContactUsForm();
+  State<SupportForm> createState() => _SupportFormState();
 }
 
-class _ContactUsForm extends State<ContactUsForm> {
+class _SupportFormState extends State<SupportForm> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
@@ -71,34 +71,35 @@ class _ContactUsForm extends State<ContactUsForm> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const VerticalSpace(16),
-                isGuest
-                    ? Column(
-                      children: [
-                        SecondaryTextFormField(
-                          fieldName: AppStrings.name.tr(),
-                          hintText: AppStrings.name.tr(),
-                          controller: _nameController,
-                          textInputType: TextInputType.name,
-                        ),
-                        const VerticalSpace(16),
-                        SecondaryTextFormField(
-                          maxLength: 11,
-                          fieldName: AppStrings.phoneNumber.tr(),
-                          hintText: AppStrings.phoneNumber.tr(),
-                          controller: _phoneNumberController,
-                          textInputType: TextInputType.phone,
-                        ),
-                        const VerticalSpace(16),
-                      ],
-                    )
-                    : const SizedBox.shrink(),
+                const VerticalSpace(8),
+                Text(
+                  AppStrings.inquiryDescription.tr(),
+                  style: AppStyles.styleSemiBold16(
+                    context,
+                  ).copyWith(color: AppColors.primaryColor),
+                  textAlign: TextAlign.center,
+                ),
+                const VerticalSpace(48),
+
+                if (isGuest) ...[
+                  SecondaryTextFormField(
+                    hintText: AppStrings.name.tr(),
+                    controller: _nameController,
+                    textInputType: TextInputType.name,
+                  ),
+                  const VerticalSpace(12),
+                  SecondaryTextFormField(
+                    maxLength: 11,
+                    hintText: AppStrings.phoneNumber.tr(),
+                    controller: _phoneNumberController,
+                    textInputType: TextInputType.phone,
+                  ),
+                  const VerticalSpace(12),
+                ],
 
                 SecondaryTextFormField(
-                  minLines: 7,
-                  maxLines: 10,
-                  fieldName: 'الاستفسار',
-                  hintText: AppStrings.writeHere.tr(),
+                  minLines: 6,
+                  hintText: AppStrings.inquiryPlaceholder.tr(),
                   controller: _messageController,
                   textInputType: TextInputType.text,
                 ),

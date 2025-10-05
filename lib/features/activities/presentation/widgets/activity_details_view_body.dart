@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_constants.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/show_login_is_required_dialog.dart';
 import 'package:fayoum_club/core/routes/app_router.dart';
@@ -39,7 +41,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
             controller: scrollController,
             physics: const BouncingScrollPhysics(),
             slivers: [
-              /// SliverAppBar لعرض صورة النشاط
+
               SliverAppBar(
                 expandedHeight: 180,
                 pinned: true,
@@ -73,7 +75,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
                 ),
               ),
 
-              /// باقي المحتوى
+
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -104,7 +106,6 @@ class ActivityDetailsViewBody extends StatelessWidget {
           ),
         ),
 
-        /// bottomNavigationBar
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: PrimaryButton(
@@ -116,7 +117,7 @@ class ActivityDetailsViewBody extends StatelessWidget {
                     context,
                   ).push(AppRouter.payMobView, extra: activityDetailsData);
             },
-            text: 'الاشتراك',
+            text: AppStrings.subscription.tr(),
           ),
         ),
       ],

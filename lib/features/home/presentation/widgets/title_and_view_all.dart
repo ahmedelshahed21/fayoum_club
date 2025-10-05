@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/functions/run_if_connected.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +32,7 @@ class TitleAndViewAll extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
             child: Text(
-              'عرض الكل',
+              AppStrings.showAll.tr(),
               style: AppStyles.styleMedium14(
                 context,
               ).copyWith(color: AppColors.primaryColor),

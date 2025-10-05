@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/features/activities/data/models/activity_details_model/activity_details_model.dart';
@@ -17,7 +19,7 @@ class TrainersSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "المدربون",
+              AppStrings.coaches.tr(),
               style: AppStyles.styleSemiBold16(
                 context,
               ).copyWith(color: AppColors.pureBlackColor),

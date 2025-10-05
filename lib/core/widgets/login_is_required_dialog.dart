@@ -10,8 +10,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LoginIsRequiredDialogWidget extends StatelessWidget {
-  const LoginIsRequiredDialogWidget({super.key});
+class LoginIsRequiredDialog extends StatelessWidget {
+  const LoginIsRequiredDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

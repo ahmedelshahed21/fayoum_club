@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fayoum_club/core/functions/news_type_option.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/widgets/app_app_bars.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:fayoum_club/core/widgets/tag_widget.dart';
@@ -15,17 +17,7 @@ class NewsDetailsView extends StatelessWidget {
 
   const NewsDetailsView({super.key, required this.news});
 
-  /// نفس logic الـ NewsTile
-  String? _mapTypeOption(String? type) {
-    switch (type) {
-      case 'practice':
-        return 'ممارسة';
-      case 'competition':
-        return 'منافسة';
-      default:
-        return null;
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +26,11 @@ class NewsDetailsView extends StatelessWidget {
       'en',
     ).format(news.createdAt);
 
-    final tag = _mapTypeOption(news.typeOption);
+    final tag = newsTypeOption(news.typeOption);
 
     return Scaffold(
       backgroundColor: AppColors.offWhiteColor,
-      appBar: PrimaryAppBar(title: "تفاصيل الخبر"),
+      appBar: PrimaryAppBar(title: AppStrings.newsDetails.tr()),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

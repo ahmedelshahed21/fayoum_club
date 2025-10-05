@@ -4,7 +4,7 @@ import 'package:fayoum_club/features/payment/data/models/payment_process_request
 import 'package:fayoum_club/features/payment/presentation/views/pay_mob_view.dart';
 import 'package:fayoum_club/features/payment/presentation/views/success_view.dart';
 import 'package:fayoum_club/features/trainers/presentation/views/trainer_details_view.dart';
-import 'package:fayoum_club/features/more/presentation/views/contact_us_view.dart';
+import 'package:fayoum_club/features/more/presentation/views/support_view.dart';
 import 'package:fayoum_club/features/news/data/models/news_model.dart';
 import 'package:fayoum_club/features/home/presentation/views/home_page.dart';
 import 'package:fayoum_club/features/news/presentation/views/news_details_view.dart';
@@ -87,7 +87,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: contactUsView,
-        builder: (context, state) => const ContactUsView(),
+        builder: (context, state) => const SupportView(),
       ),
     ],
   );

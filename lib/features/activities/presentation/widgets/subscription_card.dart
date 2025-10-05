@@ -29,7 +29,7 @@ class SubscriptionCard extends StatelessWidget {
             ).copyWith(color: AppColors.pureBlackColor),
           ),
           const VerticalSpace(6),
-          PriceWidget(price: price, currency: 'ج.م'),
+          PriceWidget(price: price),
         ],
       ),
     );

@@ -39,7 +39,7 @@ class CategorizedNewsTile extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /// صورة الخبر
+
               ClipRRect(
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(6),
@@ -60,7 +60,7 @@ class CategorizedNewsTile extends StatelessWidget {
 
               const HorizontalSpace(8),
 
-              /// عنوان الخبر
+
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(

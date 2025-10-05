@@ -1,3 +1,4 @@
+import 'package:fayoum_club/core/utils/app_assets.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/databases/cache/user_data_manager.dart';
@@ -7,8 +8,8 @@ import 'package:fayoum_club/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-class MoreViewHeader extends StatelessWidget {
-  const MoreViewHeader({super.key});
+class AccountViewHeader extends StatelessWidget {
+  const AccountViewHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class MoreViewHeader extends StatelessWidget {
             CircleAvatar(
               radius: 36,
               backgroundColor: AppColors.primaryColor,
-              backgroundImage: const AssetImage("assets/images/man.png"),
+              backgroundImage: const AssetImage(AppAssets.man),
             ),
             const HorizontalSpace(16),
             Expanded(

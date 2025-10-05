@@ -16,38 +16,35 @@ class ActivitiesGridViewSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 24.0),
-      child: PrimaryRefreshIndicator(
-        onRefresh: () async {
-          context.read<ActivitiesCubit>().getActivites(type: type);
-        },
-        child: BlocBuilder<ActivitiesCubit, ActivitiesState>(
-          builder: (context, state) {
-            if (state is ActivitiesLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is ActivitiesSuccess) {
-              if (state.activitesModel.data.isEmpty) {
-                return EmptyWidget(title: "لا يوجد أنشطة");
-              }
-              return ActivitiesGridView(activites: state.activitesModel.data);
-            } else if (state is ActivitiesFailure) {
-              return RetryWidget(
-                message: state.failure.errMessage,
-                onPressed: () {
-                  context.read<ActivitiesCubit>().getActivites(type: type);
-                },
-              );
-            } else {
-              return RetryWidget(
-                message: AppStrings.unexpectedError.tr(),
-                onPressed: () {
-                  context.read<ActivitiesCubit>().getActivites(type: type);
-                },
-              );
+    return PrimaryRefreshIndicator(
+      onRefresh: () async {
+        context.read<ActivitiesCubit>().getActivites(type: type);
+      },
+      child: BlocBuilder<ActivitiesCubit, ActivitiesState>(
+        builder: (context, state) {
+          if (state is ActivitiesLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is ActivitiesSuccess) {
+            if (state.activitesModel.data.isEmpty) {
+              return EmptyWidget(title: AppStrings.noActivities.tr());
             }
-          },
-        ),
+            return ActivitiesGridView(activites: state.activitesModel.data);
+          } else if (state is ActivitiesFailure) {
+            return RetryWidget(
+              message: state.failure.errMessage,
+              onPressed: () {
+                context.read<ActivitiesCubit>().getActivites(type: type);
+              },
+            );
+          } else {
+            return RetryWidget(
+              message: AppStrings.unexpectedError.tr(),
+              onPressed: () {
+                context.read<ActivitiesCubit>().getActivites(type: type);
+              },
+            );
+          }
+        },
       ),
     );
   }

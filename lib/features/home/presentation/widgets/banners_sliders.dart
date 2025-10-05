@@ -82,22 +82,6 @@ class _BannersSlidersState extends State<BannersSliders> {
                             context,
                           ).copyWith(color: AppColors.offWhiteColor),
                         ),
-                        // const VerticalSpace(96),
-                        // SecondaryButton(
-                        //   text:" AppStrings.shopNow.tr()",
-                        //   onPressed: () {
-                        //     runIfConnected(
-                        //       context: context,
-                        //       onConnected: () {
-                        //         openUrl(
-                        //           context,
-                        //           widget.bannerData[index].url ??
-                        //               EndPoints.siteUrl,
-                        //         );
-                        //       },
-                        //     );
-                        //   },
-                        // ),
                       ],
                     ),
                   ),

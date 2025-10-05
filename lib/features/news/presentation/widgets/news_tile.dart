@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fayoum_club/core/functions/news_type_option.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_constants.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
@@ -16,20 +17,11 @@ class NewsTile extends StatelessWidget {
 
   final NewsItem news;
 
-  String? _mapTypeOption(String type) {
-    switch (type) {
-      case 'practice':
-        return 'ممارسة';
-      case 'competition':
-        return 'منافسة';
-      default:
-        return null;
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    final tag = _mapTypeOption(news.typeOption);
+    final tag = newsTypeOption(news.typeOption);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 24.0),

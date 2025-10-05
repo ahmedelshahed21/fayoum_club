@@ -63,16 +63,11 @@ class SuccessViewBody extends StatelessWidget {
                 ),
               ],
             ),
-
-            // Text(
-            //   "${AppStrings.transactionNumber.tr()}: $transactionId",
-            //   style: AppStyles.styleMedium16(context),
-            // ),
             const VerticalSpace(24),
             Column(
               children: [
                 Text(
-                  "المبلغ المدفوع",
+                  AppStrings.amountPaid.tr(),
                   style: AppStyles.styleBold14(
                     context,
                   ).copyWith(color: AppColors.pureBlackColor),
@@ -82,13 +77,12 @@ class SuccessViewBody extends StatelessWidget {
                   priceStyle: AppStyles.styleBold32(
                     context,
                   ).copyWith(color: AppColors.blueColor),
-                  currency: 'ج.م',
                 ),
               ],
             ),
             const VerticalSpace(100),
             PrimaryButton(
-              text: 'العودة إلي الرئيسية',
+              text: AppStrings.backToHome.tr(),
               onPressed: () {
                 context.read<BottomNavigationBarCubit>().changeIndex(0);
                 customGo(context, AppRouter.homePage);

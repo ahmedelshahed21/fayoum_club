@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/databases/cache/user_data_manager.dart';
 import 'package:fayoum_club/core/services/service_locator.dart';
@@ -26,7 +28,7 @@ class SubscriptionSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "قيمة الاشتراك",
+              AppStrings.subscriptionValue.tr(),
               style: AppStyles.styleSemiBold16(
                 context,
               ).copyWith(color: AppColors.pureBlackColor),
@@ -37,14 +39,14 @@ class SubscriptionSection extends StatelessWidget {
                 children: [
                   Expanded(
                     child: SubscriptionCard(
-                      title: "للأعضاء",
+                      title: AppStrings.forMembers.tr(),
                       price: detailsData.moneyMember.toString(),
                     ),
                   ),
                   const HorizontalSpace(6),
                   Expanded(
                     child: SubscriptionCard(
-                      title: "لغير الأعضاء",
+                      title: AppStrings.forNonMembers.tr(),
                       price: detailsData.money.toString(),
                     ),
                   ),
@@ -56,7 +58,7 @@ class SubscriptionSection extends StatelessWidget {
         : Row(
           children: [
             Text(
-              "قيمة الاشتراك",
+              AppStrings.subscriptionValue.tr(),
               style: AppStyles.styleSemiBold16(
                 context,
               ).copyWith(color: AppColors.pureBlackColor),
@@ -64,7 +66,6 @@ class SubscriptionSection extends StatelessWidget {
             const Spacer(),
             PriceWidget(
               price: detailsData.moneyMember.toString(),
-              currency: 'ج.م',
             ),
             const HorizontalSpace(16),
           ],

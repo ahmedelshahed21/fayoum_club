@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
+import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
 import 'package:fayoum_club/core/widgets/app_indicators.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
@@ -26,7 +28,7 @@ class CategorizedNewsSliverList extends StatelessWidget {
         ? MultiSliver(
           children: [
             Text(
-              'الأخبار',
+              AppStrings.news.tr(),
               style: AppStyles.styleSemiBold16(
                 context,
               ).copyWith(color: AppColors.pureBlackColor),
