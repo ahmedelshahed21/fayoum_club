@@ -1,18 +1,24 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'app/fayoum_club_app.dart';
 import 'core/databases/cache/cache_helper.dart';
 import 'core/services/observer.dart';
 import 'core/services/service_locator.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   // OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   // OneSignal.initialize(AppConstants.appId);
   // OneSignal.Notifications.requestPermission(true);
 
+  WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  FlutterSecureStorage(
+    aOptions: AndroidOptions(encryptedSharedPreferences: true),
+  );
+
   await CacheHelper().init();
   setupServiceLocator();
   Bloc.observer = MyBlocObserver();
