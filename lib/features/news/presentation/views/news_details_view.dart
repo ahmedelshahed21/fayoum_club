@@ -32,6 +32,7 @@ class NewsDetailsView extends StatelessWidget {
       backgroundColor: AppColors.offWhiteColor,
       appBar: PrimaryAppBar(title: AppStrings.newsDetails.tr()),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
