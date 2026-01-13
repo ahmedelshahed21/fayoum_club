@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fayoum_club/core/functions/navigation.dart';
+import 'package:fayoum_club/core/routes/app_router.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/features/activities/presentation/views/activities_view.dart';
@@ -30,6 +32,18 @@ class _HomePageState extends State<HomePage> {
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(child: views[state]),
+          floatingActionButton:
+              state != 2 ? FloatingActionButton(
+                backgroundColor: AppColors.primaryColor,
+                tooltip: AppStrings.getInTouch.tr(),
+                child: Icon(Iconsax.message_question_copy,
+                  color: AppColors.pureWhiteColor,
+                  size: 36,
+                ),
+                  onPressed: () {
+                  customPush(context, AppRouter.contactUsView);
+                  }
+              ) : null,
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: state,
             onTap: (index) {

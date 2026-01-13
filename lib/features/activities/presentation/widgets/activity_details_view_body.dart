@@ -1,13 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:fayoum_club/core/utils/app_colors.dart';
 import 'package:fayoum_club/core/utils/app_constants.dart';
-import 'package:fayoum_club/core/utils/app_strings.dart';
 import 'package:fayoum_club/core/utils/app_styles.dart';
-import 'package:fayoum_club/core/functions/show_login_is_required_dialog.dart';
-import 'package:fayoum_club/core/routes/app_router.dart';
-import 'package:fayoum_club/core/state_management/user_cubit/user_session_cubit.dart';
-import 'package:fayoum_club/core/widgets/app_buttons.dart';
 import 'package:fayoum_club/core/widgets/back_icon_button.dart';
 import 'package:fayoum_club/core/widgets/image_loading_effect.dart';
 import 'package:fayoum_club/core/widgets/spacing.dart';
@@ -16,8 +10,6 @@ import 'package:fayoum_club/features/activities/presentation/widgets/subscriptio
 import 'package:fayoum_club/features/news/presentation/widgets/categorized_news_sliver_list_section.dart';
 import 'package:fayoum_club/features/trainers/presentation/widgets/trainers_section.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class ActivityDetailsViewBody extends StatelessWidget {
   const ActivityDetailsViewBody({
@@ -31,9 +23,9 @@ class ActivityDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isGuest = context.select<UserSessionCubit, bool>(
-      (cubit) => cubit.state.isGuest,
-    );
+    // final bool isGuest = context.select<UserSessionCubit, bool>(
+    //   (cubit) => cubit.state.isGuest,
+    // );
     return Column(
       children: [
         Expanded(
@@ -106,20 +98,20 @@ class ActivityDetailsViewBody extends StatelessWidget {
           ),
         ),
 
-        SafeArea(
-          minimum: const EdgeInsets.all(16),
-          child: PrimaryButton(
-            backgroundColor: AppColors.blueColor,
-            onPressed: () {
-              isGuest
-                  ? showLoginIsRequiredDialog(context)
-                  : GoRouter.of(
-                    context,
-                  ).push(AppRouter.payMobView, extra: activityDetailsData);
-            },
-            text: AppStrings.subscription.tr(),
-          ),
-        ),
+        // SafeArea(
+        //   minimum: const EdgeInsets.all(16),
+        //   child: PrimaryButton(
+        //     backgroundColor: AppColors.blueColor,
+        //     onPressed: () {
+        //       isGuest
+        //           ? showLoginIsRequiredDialog(context)
+        //           : GoRouter.of(
+        //             context,
+        //           ).push(AppRouter.payMobView, extra: activityDetailsData);
+        //     },
+        //     text: AppStrings.subscription.tr(),
+        //   ),
+        // ),
       ],
     );
   }
