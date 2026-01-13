@@ -106,8 +106,8 @@ class ActivityDetailsViewBody extends StatelessWidget {
           ),
         ),
 
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        SafeArea(
+          minimum: const EdgeInsets.all(16),
           child: PrimaryButton(
             backgroundColor: AppColors.blueColor,
             onPressed: () {
