@@ -32,7 +32,7 @@ class AppNameAndLogoWidget extends StatelessWidget {
             const HorizontalSpace(8),
             Text(
               AppStrings.appName.tr(),
-              style: AppStyles.stylefayoum_clubApp(context),
+              style: AppStyles.styleFayoumClubApp(context),
             ),
           ],
         ),
